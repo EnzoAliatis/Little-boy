@@ -4,21 +4,23 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor } from './store'
 
 
-import InitialLoading from 'src/sections/components/initial-loading'
-import AppNavigatorWithState from './src/app-navigation-with-state'
+import AppNavigatorWithState from './src/app-navigator-with-state'
+import InitialLoadingLayout from './src/screens/components/initial-loading-layout';
 
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     // console.disableYellowBox = true
-    <Provider store={store}>
-      <PersistGate
-        loading={<InitialLoading />}
-        persistor={persistor}
-      >
-        <AppNavigatorWithState />
-      </PersistGate>
-    </Provider>
+    return (
+      <Provider store={store}>
+        <PersistGate
+          loading={<InitialLoadingLayout />}
+          persistor={persistor}
+        >
+          <AppNavigatorWithState />
+        </PersistGate>
+      </Provider>
+    )
   }
 }

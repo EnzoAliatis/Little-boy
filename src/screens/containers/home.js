@@ -5,7 +5,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
-class AppLayout extends Component {
+class Home extends Component {
 
   componentDidMount() {
     this.props.dispatch({
@@ -15,19 +15,18 @@ class AppLayout extends Component {
       }
     })
   }
+
   render() {
     return (
       <View>
-        <Text>Aqui es el Home de tu App...</Text>
-        <Text>Provando tu reducer {this.props.userExample || 'Indefinido'}</Text>
+        <Text>Estas en la Home {this.props.name}</Text>
       </View>
     )
   }
 }
 
-
 const mapStateToProps = state => ({
-  userExample: state.example.exampleName
+  name: state.example.exampleName
 })
 
-export default connect(mapStateToProps)(AppLayout)
+export default connect(mapStateToProps)(Home)
