@@ -4,6 +4,7 @@ import {
   View
 } from 'react-native'
 import { connect } from 'react-redux'
+import SubjectList from './subject-list';
 
 class Home extends Component {
 
@@ -19,7 +20,7 @@ class Home extends Component {
   render() {
     return (
       <View>
-        <Text>Estas en la Home {this.props.name}</Text>
+        <SubjectList />
       </View>
     )
   }

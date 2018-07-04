@@ -24,10 +24,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   logo: {
-    width: 200,
-    height: 80,
-    resizeMode: 'contain',
-    marginBottom: 10,
+    width: 400,
+    height: 160,
+    resizeMode: 'contain'
   }
 })
 

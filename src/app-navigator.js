@@ -5,11 +5,20 @@ import {
 } from 'react-navigation'
 
 import Home from './screens/containers/home'
+import InitialLoadingLayout from './screens/components/initial-loading-layout';
 
 // AQUI TUS COMPOMENTES SCREENS
 
 const Main = createStackNavigator({
-  Home
+  InitialLoadingLayout: {
+    screen: Home,
+  }
+}, {
+  navigationOptions: {
+    title: 'hola',
+    headerMode: 'none',
+    mode: 'modal'
+  }
 })
 
 
