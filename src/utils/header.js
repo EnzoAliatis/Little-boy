@@ -25,14 +25,13 @@ const Header = ({ children }) => (
 const styles = StyleSheet.create({
   logo: {
     width: 120,
-    height: 70,
+    height: 50,
     resizeMode: 'contain'
   },
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
-
   },
   statusBar: {
     backgroundColor: 'white'

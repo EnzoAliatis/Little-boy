@@ -8,13 +8,13 @@ import {
 
 import Icon from '../../utils/icon'
 
-const PillComponent = ({ onPress, subjectName }) => (
+const PillComponent = ({ onPress, pillName }) => (
   <TouchableOpacity
     onPress={onPress}
   >
     <View style={styles.container}>
       <View style={styles.left}>
-        <Text style={styles.title}>{subjectName}</Text>
+        <Text style={styles.title}>{pillName}</Text>
       </View>
       <View style={styles.right}>
         <Icon icon={">"} />

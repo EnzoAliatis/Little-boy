@@ -23,7 +23,6 @@ class Home extends Component {
     return (
       <View>
         <SubjectList />
-        {console.log(this.props.name)}
       </View>
     )
   }

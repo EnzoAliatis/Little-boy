@@ -14,13 +14,12 @@ import SubjectDescription from './screens/containers/subject-description'
 const Main = createStackNavigator({
   InitialLoadingLayout: {
     screen: Home,
+    navigationOptions: {
+      header: Header
+    }
   },
   SubjectDescription: {
     screen: SubjectDescription
-  }
-}, {
-  navigationOptions: {
-    header: Header
   }
 })
 

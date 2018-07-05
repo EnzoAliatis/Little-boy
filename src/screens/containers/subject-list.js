@@ -19,31 +19,36 @@ class SubjectList extends Component {
           id: 1,
           name: 'Matematicas',
           classRoom: '301',
-          teacher: 'Ing. Enzo Aliatis'
+          teacher: 'Ing. Enzo Aliatis',
+          parallel: 'A'
         },
         {
           id: 2,
           name: 'Fisica',
           classRoom: '302',
-          teacher: 'Ing. Cristiano Ronaldo'
+          teacher: 'Ing. Cristiano Ronaldo',
+          parallel: 'B'
         },
         {
           id: 3,
           name: 'Quimica',
           classRoom: '303',
-          teacher: 'Ing. Leonel Messi'
+          teacher: 'Ing. Leonel Messi',
+          parallel: 'A'
         },
         {
           id: 4,
           name: 'Programacion',
           classRoom: '304',
-          teacher: 'Ing. Neymar JR'
+          teacher: 'Ing. Neymar JR',
+          parallel: 'A'
         },
         {
           id: 5,
           name: 'Biologia',
           classRoom: '305',
-          teacher: 'Ing. Maradona'
+          teacher: 'Ing. Maradona',
+          parallel: 'B'
         }
       ]
     }
@@ -51,10 +56,16 @@ class SubjectList extends Component {
 
 
   goToSubject = item => {
-    console.log("Aqui")
+    console.log(item)
     this.props.dispatch(
       NavigationActions.navigate({
-        routeName: 'SubjectDescription'
+        routeName: 'SubjectDescription',
+        params: {
+          title: item.name,
+          classRoom: item.classRoom,
+          teacher: item.teacher,
+          parallel: item.parallel
+        }
       })
     )
   }
@@ -62,8 +73,8 @@ class SubjectList extends Component {
   renderEmpty = () => <Empty text="Cargando las materias..." />
   renderItem = ({ item }) => (
     <PillComponent
-      subjectName={item.name}
-      onPress={this.goToSubject}
+      pillName={item.name}
+      onPress={() => this.goToSubject(item)}
     />
   )
 
