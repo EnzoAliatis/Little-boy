@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+  Image,
   TouchableOpacity
 } from 'react-native'
 
@@ -17,7 +18,10 @@ const PillComponent = ({ onPress, pillName }) => (
         <Text style={styles.title}>{pillName}</Text>
       </View>
       <View style={styles.right}>
-        <Icon icon={">"} />
+        <Image
+          source={require('../../../assets/images/arrow-point-to-right.png')}
+          style={styles.icon}
+        />
       </View>
     </View>
 
@@ -42,6 +46,11 @@ const styles = StyleSheet.create({
   },
   right: {
     paddingRight: 8
+  },
+  icon: {
+    width: 18,
+    height: 30,
+    marginTop: 3
   }
 })
 

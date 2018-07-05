@@ -1,8 +1,10 @@
 import React from 'react'
-import { Text } from 'react-native' 
+import { Text, Image } from 'react-native' 
 
-const Icon = ({icon}) => (
-  <Text style={{fontSize:25}}>{icon}</Text>
+const Icon = ({source}) => (
+  <Image 
+    source={requiere(`${source}`)}
+  />
 )
 
 export default Icon
