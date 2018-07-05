@@ -8,7 +8,7 @@ import {
 
 import Icon from '../../utils/icon'
 
-const Subject = ({ onPress, subjectName }) => (
+const PillComponent = ({ onPress, subjectName }) => (
   <TouchableOpacity
     onPress={onPress}
   >
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default Subject
+export default PillComponent

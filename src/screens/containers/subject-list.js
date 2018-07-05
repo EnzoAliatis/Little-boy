@@ -6,8 +6,9 @@ import {
 import SubjectListLayout from '../components/subject-list-layout'
 import Empty from '../../utils/empty-list'
 import SeparatorList from '../../utils/separator-list'
-import Subject from '../components/subject'
+import PillComponent from '../components/pill-component'
 import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
 
 class SubjectList extends Component {
   state = {
@@ -16,34 +17,53 @@ class SubjectList extends Component {
       listaMaterias: [
         {
           id: 1,
-          name: 'Matematicas'
+          name: 'Matematicas',
+          classRoom: '301',
+          teacher: 'Ing. Enzo Aliatis'
         },
         {
           id: 2,
-          name: 'Fisica'
+          name: 'Fisica',
+          classRoom: '302',
+          teacher: 'Ing. Cristiano Ronaldo'
         },
         {
           id: 3,
-          name: 'Quimica'
+          name: 'Quimica',
+          classRoom: '303',
+          teacher: 'Ing. Leonel Messi'
         },
         {
           id: 4,
-          name: 'Programacion'
+          name: 'Programacion',
+          classRoom: '304',
+          teacher: 'Ing. Neymar JR'
         },
         {
           id: 5,
-          name: 'Biologia'
+          name: 'Biologia',
+          classRoom: '305',
+          teacher: 'Ing. Maradona'
         }
       ]
     }
   }
+
+
+  goToSubject = item => {
+    console.log("Aqui")
+    this.props.dispatch(
+      NavigationActions.navigate({
+        routeName: 'SubjectDescription'
+      })
+    )
+  }
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <Empty text="Cargando las materias..." />
-  itemSeparator = () => <SeparatorList color="white"/>
   renderItem = ({ item }) => (
-    <Subject
+    <PillComponent
       subjectName={item.name}
-      onPress={() => { console.log(item) }}
+      onPress={this.goToSubject}
     />
   )
 
@@ -63,4 +83,4 @@ class SubjectList extends Component {
   }
 }
 
-export default SubjectList
+export default connect()(SubjectList)
