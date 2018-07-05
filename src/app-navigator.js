@@ -6,6 +6,7 @@ import {
 
 import Home from './screens/containers/home'
 import InitialLoadingLayout from './screens/components/initial-loading-layout';
+import Header from './utils/header';
 
 // AQUI TUS COMPOMENTES SCREENS
 
@@ -15,9 +16,7 @@ const Main = createStackNavigator({
   }
 }, {
   navigationOptions: {
-    title: 'hola',
-    headerMode: 'none',
-    mode: 'modal'
+    header: Header
   }
 })
 

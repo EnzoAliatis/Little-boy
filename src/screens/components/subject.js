@@ -6,12 +6,19 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-const Subject = ({onPress, subjectName}) => (
+import Icon from '../../utils/icon'
+
+const Subject = ({ onPress, subjectName }) => (
   <TouchableOpacity
     onPress={onPress}
   >
     <View style={styles.container}>
-      <Text>{subjectName}</Text>
+      <View style={styles.left}>
+        <Text style={styles.title}>{subjectName}</Text>
+      </View>
+      <View style={styles.right}>
+        <Icon icon={">"} />
+      </View>
     </View>
 
   </TouchableOpacity>
@@ -19,7 +26,22 @@ const Subject = ({onPress, subjectName}) => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flexDirection: 'row',
+    height: 100,
+    borderRadius: 10,
+    overflow: 'hidden',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: 10,
+    backgroundColor: "white",
+    borderRadius: 20,
+    marginBottom: 3,
+  },
+  title: {
+    fontSize: 30
+  },
+  right: {
+    paddingRight: 8
   }
 })
 

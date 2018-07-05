@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import {
   FlatList,
-  Text
 } from 'react-native'
 
 import SubjectListLayout from '../components/subject-list-layout'
 import Empty from '../../utils/empty-list'
-import Separator from '../../utils/separator-list'
+import SeparatorList from '../../utils/separator-list'
 import Subject from '../components/subject'
 import { connect } from 'react-redux'
 
@@ -26,13 +25,21 @@ class SubjectList extends Component {
         {
           id: 3,
           name: 'Quimica'
+        },
+        {
+          id: 4,
+          name: 'Programacion'
+        },
+        {
+          id: 5,
+          name: 'Biologia'
         }
       ]
     }
   }
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <Empty text="Cargando las materias..." />
-  itemSeparator = () => <Separator />
+  itemSeparator = () => <SeparatorList color="white"/>
   renderItem = ({ item }) => (
     <Subject
       subjectName={item.name}
@@ -48,7 +55,6 @@ class SubjectList extends Component {
           keyExtractor={this.keyExtractor}
           data={this.state.alumno.listaMaterias}
           ListEmptyComponent={this.renderEmpty}
-          itemSeparator={this.itemSeparator}
           renderItem={this.renderItem}
         >
         </FlatList>

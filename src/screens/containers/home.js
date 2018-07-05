@@ -8,6 +8,8 @@ import SubjectList from './subject-list';
 
 class Home extends Component {
 
+  
+
   componentDidMount() {
     this.props.dispatch({
       type: 'SET_EXAMPLE_NAME',
@@ -21,6 +23,7 @@ class Home extends Component {
     return (
       <View>
         <SubjectList />
+        {console.log(this.props.name)}
       </View>
     )
   }
