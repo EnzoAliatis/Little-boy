@@ -17,38 +17,38 @@ class SubjectList extends Component {
       listaMaterias: [
         {
           id: 1,
-          name: 'Matematicas',
+          name: 'Calculo Diferencial',
           classRoom: '301',
           teacher: 'Ing. Enzo Aliatis',
-          parallel: 'A'
+          parallel: '5º A'
         },
         {
           id: 2,
           name: 'Fisica',
           classRoom: '302',
           teacher: 'Ing. Cristiano Ronaldo',
-          parallel: 'B'
+          parallel: '5º B'
         },
         {
           id: 3,
           name: 'Quimica',
           classRoom: '303',
           teacher: 'Ing. Leonel Messi',
-          parallel: 'A'
+          parallel: '5º A'
         },
         {
           id: 4,
           name: 'Programacion',
           classRoom: '304',
           teacher: 'Ing. Neymar JR',
-          parallel: 'A'
+          parallel: '4º A'
         },
         {
           id: 5,
           name: 'Biologia',
           classRoom: '305',
           teacher: 'Ing. Maradona',
-          parallel: 'B'
+          parallel: '5º B'
         }
       ]
     }

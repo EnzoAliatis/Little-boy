@@ -12,13 +12,19 @@ class SubjectDescription extends Component {
     title: navigation.getParam('title')
   })
 
+  goToHomework = () => {
+    this.props.navigation.navigate('HomeworkList')
+  }
+
+  
+
   render() {
     return (
       <SubjectDescriptionLayout
         classRoom={this.props.navigation.getParam('classRoom')}
         parallel={this.props.navigation.getParam('parallel')}
         teacher={this.props.navigation.getParam('teacher')}
-        onPress={() => console.log('en la descripcion')}
+        onPress={this.goToHomework}
         pillsName={['Evaluaciones','Materias', 'Tareas', 'Faltas']}
       />
     )
