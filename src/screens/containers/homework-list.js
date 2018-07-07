@@ -45,6 +45,10 @@ class HomeworckList extends Component {
     ]
   }
 
+  static navigationOptions = () => ({
+    title: 'Tareas'
+  })
+
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <EmptyList />
   goToHomework = item => {

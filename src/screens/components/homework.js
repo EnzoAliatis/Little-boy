@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 6,
     flexDirection: 'row',
+    borderRadius: 4
   },
   dateContainer: {
     flexDirection: 'row',

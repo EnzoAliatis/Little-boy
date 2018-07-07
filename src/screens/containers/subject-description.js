@@ -25,7 +25,7 @@ class SubjectDescription extends Component {
         parallel={this.props.navigation.getParam('parallel')}
         teacher={this.props.navigation.getParam('teacher')}
         onPress={this.goToHomework}
-        pillsName={['Evaluaciones','Materias', 'Tareas', 'Faltas']}
+        pillsName={['Evaluaciones','Materiales', 'Tareas', 'Faltas']}
       />
     )
   }

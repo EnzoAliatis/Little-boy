@@ -5,7 +5,7 @@ import {
   StyleSheet
 } from 'react-native'
 
-const HomeworkListLayout = ({children}) => (
+const HomeworkListLayout = ({ children }) => (
   <View style={styles.container}>
     {children}
   </View>
@@ -14,6 +14,10 @@ const HomeworkListLayout = ({children}) => (
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  text: {
+    fontSize: 70,
+    fontWeight: 'bold'
   }
 })
 
