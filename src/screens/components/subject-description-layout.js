@@ -5,7 +5,9 @@ import {
   StyleSheet
 } from 'react-native'
 
-const SubjectDescriptionLayout = ({ classRoom, parallel, teacher }) => (
+import PillComponent from './pill-component'
+
+const SubjectDescriptionLayout = ({ classRoom, parallel, teacher, onPress, pillsName }) => (
 
   <View style={styles.container}>
     <View style={styles.info}>
@@ -13,8 +15,15 @@ const SubjectDescriptionLayout = ({ classRoom, parallel, teacher }) => (
       <Text style={styles.text}>{`Paralelo: ${parallel}`}</Text>
       <Text style={styles.text}>{`Profesor: ${teacher}`}</Text>
     </View>
-    <View>
-
+    <View style={styles.options}>
+      {
+        pillsName.map((name) => 
+        <PillComponent
+          key={name.toString()}
+          pillName={name}
+          onPress={onPress}
+        />)
+      }
     </View>
   </View>
 
@@ -31,11 +40,14 @@ const styles = StyleSheet.create({
   info: {
     backgroundColor: 'white',
     marginHorizontal: 7,
-    marginVertical: 3,
+    marginVertical: 15,
     borderRadius: 20,
     height: 100,
     paddingLeft: 20,
     justifyContent: 'center'
+  },
+  options: {
+    marginTop: 10
   }
 })
 export default SubjectDescriptionLayout

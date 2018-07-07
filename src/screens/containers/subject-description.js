@@ -18,6 +18,8 @@ class SubjectDescription extends Component {
         classRoom={this.props.navigation.getParam('classRoom')}
         parallel={this.props.navigation.getParam('parallel')}
         teacher={this.props.navigation.getParam('teacher')}
+        onPress={() => console.log('en la descripcion')}
+        pillsName={['Evaluaciones','Materias', 'Tareas', 'Faltas']}
       />
     )
   }
