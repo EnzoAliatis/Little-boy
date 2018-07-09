@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   itemText: {
-    fontSize: 17
+    fontSize: 17,
+    fontWeight: 'bold',
   },
   childrens: {
     flex: 1,
