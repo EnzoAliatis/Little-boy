@@ -50,7 +50,7 @@ class HomeworckList extends Component {
   })
 
   keyExtractor = item => item.id.toString()
-  renderEmpty = () => <EmptyList />
+  renderEmpty = () => <EmptyList text="No tienes tareas registradas"/>
   goToHomework = item => {
     console.log(`Ir a ${item.title}`)
   }

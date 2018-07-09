@@ -9,6 +9,7 @@ import InitialLoadingLayout from './screens/components/initial-loading-layout';
 import Header from './utils/header';
 import SubjectDescription from './screens/containers/subject-description'
 import HomeworkList from './screens/containers/homework-list'
+import EvaluationList from './screens/containers/evaluation-list'
 
 // AQUI TUS COMPOMENTES SCREENS
 
@@ -23,7 +24,7 @@ const Main = createStackNavigator({
     screen: SubjectDescription
   },
   HomeworkList: {
-    screen: HomeworkList
+    screen: EvaluationList
   }
 }, {
   navigationOptions: {
