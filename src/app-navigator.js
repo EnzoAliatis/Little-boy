@@ -25,7 +25,7 @@ const Main = createStackNavigator({
     screen: SubjectDescription
   },
   HomeworkList: {
-    screen: EvaluationList
+    screen: HomeworkList
   }
 }, {
   navigationOptions: {
