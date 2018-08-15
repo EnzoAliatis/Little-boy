@@ -26,6 +26,12 @@ const Main = createStackNavigator({
   },
   HomeworkList: {
     screen: HomeworkList
+  },
+  EvaluationList: {
+    screen: EvaluationList
+  },
+  MaterialList: {
+    screen: MaterialList
   }
 }, {
   navigationOptions: {

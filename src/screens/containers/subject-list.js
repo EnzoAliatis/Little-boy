@@ -20,6 +20,7 @@ class SubjectList extends Component {
           name: 'Calculo Diferencial',
           classRoom: '301',
           teacher: 'Ing. Enzo Aliatis',
+          email: 'enzo@gmail.com',
           parallel: '5º A'
         },
         {
@@ -27,6 +28,7 @@ class SubjectList extends Component {
           name: 'Fisica',
           classRoom: '302',
           teacher: 'Ing. Cristiano Ronaldo',
+          email: 'cr7@gmail.com',
           parallel: '5º B'
         },
         {
@@ -34,6 +36,7 @@ class SubjectList extends Component {
           name: 'Quimica',
           classRoom: '303',
           teacher: 'Ing. Leonel Messi',
+          email: 'leonelmessi@gmail.com',
           parallel: '5º A'
         },
         {
@@ -41,6 +44,7 @@ class SubjectList extends Component {
           name: 'Programacion',
           classRoom: '304',
           teacher: 'Ing. Neymar JR',
+          email: 'neymarjr_jr@gmail.com',
           parallel: '4º A'
         },
         {
@@ -48,6 +52,7 @@ class SubjectList extends Component {
           name: 'Biologia',
           classRoom: '305',
           teacher: 'Ing. Maradona',
+          email: 'maradonadiosdelfutbol@gmail.com',
           parallel: '5º B'
         }
       ]
@@ -64,6 +69,7 @@ class SubjectList extends Component {
           title: item.name,
           classRoom: item.classRoom,
           teacher: item.teacher,
+          email: item.email,
           parallel: item.parallel
         }
       })

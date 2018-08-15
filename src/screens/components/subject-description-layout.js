@@ -2,28 +2,28 @@ import React from 'react'
 import {
   View,
   Text,
+  TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
 
-import PillComponent from './pill-component'
 
-const SubjectDescriptionLayout = ({ classRoom, parallel, teacher, onPress, pillsName }) => (
+const SubjectDescriptionLayout = ({ classRoom, parallel, teacher, email, children, onEmailPress }) => (
 
   <View style={styles.container}>
     <View style={styles.info}>
       <Text style={styles.text}>{`Aula: ${classRoom}`}</Text>
       <Text style={styles.text}>{`Paralelo: ${parallel}`}</Text>
       <Text style={styles.text}>{`Profesor: ${teacher}`}</Text>
+      <TouchableWithoutFeedback
+        onPress={onEmailPress}
+      >
+        <View>
+          <Text style={styles.email}>{email}</Text>
+        </View>
+      </TouchableWithoutFeedback>
     </View>
     <View style={styles.options}>
-      {
-        pillsName.map((name) => 
-        <PillComponent
-          key={name.toString()}
-          pillName={name}
-          onPress={onPress}
-        />)
-      }
+      {children}
     </View>
   </View>
 
@@ -40,14 +40,19 @@ const styles = StyleSheet.create({
   info: {
     backgroundColor: 'white',
     marginHorizontal: 7,
-    marginVertical: 15,
+    marginVertical: 10,
     borderRadius: 20,
-    height: 100,
+    height: 110,
     paddingLeft: 20,
     justifyContent: 'center'
   },
   options: {
-    marginTop: 10
+    marginTop: 0
+  },
+  email: {
+    color: 'rgb(36,158,243)',
+    fontSize: 15,
+    paddingTop: 0
   }
 })
 export default SubjectDescriptionLayout
