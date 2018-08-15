@@ -16,7 +16,8 @@ class HomeworckList extends Component {
         initDate: '1/02/2018',
         endDate: '5/02/2018',
         pdfUrl: 'urldelPDF',
-        state: 'pendiente'
+        state: 'Revisado',
+        grade: '10.00'
       },
       {
         id: 2,
@@ -24,7 +25,8 @@ class HomeworckList extends Component {
         initDate: '1/02/2018',
         endDate: '5/02/2018',
         pdfUrl: 'urldelPDF',
-        state: 'pendiente'
+        state: 'Pendiente',
+        grade: ''
       },
       {
         id: 3,
@@ -32,7 +34,8 @@ class HomeworckList extends Component {
         initDate: '1/02/2018',
         endDate: '5/02/2018',
         pdfUrl: 'urldelPDF',
-        state: 'pendiente'
+        state: 'No enviado',
+        grade: ''
       },
       {
         id: 4,
@@ -40,7 +43,8 @@ class HomeworckList extends Component {
         initDate: '1/02/2018',
         endDate: '5/02/2018',
         pdfUrl: 'urldelPDF',
-        state: 'pendiente'
+        state: 'Caducado',
+        grade: '0'
       },
     ]
   }
@@ -48,6 +52,27 @@ class HomeworckList extends Component {
   static navigationOptions = () => ({
     title: 'Tareas'
   })
+
+  defineColor = (state) => {
+    if(state === 'Pendiente' ) {
+      return '#3ABEFF'
+    } else if (state === 'Revisado') {
+      return '#38E86F'
+    } else if(state === 'No enviado') {
+      return '#F7DD16'
+    }
+    else {
+      return '#F9344D'
+    }
+  }
+
+  defineGradeColor = grade => {
+    if (grade) {
+      return grade
+    } else {
+      return '-'
+    }
+  }
 
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <EmptyList text="No tienes tareas registradas"/>
@@ -61,6 +86,8 @@ class HomeworckList extends Component {
       initDate={item.initDate}
       endDate={item.endDate}
       state={item.state}
+      grade={this.defineGradeColor(item.grade)}
+      color={this.defineColor(item.state)}
     />
   )
 

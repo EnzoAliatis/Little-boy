@@ -8,7 +8,7 @@ import {
 
 } from 'react-native'
 
-const Homework = ({ title, onPress, initDate, endDate, state }) => (
+const Homework = ({ title, onPress, initDate, endDate, state, grade, color }) => (
   <TouchableOpacity
     onPress={onPress}
   >
@@ -19,7 +19,16 @@ const Homework = ({ title, onPress, initDate, endDate, state }) => (
           <Text style={styles.init}>Inicio: {initDate}</Text>
           <Text style={styles.end}>Fin: {endDate}</Text>
         </View>
-        <Text>Estado: {state}</Text>
+        <View style={styles.infoContainer}>
+          <Text>Estado: </Text>
+          <View style={[{backgroundColor: color}, styles.stateContainer]}>
+            <Text style={styles.state} >{state}</Text>
+          </View>
+          <Text>Nota: </Text>
+          <View style={styles.gradeContainer}>
+            <Text style={styles.grade} >{grade}</Text>
+          </View>
+        </View>
       </View>
       <View style={styles.imageContainer}>
         <Image
@@ -66,6 +75,27 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 23
+  },
+  infoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
+  },
+  stateContainer: {
+    borderRadius: 100,
+    width: 90,
+    marginRight: 15
+  },
+  state: {
+    color: '#fff',
+    fontWeight: 'bold',
+    textAlign: 'center'
+
+  }, 
+  grade: {
+    color: '#249447',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 15
   }
 })
 
