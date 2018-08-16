@@ -78,15 +78,14 @@ class HomeworckList extends Component {
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <EmptyList text="No tienes tareas registradas"/>
   goToHomework = item => {
-    console.log(`Ir a ${item.title}`)
     this.props.navigation.navigate('PdfContainer', {
-      pdfUrl: item.pdfUrl
+      pdfUrl: item.title
     })
   }
   renderItem = ({ item }) => (
     <Homework
       title={item.title}
-      onPress={this.goToHomework}
+      onPress={() => this.goToHomework(item)}
       initDate={item.initDate}
       endDate={item.endDate}
       state={item.state}

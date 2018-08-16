@@ -42,5 +42,17 @@ const Main = createStackNavigator({
   headerTransitionPreset: 'uikit'
 })
 
+const modalStack = createStackNavigator({
+  Home: {
+    screen: Main
+  },
+  PdfContainer: {
+    screen: PdfContainer
+  }
+}, {
+  mode: 'modal',
+  headerMode: 'none'
+})
 
-export default Main
+
+export default modalStack
