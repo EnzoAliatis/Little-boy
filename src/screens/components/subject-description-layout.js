@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   options: {
-    marginTop: 0
+    flex: 1
   },
   email: {
     color: 'rgb(36,158,243)',

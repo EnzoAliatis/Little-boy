@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   createStackNavigator,
-  createTabNavigator
+  createBottomTabNavigator
 } from 'react-navigation'
 
 import Home from './screens/containers/home'
@@ -34,25 +34,53 @@ const Main = createStackNavigator({
   MaterialList: {
     screen: MaterialList
   }
-}, 
-{
-  navigationOptions: {
-    headerStyle: {height: 50}
+},
+  {
+    navigationOptions: {
+      headerStyle: { height: 50 }
+    },
+    headerTransitionPreset: 'uikit'
+  })
+
+
+const tabStack = createBottomTabNavigator({
+  Home: {
+    screen: Main,
+    navigationOptions: {
+      title: 'Inicio'
+    }
   },
-  headerTransitionPreset: 'uikit'
+  Notification: {
+    screen: HomeworkList,
+    navigationOptions:{
+      title: 'Notifi'
+    }
+  },
+  Homework: {
+    screen: HomeworkList,
+    navigationOptions:{
+      title: 'Tareas'
+    }
+  },
+  Profile: {
+    screen: HomeworkList,
+    navigationOptions:{
+      title: 'Perfil'
+    }
+  }
 })
 
 const modalStack = createStackNavigator({
   Home: {
-    screen: Main
+    screen: tabStack
   },
   PdfContainer: {
     screen: PdfContainer
   }
 }, {
-  mode: 'modal',
-  headerMode: 'none'
-})
+    mode: 'modal',
+    headerMode: 'none'
+  })
 
 
 export default modalStack
