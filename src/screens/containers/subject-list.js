@@ -54,6 +54,14 @@ class SubjectList extends Component {
           teacher: 'Ing. Maradona',
           email: 'maradonadiosdelfutbol@gmail.com',
           parallel: '5º B'
+        },
+        {
+          id: 6,
+          name: 'Ingenieria de Software',
+          classRoom: '305',
+          teacher: 'Ing. Maradona',
+          email: 'maradonadiosdelfutbol@gmail.com',
+          parallel: '5º B'
         }
       ]
     }

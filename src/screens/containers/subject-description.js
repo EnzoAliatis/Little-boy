@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import {
-  View,
-  Text,
   FlatList,
   Linking
 } from 'react-native'
@@ -27,7 +25,7 @@ class SubjectDescription extends Component {
         route: 'HomeworkList'
       },
       {
-        name: 'Notificaciones',
+        name: 'Anuncios',
         route: '',
       },
       {
@@ -43,19 +41,26 @@ class SubjectDescription extends Component {
       this.props.navigation.navigate(`${item.route}`)
     }
   }
-  keyExtractor = (item, idx) => idx.toString()
+
+
+  defineTitle = title => {
+    const shortTitle = title.substr(0,title.indexOf(' '))
+    return shortTitle
+  }
+
+  keyExtractor = (item, idx) => (item + idx).toString()
   renderEmpty = () => <Empty text="Cargando las materias..." />
   renderItem = ({ item }) => (
     <PillComponent
       pillName={item.name}
       onPress={() => this.goToOption(item)}
     />
-
   )
 
 
   static navigationOptions = ({ navigation }) => ({
-    title: navigation.getParam('title')
+    title: navigation.getParam('title'),
+    headerTruncatedBackTitle: navigation.getParam('title').substr(0,navigation.getParam('title').indexOf(' '))
   })
 
   onEmailPress = () => {

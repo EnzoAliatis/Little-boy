@@ -22,18 +22,19 @@ const Main = createStackNavigator({
     }
   },
   SubjectDescription: {
-    screen: SubjectDescription
+    screen: SubjectDescription,
   },
   HomeworkList: {
     screen: HomeworkList
   },
   EvaluationList: {
-    screen: EvaluationList
+    screen: EvaluationList,
   },
   MaterialList: {
     screen: MaterialList
   }
-}, {
+}, 
+{
   navigationOptions: {
     headerStyle: {height: 50}
   }

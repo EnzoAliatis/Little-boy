@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import {
-  Text,
-  View,
   SectionList
 } from 'react-native'
 
