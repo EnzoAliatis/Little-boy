@@ -11,6 +11,7 @@ import SubjectDescription from './screens/containers/subject-description'
 import HomeworkList from './screens/containers/homework-list'
 import EvaluationList from './screens/containers/evaluation-list'
 import MaterialList from './screens/containers/material-list'
+import PdfContainer from './screens/containers/pdf-container';
 
 // AQUI TUS COMPOMENTES SCREENS
 
@@ -37,7 +38,8 @@ const Main = createStackNavigator({
 {
   navigationOptions: {
     headerStyle: {height: 50}
-  }
+  },
+  headerTransitionPreset: 'uikit'
 })
 
 

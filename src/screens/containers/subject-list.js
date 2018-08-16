@@ -41,7 +41,7 @@ class SubjectList extends Component {
         },
         {
           id: 4,
-          name: 'Programacion',
+          name: 'Programacion Mobil',
           classRoom: '304',
           teacher: 'Ing. Neymar JR',
           email: 'neymarjr_jr@gmail.com',
@@ -58,9 +58,9 @@ class SubjectList extends Component {
         {
           id: 6,
           name: 'Ingenieria de Software',
-          classRoom: '305',
-          teacher: 'Ing. Maradona',
-          email: 'maradonadiosdelfutbol@gmail.com',
+          classRoom: 'Lab 201',
+          teacher: 'Ing. Armando Paredes',
+          email: 'juan.sendon@live.uleam.edu.ec',
           parallel: '5º B'
         }
       ]

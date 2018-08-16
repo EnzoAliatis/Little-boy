@@ -35,9 +35,7 @@ class SubjectDescription extends Component {
     ]
   }
   goToOption = item => {
-    console.log(item)
     if (item.route != '') {
-      console.log(item.route)
       this.props.navigation.navigate(`${item.route}`)
     }
   }
