@@ -4,14 +4,20 @@ import {
   createBottomTabNavigator
 } from 'react-navigation'
 
+import MaterialComunitiIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
 import Home from './screens/containers/home'
-import InitialLoadingLayout from './screens/components/initial-loading-layout';
+
 import Header from './utils/header';
 import SubjectDescription from './screens/containers/subject-description'
 import HomeworkList from './screens/containers/homework-list'
 import EvaluationList from './screens/containers/evaluation-list'
 import MaterialList from './screens/containers/material-list'
 import PdfContainer from './screens/containers/pdf-container';
+
+
 
 // AQUI TUS COMPOMENTES SCREENS
 
@@ -50,25 +56,52 @@ const tabStack = createBottomTabNavigator({
       title: 'Inicio'
     }
   },
-  Notification: {
+  Notifications: {
     screen: HomeworkList,
-    navigationOptions:{
+    navigationOptions: {
       title: 'Notifi'
     }
   },
   Homework: {
     screen: HomeworkList,
-    navigationOptions:{
+    navigationOptions: {
       title: 'Tareas'
     }
   },
   Profile: {
     screen: HomeworkList,
-    navigationOptions:{
+    navigationOptions: {
       title: 'Perfil'
     }
   }
-})
+}, {
+  navigationOptions: ({ navigation }) => ({
+    tabBarIcon: ({ focused, tintColor }) => {
+      const routesName = ['Home', 'Notifications', 'Homework', 'Profile']
+      const sizeIcon = 34
+      const { routeName } = navigation.state;
+      let iconName;
+      if (routeName === routesName[0]) {
+        iconName = `home${focused ? '' : '-outline'}`
+        return <MaterialComunitiIcons name={iconName} size={sizeIcon} color={tintColor} />
+      } else if (routeName === routesName[1]) {
+        iconName = `notifications${focused ? '' : '-none'}`
+        return <MaterialIcons name={iconName} size={sizeIcon} color={tintColor} />
+      } else if (routeName === routesName[2]) {
+        iconName = `format-list-checkbox`
+        return <MaterialComunitiIcons name={iconName} size={sizeIcon} color={tintColor} />
+      } else if (routeName === routesName[3]) {
+        iconName = `user${focused ? '' : '-o'}`
+        return <FontAwesome name={iconName} size={sizeIcon} color={tintColor} />
+      }
+    },
+  }),
+    tabBarOptions: {
+      activeTintColor: '#F9644D',
+      inactiveTintColor: 'gray',
+      showLabel: false
+    }
+  })
 
 const modalStack = createStackNavigator({
   Home: {
