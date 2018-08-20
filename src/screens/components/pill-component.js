@@ -3,25 +3,29 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   TouchableOpacity
 } from 'react-native'
 
-import Icon from '../../utils/icon'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Foundation from 'react-native-vector-icons/Foundation'
 
-const PillComponent = ({ onPress, pillName }) => (
+
+
+const PillComponent = ({ onPress, pillName, FontAwesomeIcon, FoundationIcon }) => (
   <TouchableOpacity
     onPress={onPress}
   >
     <View style={styles.container}>
+      {FontAwesomeIcon && <FontAwesome name={`${FontAwesomeIcon}`} size={35} color={'black'}/>}
+      {FoundationIcon && <Foundation name={`${FoundationIcon}`} size={35} color={'black'}/>}
+
+      
       <View style={styles.left}>
         <Text style={styles.title}>{pillName}</Text>
       </View>
       <View style={styles.right}>
-        <Image
-          source={require('../../../assets/images/arrow-point-to-right.png')}
-          style={styles.icon}
-        />
+        <Ionicons name={'ios-arrow-forward'} size={55} color={'black'} />
       </View>
     </View>
 
@@ -45,7 +49,9 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   right: {
-    paddingRight: 8
+    paddingRight: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   icon: {
     width: 18,

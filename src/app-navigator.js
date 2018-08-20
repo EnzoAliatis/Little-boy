@@ -97,7 +97,7 @@ const tabStack = createBottomTabNavigator({
     },
   }),
     tabBarOptions: {
-      activeTintColor: '#F9644D',
+      activeTintColor: '#249447',
       inactiveTintColor: 'gray',
       showLabel: false
     }

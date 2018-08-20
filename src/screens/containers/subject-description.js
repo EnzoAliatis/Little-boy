@@ -14,23 +14,29 @@ class SubjectDescription extends Component {
     subjectOptions: [
       {
         name: 'Evaluaciones',
-        route: 'EvaluationList'
+        route: 'EvaluationList',
+        FontAwesomeIcon: 'file-text'
       },
       {
         name: 'Materiales',
-        route: 'MaterialList'
+        route: 'MaterialList',
+        FontAwesomeIcon: 'briefcase'
       },
       {
         name: 'Tareas',
-        route: 'HomeworkList'
+        route: 'HomeworkList',
+        FontAwesomeIcon: 'book'
       },
       {
         name: 'Anuncios',
         route: '',
+        FoundationIcon: 'megaphone',
       },
       {
         name: 'Faltas',
-        route: ''
+        route: '',
+        iconName: 'briefcase',
+        FontAwesomeIcon: 'exclamation-triangle'
       }
     ]
   }
@@ -52,6 +58,8 @@ class SubjectDescription extends Component {
     <PillComponent
       pillName={item.name}
       onPress={() => this.goToOption(item)}
+      FontAwesomeIcon={item.FontAwesomeIcon}
+      FoundationIcon={item.FoundationIcon}
     />
   )
 
