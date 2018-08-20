@@ -38,13 +38,19 @@ class MaterialList extends Component {
     title: 'Materiales'
   })
 
+  goToMaterial = item => {
+    this.props.navigation.navigate('PdfContainer', {
+      pdfUrl: '../../../assets/pdf/pdfPrueba.pdf'
+    })
+  }
+
   keyExtractor = (item, index) => (item + index).toString()
   itemSeparator= () => <SeparatorList />
   renderEmpty = () => <EmptyList text="No hay materiales disponibles" />
   renderSectionHeader = ({ section: { title } }) => <MaterialListHeader title={title} />
   renderItem = ({ item }) => (
     <MaterialListItem 
-      onPress={() => console.log(item.uri)}
+      onPress={this.goToMaterial}
       title={item.title}
       initDate={item.initDate}
     />

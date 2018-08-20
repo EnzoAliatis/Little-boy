@@ -15,7 +15,7 @@ class HomeworckList extends Component {
         title: 'Realizar pagina 67',
         initDate: '1/02/2018',
         endDate: '5/02/2018',
-        pdfUrl: 'urldelPDF',
+        pdfUrl: 'https://aulavirtual.uleam.edu.ec/xisce/docs/cursos/Lista%20de%20Materiales%20para%20pr%C3%A1ctica%20de%20laboratorio-1526296739.pdf',
         state: 'Revisado',
         grade: '10.00'
       },
@@ -24,7 +24,7 @@ class HomeworckList extends Component {
         title: 'Trabajo Investigativo',
         initDate: '1/02/2018',
         endDate: '5/02/2018',
-        pdfUrl: 'urldelPDF',
+        pdfUrl: 'https://aulavirtual.uleam.edu.ec/xisce/docs/cursos/SISTEMAS%20DIGITALES-1526292443.pdf',
         state: 'Pendiente',
         grade: ''
       },
@@ -33,7 +33,7 @@ class HomeworckList extends Component {
         title: 'Laboratorio 1',
         initDate: '1/02/2018',
         endDate: '5/02/2018',
-        pdfUrl: 'urldelPDF',
+        pdfUrl: 'error',
         state: 'No enviado',
         grade: ''
       },
@@ -42,7 +42,7 @@ class HomeworckList extends Component {
         title: 'Reglas de Produccion',
         initDate: '1/02/2018',
         endDate: '5/02/2018',
-        pdfUrl: 'urldelPDF',
+        pdfUrl: 'https://aulavirtual.uleam.edu.ec/xisce/docs/cursos/%C3%81LGEBRA%20DE%20BOOLE%20Y%20SIMPLIFICACI%C3%93N%20L%C3%93GICA-1526292289.pdf',
         state: 'Caducado',
         grade: '0'
       },
@@ -79,7 +79,7 @@ class HomeworckList extends Component {
   renderEmpty = () => <EmptyList text="No tienes tareas registradas"/>
   goToHomework = item => {
     this.props.navigation.navigate('PdfContainer', {
-      pdfUrl: item.title
+      pdfUrl: item.pdfUrl
     })
   }
   renderItem = ({ item }) => (

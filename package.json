@@ -2,6 +2,11 @@
   "name": "appUleam",
   "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Enzo Aliatis",
+    "url": "https://github.com/EnzoAliatis"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
@@ -9,12 +14,14 @@
   "dependencies": {
     "react": "16.4.1",
     "react-native": "0.56.0",
+    "react-native-pdf": "5.0.2",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "2.11.2",
     "react-navigation-redux-helpers": "2.0.2",
     "react-redux": "5.0.7",
     "redux": "4.0.0",
-    "redux-persist": "5.10.0"
+    "redux-persist": "5.10.0",
+    "rn-fetch-blob": "0.10.12"
   },
   "devDependencies": {
     "babel-jest": "23.2.0",

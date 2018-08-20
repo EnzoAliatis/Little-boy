@@ -1,19 +1,41 @@
 import React, { Component } from 'react'
 import {
-  Text,
   View,
   SafeAreaView,
-  StyleSheet
+  StyleSheet,
+  Dimensions
 } from 'react-native'
+
+
+import Pdf from 'react-native-pdf';
 
 class PdfContainer extends Component {
 
-  render () {
+
+  render() {
+    const uri = this.props.navigation.getParam('pdfUrl')
+    const source ={uri:`${uri}`,cache:true}
+
+    
+
+    // const url = `${this.props.navigation.getParam('pdfUrl')}`
+
     return (
       <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <Text style={styles.texto}>{this.props.navigation.getParam('pdfUrl')} Pdf</Text>
-      </View>
+        <View style={styles.container}>
+          <Pdf
+            source={source}
+            onLoadComplete={(numberOfPages, filePath) => {
+              console.log(`number of pages: ${numberOfPages}`);
+            }}
+            onPageChanged={(page, numberOfPages) => {
+              console.log(`current page: ${page}`);
+            }}
+            onError={(error) => {
+              this.props.navigation.replace('PdfError');
+            }}
+            style={styles.pdf} />
+        </View>
       </SafeAreaView>
     )
   }
@@ -24,14 +46,14 @@ const styles = StyleSheet.create({
     flex: 1
   },
   container: {
-    flexDirection: 'row',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+
   },
-  texto: {
-    fontSize: 50,
-    fontWeight: 'bold'
+  pdf: {
+    flex: 1,
+    width: Dimensions.get('window').width,
   }
 })
 

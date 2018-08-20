@@ -16,6 +16,7 @@ import HomeworkList from './screens/containers/homework-list'
 import EvaluationList from './screens/containers/evaluation-list'
 import MaterialList from './screens/containers/material-list'
 import PdfContainer from './screens/containers/pdf-container';
+import PdfErrorComponent from './utils/pdf-error-component';
 
 
 
@@ -57,19 +58,19 @@ const tabStack = createBottomTabNavigator({
     }
   },
   Notifications: {
-    screen: HomeworkList,
+    screen: Home,
     navigationOptions: {
       title: 'Notifi'
     }
   },
   Homework: {
-    screen: HomeworkList,
+    screen: Home,
     navigationOptions: {
       title: 'Tareas'
     }
   },
   Profile: {
-    screen: HomeworkList,
+    screen: Home,
     navigationOptions: {
       title: 'Perfil'
     }
@@ -109,6 +110,9 @@ const modalStack = createStackNavigator({
   },
   PdfContainer: {
     screen: PdfContainer
+  },
+  PdfError: {
+    screen: PdfErrorComponent
   }
 }, {
     mode: 'modal',
