@@ -4,8 +4,10 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
-  Image
 } from 'react-native'
+
+import Icon from 'react-native-vector-icons/MaterialIcons'
+
 
 const MaterialListItem = ({ title, onPress, initDate }) => (
   <TouchableOpacity
@@ -16,11 +18,8 @@ const MaterialListItem = ({ title, onPress, initDate }) => (
       <Text style={styles.itemText}>{title}</Text>
       <Text style={styles.date}>Fecha Inicio: {initDate}</Text>
     </View>
-    <View style={styles.imageContainer}>
-      <Image 
-        source={require('../../../assets/images/download.png')}
-        style={styles.image}
-      />
+    <View style={styles.iconContainer}>
+      <Icon name={'file-download'} size={35} color={'#212121'} />
     </View>
   </TouchableOpacity>
 )
@@ -49,6 +48,9 @@ const styles = StyleSheet.create({
   },
   info: {
     width: 300
+  }, 
+  iconContainer: {
+    paddingRight: 15
   }
 
 })

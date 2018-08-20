@@ -3,10 +3,10 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
   StyleSheet
-
 } from 'react-native'
+
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const Homework = ({ title, onPress, initDate, endDate, state, grade, color }) => (
   <TouchableOpacity
@@ -21,7 +21,7 @@ const Homework = ({ title, onPress, initDate, endDate, state, grade, color }) =>
         </View>
         <View style={styles.infoContainer}>
           <Text>Estado: </Text>
-          <View style={[{backgroundColor: color}, styles.stateContainer]}>
+          <View style={[{ backgroundColor: color }, styles.stateContainer]}>
             <Text style={styles.state} >{state}</Text>
           </View>
           <Text>Nota: </Text>
@@ -30,11 +30,8 @@ const Homework = ({ title, onPress, initDate, endDate, state, grade, color }) =>
           </View>
         </View>
       </View>
-      <View style={styles.imageContainer}>
-        <Image
-          source={require('../../../assets/images/download.png')}
-          style={styles.image}
-        />
+      <View style={styles.iconContainer}>
+        <Icon name={'file-download'} size={35} color={'#212121'} />
       </View>
 
     </View>
@@ -59,9 +56,10 @@ const styles = StyleSheet.create({
     height: 30,
     resizeMode: 'contain'
   },
-  imageContainer: {
+  iconContainer: {
     justifyContent: 'center',
-    paddingLeft: 50
+    paddingLeft: 50,
+    paddingRight: 5
   },
   info: {
     flex: 1,
@@ -90,7 +88,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center'
 
-  }, 
+  },
   grade: {
     color: '#249447',
     fontWeight: 'bold',

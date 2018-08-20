@@ -12,13 +12,14 @@ import Foundation from 'react-native-vector-icons/Foundation'
 
 
 
-const PillComponent = ({ onPress, pillName, FontAwesomeIcon, FoundationIcon }) => (
+const PillComponent = ({ onPress, pillName, FontAwesomeIcon, FoundationIcon, colorIcon }) => (
   <TouchableOpacity
+    style={styles.pill}
     onPress={onPress}
   >
     <View style={styles.container}>
-      {FontAwesomeIcon && <FontAwesome name={`${FontAwesomeIcon}`} size={35} color={'black'}/>}
-      {FoundationIcon && <Foundation name={`${FoundationIcon}`} size={35} color={'black'}/>}
+      {FontAwesomeIcon && <FontAwesome name={`${FontAwesomeIcon}`} size={35} color={colorIcon || '#488A25'}/>}
+      {FoundationIcon && <Foundation name={`${FoundationIcon}`} size={35} color={colorIcon || '#488A25'}/>}
 
       
       <View style={styles.left}>
@@ -37,13 +38,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 100,
     borderRadius: 10,
-    overflow: 'hidden',
+
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingLeft: 10,
     backgroundColor: "white",
-    borderRadius: 20,
-    marginBottom: 3,
+    borderRadius: 20
   },
   title: {
     fontSize: 30
@@ -53,10 +53,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  icon: {
-    width: 18,
-    height: 30,
-    marginTop: 3
+  left: {
+    flex: 1,
+    marginLeft: 15
+  },
+  pill: {
+    marginVertical: 2.5
   }
 })
 

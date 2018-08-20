@@ -35,15 +35,14 @@ const styles = StyleSheet.create({
     flex: 1
   },
   text: {
-    fontSize: 20
+    fontSize: 20,
+    color: 'white'
   },
   info: {
-    backgroundColor: 'white',
-    marginHorizontal: 7,
-    marginVertical: 10,
-    borderRadius: 20,
+    backgroundColor: '#0B3154',
     height: 110,
     paddingLeft: 20,
+
     justifyContent: 'center'
   },
   options: {

@@ -35,8 +35,8 @@ class SubjectDescription extends Component {
       {
         name: 'Faltas',
         route: '',
-        iconName: 'briefcase',
-        FontAwesomeIcon: 'exclamation-triangle'
+        FontAwesomeIcon: 'exclamation-triangle',
+        colorIcon: '#F6D817'
       }
     ]
   }
@@ -60,6 +60,7 @@ class SubjectDescription extends Component {
       onPress={() => this.goToOption(item)}
       FontAwesomeIcon={item.FontAwesomeIcon}
       FoundationIcon={item.FoundationIcon}
+      colorIcon={item.colorIcon}
     />
   )
 
