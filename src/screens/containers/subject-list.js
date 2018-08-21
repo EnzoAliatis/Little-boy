@@ -17,7 +17,7 @@ class SubjectList extends Component {
       listaMaterias: [
         {
           id: 1,
-          name: 'Calculo Diferencial',
+          name: 'Metodos Numericos',
           classRoom: '301',
           teacher: 'Ing. Enzo Aliatis',
           email: 'enzo@gmail.com',
@@ -25,7 +25,7 @@ class SubjectList extends Component {
         },
         {
           id: 2,
-          name: 'Fisica',
+          name: 'Bases De Datos Distribuidas',
           classRoom: '302',
           teacher: 'Ing. Cristiano Ronaldo',
           email: 'cr7@gmail.com',
@@ -33,7 +33,7 @@ class SubjectList extends Component {
         },
         {
           id: 3,
-          name: 'Quimica',
+          name: 'Contabilidad I',
           classRoom: '303',
           teacher: 'Ing. Leonel Messi',
           email: 'leonelmessi@gmail.com',
@@ -41,7 +41,7 @@ class SubjectList extends Component {
         },
         {
           id: 4,
-          name: 'Programacion Mobil',
+          name: 'Sistemas Expertos',
           classRoom: '304',
           teacher: 'Ing. Neymar JR',
           email: 'neymarjr_jr@gmail.com',
@@ -49,7 +49,7 @@ class SubjectList extends Component {
         },
         {
           id: 5,
-          name: 'Biologia',
+          name: 'Redes De Computadoras I',
           classRoom: '305',
           teacher: 'Ing. Maradona',
           email: 'maradonadiosdelfutbol@gmail.com',
@@ -57,7 +57,7 @@ class SubjectList extends Component {
         },
         {
           id: 6,
-          name: 'Ingenieria de Software',
+          name: 'Gestion De Calidad De Software',
           classRoom: 'Lab 201',
           teacher: 'Ing. Armando Paredes',
           email: 'juan.sendon@live.uleam.edu.ec',
