@@ -5,7 +5,6 @@ import {
 
 import SubjectListLayout from '../components/subject-list-layout'
 import Empty from '../../utils/empty-list'
-import SeparatorList from '../../utils/separator-list'
 import PillComponent from '../components/pill-component'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
