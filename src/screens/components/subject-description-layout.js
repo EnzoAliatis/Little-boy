@@ -6,14 +6,17 @@ import {
   StyleSheet
 } from 'react-native'
 
+import EntypoIcon from 'react-native-vector-icons/Entypo'
+import FontAwesom from 'react-native-vector-icons/FontAwesome5'
+
 
 const SubjectDescriptionLayout = ({ classRoom, parallel, teacher, email, children, onEmailPress, colorPanel }) => (
 
   <View style={styles.container}>
     <View style={[{ backgroundColor: colorPanel }, styles.info]}>
-      <Text style={styles.text}>{`Aula: ${classRoom}`}</Text>
+      <Text style={styles.text}>{`Aula: ${classRoom}`} <FontAwesom name={'door-closed'} size={30} /></Text>
       <Text style={styles.text}>{`Paralelo: ${parallel}`}</Text>
-      <Text style={styles.text}>{`Profesor: ${teacher}`}</Text>
+      <Text style={styles.text}>{`Profesor: ${teacher}`} <EntypoIcon name={'mail'} size={25}/></Text>
       <TouchableWithoutFeedback
         onPress={onEmailPress}
       >
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   info: {
-    height: 110,
+    height: 130,
     paddingLeft: 20,
 
     justifyContent: 'center'
