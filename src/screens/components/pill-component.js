@@ -12,22 +12,25 @@ import Foundation from 'react-native-vector-icons/Foundation'
 
 
 
-const PillComponent = ({ onPress, pillName, FontAwesomeIcon, FoundationIcon, colorIcon }) => (
+const PillComponent = ({ onPress, pillName, FontAwesomeIcon, FoundationIcon, colorIcon, number }) => (
   <TouchableOpacity
     style={styles.pill}
     onPress={onPress}
   >
     <View style={styles.container}>
-      {FontAwesomeIcon && <FontAwesome name={`${FontAwesomeIcon}`} size={35} color={colorIcon || '#488A25'}/>}
-      {FoundationIcon && <Foundation name={`${FoundationIcon}`} size={35} color={colorIcon || '#488A25'}/>}
+      {FontAwesomeIcon && <FontAwesome name={`${FontAwesomeIcon}`} size={35} color={colorIcon || '#488A25'} />}
+      {FoundationIcon && <Foundation name={`${FoundationIcon}`} size={35} color={colorIcon || '#488A25'} />}
 
-      
+
       <View style={styles.left}>
         <Text style={styles.title}>{pillName}</Text>
       </View>
-      <View style={styles.right}>
-        <Ionicons name={'ios-arrow-forward'} size={55} color={'black'} />
-      </View>
+      {
+        !number ?
+          <View style={styles.right}>
+            <Ionicons name={'ios-arrow-forward'} size={55} color={'black'} />
+          </View> : <Text style={[styles.right, styles.number]}>{number}</Text>
+      }
     </View>
 
   </TouchableOpacity>
@@ -59,6 +62,11 @@ const styles = StyleSheet.create({
   },
   pill: {
     marginVertical: 2.5
+  },
+  number: {
+    fontSize: 38,
+    fontWeight: 'bold',
+    paddingRight: 22
   }
 })
 

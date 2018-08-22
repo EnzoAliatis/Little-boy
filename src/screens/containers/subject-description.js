@@ -75,6 +75,13 @@ class SubjectDescription extends Component {
     }
   }
 
+  isFaltasPill = name => {
+    if(name === 'Faltas') {
+      return this.props.navigation.getParam('faults')
+    }
+  }
+  
+
   keyExtractor = (item, idx) => (item + idx).toString()
   renderEmpty = () => <Empty text="Cargando las materias..." />
   renderItem = ({ item }) => (
@@ -84,6 +91,7 @@ class SubjectDescription extends Component {
       FontAwesomeIcon={item.FontAwesomeIcon}
       FoundationIcon={item.FoundationIcon}
       colorIcon={item.colorIcon}
+      number={this.isFaltasPill(item.name)}
     />
   )
 

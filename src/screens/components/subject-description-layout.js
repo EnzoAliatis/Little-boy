@@ -7,20 +7,21 @@ import {
 } from 'react-native'
 
 import EntypoIcon from 'react-native-vector-icons/Entypo'
-import FontAwesom from 'react-native-vector-icons/FontAwesome5'
+
 
 
 const SubjectDescriptionLayout = ({ classRoom, parallel, teacher, email, children, onEmailPress, colorPanel }) => (
 
   <View style={styles.container}>
     <View style={[{ backgroundColor: colorPanel }, styles.info]}>
-      <Text style={styles.text}>{`Aula: ${classRoom}`} <FontAwesom name={'door-closed'} size={30} /></Text>
+      <Text style={styles.text}>{`Aula: ${classRoom}`} </Text>
       <Text style={styles.text}>{`Paralelo: ${parallel}`}</Text>
-      <Text style={styles.text}>{`Profesor: ${teacher}`} <EntypoIcon name={'mail'} size={25}/></Text>
+      <Text style={styles.text}>{`Profesor: ${teacher}`} </Text>
       <TouchableWithoutFeedback
         onPress={onEmailPress}
       >
-        <View>
+        <View style={styles.emailContainer}>
+          <EntypoIcon name={'mail'} size={25} color={'white'} />
           <Text style={styles.email}>{email}</Text>
         </View>
       </TouchableWithoutFeedback>
@@ -52,9 +53,13 @@ const styles = StyleSheet.create({
     flex: 1
   },
   email: {
-    color: 'rgb(36,158,243)',
-    fontSize: 15,
-    paddingTop: 0
+    color: 'white',
+    fontSize: 18,
+    paddingLeft: 10
+  },
+  emailContainer: {
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 })
 export default SubjectDescriptionLayout

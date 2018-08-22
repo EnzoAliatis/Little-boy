@@ -22,6 +22,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Enzo Aliatis',
           email: 'enzo@gmail.com',
           parallel: '5º A',
+          faults: '0',
           formation: 'basica'
         },
         {
@@ -31,6 +32,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Cristiano Ronaldo',
           email: 'cr7@gmail.com',
           parallel: '5º B',
+          faults: '1',
           formation: 'profesional'
         },
         {
@@ -40,6 +42,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Leonel Messi',
           email: 'leonelmessi@gmail.com',
           parallel: '5º A',
+          faults: '5',
           formation: 'basica'
         },
         {
@@ -49,6 +52,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Neymar JR',
           email: 'neymarjr_jr@gmail.com',
           parallel: '4º A',
+          faults: '7',
           formation: 'profesional'
         },
         {
@@ -58,6 +62,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Maradona',
           email: 'maradonadiosdelfutbol@gmail.com',
           parallel: '5º B',
+          faults: '10',
           formation: 'basica'
         },
         {
@@ -67,6 +72,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Armando Paredes',
           email: 'juan.sendon@live.uleam.edu.ec',
           parallel: '5º B',
+          faults: '7',
           formation: 'humana'
         },
         {
@@ -76,6 +82,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Juan Perez',
           email: 'juan.perez@live.uleam.edu.ec',
           parallel: '6º B',
+          faults: '2',
           formation: 'curricular'
         },
         {
@@ -85,6 +92,7 @@ class SubjectList extends Component {
           teacher: 'Ing. Damian Dias',
           email: 'damiand@live.uleam.edu.ec',
           parallel: '7º B',
+          faults: '4',
           formation: 'optativa'
         }
       ]
@@ -103,6 +111,7 @@ class SubjectList extends Component {
           teacher: item.teacher,
           email: item.email,
           parallel: item.parallel,
+          faults: item.faults,
           formation: item.formation
         }
       })
