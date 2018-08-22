@@ -49,16 +49,12 @@ class HomeworckList extends Component {
     ]
   }
 
-  static navigationOptions = () => ({
-    title: 'Tareas'
-  })
-
   defineColor = (state) => {
-    if(state === 'Pendiente' ) {
+    if (state === 'Pendiente') {
       return '#3ABEFF'
     } else if (state === 'Revisado') {
       return '#38E86F'
-    } else if(state === 'No enviado') {
+    } else if (state === 'No enviado') {
       return '#F7DD16'
     }
     else {
@@ -76,7 +72,7 @@ class HomeworckList extends Component {
 
 
   keyExtractor = item => item.id.toString()
-  renderEmpty = () => <EmptyList text="No tienes tareas registradas"/>
+  renderEmpty = () => <EmptyList text="No tienes tareas registradas" />
   goToHomework = item => {
     this.props.navigation.navigate('PdfContainer', {
       pdfUrl: item.pdfUrl

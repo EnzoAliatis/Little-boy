@@ -78,9 +78,7 @@ class EvaluationList extends Component {
   }
 
 
-  static navigationOptions = () => ({
-    title: 'Evaluaciones'
-  })
+
 
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <EmptyList text="No hay Evaluaciones a mostrar" />

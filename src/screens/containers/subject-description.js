@@ -29,7 +29,7 @@ class SubjectDescription extends Component {
       },
       {
         name: 'Anuncios',
-        route: '',
+        route: 'AdsList',
         FoundationIcon: 'megaphone',
       },
       {
@@ -94,12 +94,6 @@ class SubjectDescription extends Component {
       number={this.isFaltasPill(item.name)}
     />
   )
-
-
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.getParam('title'),
-    headerTruncatedBackTitle: navigation.getParam('title').substr(0, navigation.getParam('title').indexOf(' '))
-  })
 
   onEmailPress = () => {
     Linking.openURL(`mailto:${this.props.navigation.getParam('email')}`)

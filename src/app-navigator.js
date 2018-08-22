@@ -17,6 +17,7 @@ import EvaluationList from './screens/containers/evaluation-list'
 import MaterialList from './screens/containers/material-list'
 import PdfContainer from './screens/containers/pdf-container';
 import PdfErrorComponent from './utils/pdf-error-component';
+import AdsList from './screens/containers/ads-list';
 
 
 
@@ -31,15 +32,34 @@ const Main = createStackNavigator({
   },
   SubjectDescription: {
     screen: SubjectDescription,
-  },
-  HomeworkList: {
-    screen: HomeworkList
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.getParam('title'),
+      headerTruncatedBackTitle: navigation.getParam('title').substr(0, navigation.getParam('title').indexOf(' '))
+    })
   },
   EvaluationList: {
     screen: EvaluationList,
+    navigationOptions: {
+      title: 'Evaluaciones'
+    }
   },
   MaterialList: {
-    screen: MaterialList
+    screen: MaterialList,
+    navigationOptions: {
+      title: 'Materiales'
+    }
+  },
+  HomeworkList: {
+    screen: HomeworkList,
+    navigationOptions: {
+      title: 'Tareas'
+    }
+  },
+  AdsList: {
+    screen: AdsList,
+    navigationOptions: {
+      title: 'Anuncios'
+    }
   }
 },
   {
