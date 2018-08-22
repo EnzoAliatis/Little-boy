@@ -7,10 +7,10 @@ import {
 } from 'react-native'
 
 
-const SubjectDescriptionLayout = ({ classRoom, parallel, teacher, email, children, onEmailPress }) => (
+const SubjectDescriptionLayout = ({ classRoom, parallel, teacher, email, children, onEmailPress, colorPanel }) => (
 
   <View style={styles.container}>
-    <View style={styles.info}>
+    <View style={[{ backgroundColor: colorPanel }, styles.info]}>
       <Text style={styles.text}>{`Aula: ${classRoom}`}</Text>
       <Text style={styles.text}>{`Paralelo: ${parallel}`}</Text>
       <Text style={styles.text}>{`Profesor: ${teacher}`}</Text>
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    color: 'white'
+    color: 'white',
+    fontWeight: 'bold'
   },
   info: {
-    backgroundColor: '#0B3154',
     height: 110,
     paddingLeft: 20,
 

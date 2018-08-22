@@ -21,7 +21,8 @@ class SubjectList extends Component {
           classRoom: '301',
           teacher: 'Ing. Enzo Aliatis',
           email: 'enzo@gmail.com',
-          parallel: '5º A'
+          parallel: '5º A',
+          formation: 'basica'
         },
         {
           id: 2,
@@ -29,7 +30,8 @@ class SubjectList extends Component {
           classRoom: '302',
           teacher: 'Ing. Cristiano Ronaldo',
           email: 'cr7@gmail.com',
-          parallel: '5º B'
+          parallel: '5º B',
+          formation: 'profesional'
         },
         {
           id: 3,
@@ -37,15 +39,17 @@ class SubjectList extends Component {
           classRoom: '303',
           teacher: 'Ing. Leonel Messi',
           email: 'leonelmessi@gmail.com',
-          parallel: '5º A'
+          parallel: '5º A',
+          formation: 'basica'
         },
         {
           id: 4,
-          name: 'Sistemas Expertos',
+          name: 'Sistemas Expertos II',
           classRoom: '304',
           teacher: 'Ing. Neymar JR',
           email: 'neymarjr_jr@gmail.com',
-          parallel: '4º A'
+          parallel: '4º A',
+          formation: 'profesional'
         },
         {
           id: 5,
@@ -53,15 +57,35 @@ class SubjectList extends Component {
           classRoom: '305',
           teacher: 'Ing. Maradona',
           email: 'maradonadiosdelfutbol@gmail.com',
-          parallel: '5º B'
+          parallel: '5º B',
+          formation: 'basica'
         },
         {
           id: 6,
-          name: 'Gestion De Calidad De Software',
+          name: 'Cultura Fisica',
           classRoom: 'Lab 201',
           teacher: 'Ing. Armando Paredes',
           email: 'juan.sendon@live.uleam.edu.ec',
-          parallel: '5º B'
+          parallel: '5º B',
+          formation: 'humana'
+        },
+        {
+          id: 7,
+          name: 'Socioeconomia De Manabí y El Ecuador',
+          classRoom: 'Lab 201',
+          teacher: 'Ing. Juan Perez',
+          email: 'juan.perez@live.uleam.edu.ec',
+          parallel: '6º B',
+          formation: 'curricular'
+        },
+        {
+          id: 8,
+          name: 'Optativa I Cetificacion',
+          classRoom: 'Lab 201',
+          teacher: 'Ing. Damian Dias',
+          email: 'damiand@live.uleam.edu.ec',
+          parallel: '7º B',
+          formation: 'optativa'
         }
       ]
     }
@@ -78,7 +102,8 @@ class SubjectList extends Component {
           classRoom: item.classRoom,
           teacher: item.teacher,
           email: item.email,
-          parallel: item.parallel
+          parallel: item.parallel,
+          formation: item.formation
         }
       })
     )

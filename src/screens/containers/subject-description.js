@@ -48,8 +48,31 @@ class SubjectDescription extends Component {
 
 
   defineTitle = title => {
-    const shortTitle = title.substr(0,title.indexOf(' '))
+    const shortTitle = title.substr(0, title.indexOf(' '))
     return shortTitle
+  }
+
+  defineColor = formation => {
+    let color
+    switch (formation) {
+      case 'basica':
+        return color = '#E8D246'
+
+      case 'profesional':
+        return color = '#9CBA5F'
+
+      case 'optativa':
+        return color = '#BE5150'
+
+      case 'humana':
+        return color = '#B4C6DB'
+
+      case 'curricular':
+        return color = '#F5964F'
+
+      default:
+        return color = '#9CBA5F'
+    }
   }
 
   keyExtractor = (item, idx) => (item + idx).toString()
@@ -67,7 +90,7 @@ class SubjectDescription extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: navigation.getParam('title'),
-    headerTruncatedBackTitle: navigation.getParam('title').substr(0,navigation.getParam('title').indexOf(' '))
+    headerTruncatedBackTitle: navigation.getParam('title').substr(0, navigation.getParam('title').indexOf(' '))
   })
 
   onEmailPress = () => {
@@ -82,6 +105,7 @@ class SubjectDescription extends Component {
         teacher={this.props.navigation.getParam('teacher')}
         email={this.props.navigation.getParam('email')}
         onEmailPress={this.onEmailPress}
+        colorPanel={this.defineColor(this.props.navigation.getParam('formation'))}
       >
         <FlatList
           keyExtractor={this.keyExtractor}
