@@ -26,26 +26,6 @@ class SubjectList extends Component {
           formation: 'basica'
         },
         {
-          id: 2,
-          name: 'Bases De Datos Distribuidas',
-          classRoom: '302',
-          teacher: 'Ing. Cristiano Ronaldo',
-          email: 'cr7@gmail.com',
-          parallel: '5º B',
-          faults: '1',
-          formation: 'profesional'
-        },
-        {
-          id: 3,
-          name: 'Contabilidad I',
-          classRoom: '303',
-          teacher: 'Ing. Leonel Messi',
-          email: 'leonelmessi@gmail.com',
-          parallel: '5º A',
-          faults: '5',
-          formation: 'basica'
-        },
-        {
           id: 4,
           name: 'Sistemas Expertos II',
           classRoom: '304',
