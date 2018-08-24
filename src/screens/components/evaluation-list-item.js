@@ -32,30 +32,29 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 17,
   },
-  itemTextContainer:  {
-    alignItems: 'center',
-    backgroundColor: 'red',
-    flex: 1
-  },
   itemParcialContainer: {
     width: 30,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   },
   itemComponenteContainer:  {
     width: 200,
     alignItems: 'flex-start',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   },
   itemMecanismoContainer: {
     width: 100,
     alignItems: 'flex-start',
     justifyContent: 'center'
+
   },
   itemEvaluacionContainer: {
-    width: 30,
-    alignItems: 'flex-start',
+    width: 40,
+    alignItems: 'center',
     justifyContent: 'center'
+
   }
 })
 

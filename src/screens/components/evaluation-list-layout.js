@@ -5,9 +5,9 @@ import {
   StyleSheet
 } from 'react-native'
 
-const EvaluationListLayout = ({ children, average1, average2 }) => (
+const EvaluationListLayout = ({ children, average1, average2, colorPanel }) => (
   <View style={styles.container}>
-    <View style={styles.averagePanel}>
+    <View style={[{ backgroundColor: colorPanel }, styles.averagePanel]}>
       <View style={styles.averageDisplay}>
         <Text style={styles.nota}>Nota 1</Text>
         <Text style={styles.average}>{average1}</Text>
@@ -18,9 +18,10 @@ const EvaluationListLayout = ({ children, average1, average2 }) => (
       </View>
     </View>
 
+
     <View style={styles.table}>
       <View style={styles.tableHeader}>
-        <View style={styles.tableHeaderNumber}>
+        <View style={styles.tableHeaderParcial}>
           <Text style={styles.itemText}>P</Text>
         </View>
         <View style={styles.tableHeaderComponente}>
@@ -47,26 +48,25 @@ const styles = StyleSheet.create({
   averageDisplay: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 30,
-    marginVertical: 20
+    marginTop: 3,
+    height: 120
   },
   averagePanel: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    margin: 10,
-    borderRadius: 2,
-    backgroundColor: 'white'
   },
   nota: {
-    fontSize: 20
+    fontSize: 25,
+    color: 'white',
+    fontWeight: 'bold'
   },
   average: {
     fontSize: 50,
-    color: 'rgb(67,165,70)'
+    color: 'white',
   },
   table: {
     flex: 1,
-    margin: 10
+    marginVertical: 2
   },
   tableHeader: {
     flexDirection: 'row',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginBottom: 2
   },
-  tableHeaderNumber: {
+  tableHeaderParcial: {
     width: 30,
     alignItems: 'center',
     justifyContent: 'center'
@@ -83,16 +83,19 @@ const styles = StyleSheet.create({
     width: 200,
     alignItems: 'flex-start',
     justifyContent: 'center'
+
   },
   tableHeaderMecanismo: {
     width: 100,
     alignItems: 'flex-start',
     justifyContent: 'center'
+
   },
   tableHeaderEvaluacion: {
-    width: 30,
-    alignItems: 'flex-start',
+    width: 40,
+    alignItems: 'center',
     justifyContent: 'center'
+
   },
   itemText: {
     fontSize: 17,
