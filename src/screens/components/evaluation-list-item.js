@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: 'white',
-    marginVertical: 10
+    marginVertical: 10,
+    paddingRight: 2
   },
   itemText: {
     fontSize: 17,

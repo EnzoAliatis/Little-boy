@@ -22,7 +22,8 @@ class SubjectList extends Component {
           email: 'enzo@gmail.com',
           parallel: '5º A',
           faults: '0',
-          formation: 'basica'
+          formation: 'basica',
+          scores: ['10.00', '9.78']
         },
         {
           id: 4,
@@ -32,17 +33,8 @@ class SubjectList extends Component {
           email: 'neymarjr_jr@gmail.com',
           parallel: '4º A',
           faults: '7',
-          formation: 'profesional'
-        },
-        {
-          id: 5,
-          name: 'Redes De Computadoras I',
-          classRoom: '305',
-          teacher: 'Ing. Maradona',
-          email: 'maradonadiosdelfutbol@gmail.com',
-          parallel: '5º B',
-          faults: '10',
-          formation: 'basica'
+          formation: 'profesional',
+          scores: ['4.45','4.78']
         },
         {
           id: 6,
@@ -52,17 +44,19 @@ class SubjectList extends Component {
           email: 'juan.sendon@live.uleam.edu.ec',
           parallel: '5º B',
           faults: '7',
-          formation: 'humana'
+          formation: 'humana',
+          scores: ['8.74','2.78']
         },
         {
           id: 7,
-          name: 'Socioeconomia De Manabí y El Ecuador',
+          name: 'Valores y Etica Profesional',
           classRoom: 'Lab 201',
           teacher: 'Ing. Juan Perez',
           email: 'juan.perez@live.uleam.edu.ec',
           parallel: '6º B',
           faults: '2',
-          formation: 'curricular'
+          formation: 'curricular',
+          scores: ['9.99','9.78']
         },
         {
           id: 8,
@@ -72,7 +66,8 @@ class SubjectList extends Component {
           email: 'damiand@live.uleam.edu.ec',
           parallel: '7º B',
           faults: '4',
-          formation: 'optativa'
+          formation: 'optativa',
+          scores: ['7.23','-']
         }
       ]
     }
@@ -91,7 +86,8 @@ class SubjectList extends Component {
           email: item.email,
           parallel: item.parallel,
           faults: item.faults,
-          formation: item.formation
+          formation: item.formation,
+          scores: item.scores
         }
       })
     )

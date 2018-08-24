@@ -42,7 +42,7 @@ class SubjectDescription extends Component {
   }
   goToOption = item => {
     if (item.route != '') {
-      this.props.navigation.navigate(`${item.route}`)
+      this.props.navigation.navigate(`${item.route}`,{scores: this.props.navigation.getParam('scores')})
     }
   }
 

@@ -13,8 +13,9 @@ import SeparatorList from '../../utils/separator-list'
 
 class MaterialList extends Component {
 
+  // Filtrar el State con filter para cuando vengan sin data
   state = {
-    data: [
+    materials: [
       { title: 'Semana 1', data: [{ title: 'Bienvenidos', uri: 'pdfUri', initDate: '01/03/2018' }, { title: 'Silabo', uri: 'pdfUri', initDate: '01/03/2018' }, { title: 'Directivas', uri: 'pdfUri', initDate: '01/03/2018' }, { title: 'El Software', uri: 'pdfUri', initDate: '01/03/2018' }] },
       { title: 'Semana 2', data: [{ title: 'Agile Manifest', uri: 'pdfUri', initDate: '01/03/2018' }, { title: 'Agile Grils', uri: 'pdfUri', initDate: '01/03/2018' }, { title: 'Modelo en Cascada', uri: 'pdfUri', initDate: '01/03/2018' }, { title: 'Explicando Scrum', uri: 'pdfUri', initDate: '01/03/2018' }] },
       { title: 'Semana 3', data: [{ title: 'Tutotias', uri: 'pdfUri', initDate: '01/03/2018' }, { title: 'Agile Grils y RRHH', uri: 'pdfUri', initDate: '01/03/2018' }] },
@@ -34,9 +35,11 @@ class MaterialList extends Component {
     ]
   }
 
+  filterMaterial = (materials) => materials.filter(material => material.data.length > 0)
+
   goToMaterial = item => {
     this.props.navigation.navigate('PdfContainer', {
-      pdfUrl: '../../../assets/pdf/pdfPrueba.pdf'
+      pdfUrl: 'https://aulavirtual.uleam.edu.ec/xisce/docs/cursos/%C3%81LGEBRA%20DE%20BOOLE%20Y%20SIMPLIFICACI%C3%93N%20L%C3%93GICA-1526292289.pdf'
     })
   }
 
@@ -44,20 +47,20 @@ class MaterialList extends Component {
   itemSeparator = () => <SeparatorList />
   renderEmpty = () => <EmptyList text="No hay materiales disponibles" />
   renderSectionHeader = ({ section: { title } }) => <MaterialListHeader title={title} />
-  renderItem = ({ item }) => (
-    <MaterialListItem
+  renderItem = ({ item }) => {
+    return (<MaterialListItem
       onPress={this.goToMaterial}
       title={item.title}
       initDate={item.initDate}
-    />
-  )
+    />)
+  }
   render() {
     return (
       <MaterialListLayout>
         <SectionList
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
-          sections={this.state.data}
+          sections={this.filterMaterial(this.state.materials)}
           renderItem={this.renderItem}
           renderSectionHeader={this.renderSectionHeader}
           ItemSeparatorComponent={this.itemSeparator}

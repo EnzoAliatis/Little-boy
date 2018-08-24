@@ -3,20 +3,25 @@ import {
   View,
   Image,
   SafeAreaView,
+  TouchableOpacity,
   StyleSheet
 } from 'react-native'
 
-const Header = ({ children }) => (
+import Icon from 'react-native-vector-icons/FontAwesome'
+
+const Header = () => (
   <View>
     <SafeAreaView style={styles.statusBar}>
       <View style={styles.container}>
-        <Image
-          source={require('../../assets/images/logo.png')}
-          style={styles.logo}
-        />
-        <View style={styles.right}>
-          {children}
+        <View>
+          <Image
+            source={require('../../assets/images/logo.png')}
+            style={styles.logo}
+          />
         </View>
+        <TouchableOpacity style={styles.right}>
+          <Icon name={'calendar'} size={25} color={'#C20E1A'} />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   </View>
@@ -37,9 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   right: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+    paddingRight: 15
   },
 })
 

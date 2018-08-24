@@ -8,7 +8,7 @@ import {
 const AdsListItem = ({title, body, color, date}) => (
   <View style={[{borderLeftColor: color}, styles.container]}>
     <Text style={styles.title}>{title}</Text>
-    <Text>{body}</Text>
+    <Text style={styles.text}>{body}</Text>
     <Text style={styles.right}>{date}</Text>
   </View>
 )
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderColor: '#3ABEFF',
-    borderLeftWidth: 10
+    borderLeftWidth: 10,
+    paddingRight: 10
   },
   title: {
     fontSize: 23,
@@ -29,6 +30,9 @@ const styles = StyleSheet.create({
   },
   right: {
     textAlign: 'right'
+  },
+  text: {
+    textAlign: 'justify'
   }
 })
 

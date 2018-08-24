@@ -12,10 +12,6 @@ import SeparatorList from '../../utils/separator-list'
 class EvaluationList extends Component {
 
   state = {
-
-    promedio1: 5.99,
-    promedio2: 0.00,
-
     notas: [
       {
         id: 1,
@@ -79,13 +75,13 @@ class EvaluationList extends Component {
 
 
 
-  defineAverage = (nota1, nota2) => (nota1 + nota2)
+  defineAverage = (nota1, nota2) => (parseInt(nota1,10) +parseInt(nota2,10))
   defineColor = (nota1, nota2) => {
     let average = this.defineAverage(nota1, nota2)
 
     if (average >= 14) {
       return '#38E86F'
-    } else if (average > 11 && average < 14) {
+    } else if (average >= 10 && average < 14) {
       return '#F6D817'
     } else if (average < 10){
       return '#F9644D'
@@ -110,11 +106,13 @@ class EvaluationList extends Component {
 
 
   render() {
+    const scores = this.props.navigation.getParam('scores')
+    
     return (
       <EvaluationListLayout
-        average1={this.state.promedio1}
-        average2={this.state.promedio2}
-        colorPanel={this.defineColor(this.state.promedio1,this.state.promedio2)}
+        average1={scores[0]}
+        average2={scores[1]}
+        colorPanel={this.defineColor(scores[0],scores[1])}
       >
         <FlatList
           keyExtractor={this.keyExtractor}
