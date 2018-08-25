@@ -66,7 +66,8 @@ const Main = createStackNavigator({
     navigationOptions: {
       headerStyle: { height: 50 }
     },
-    headerTransitionPreset: 'uikit'
+    headerTransitionPreset: 'uikit',
+    headerMode: 'screen'
   })
 
 
@@ -121,7 +122,8 @@ const tabStack = createBottomTabNavigator({
       activeTintColor: '#C20E1A',
       inactiveTintColor: 'gray',
       showLabel: false
-    }
+    },
+    // headerMode: 'screen'
   })
 
 const modalStack = createStackNavigator({
@@ -138,8 +140,11 @@ const modalStack = createStackNavigator({
     mode: 'modal',
     headerMode: 'none',
     navigationOptions: {
-      gesturesEnabled: true
+      gesturesEnabled: true,
+      header:null
     }
+  },{
+    headerMode: 'none'
   })
 
 
