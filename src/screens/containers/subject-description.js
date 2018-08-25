@@ -7,6 +7,10 @@ import {
 import SubjectDescriptionLayout from '../components/subject-description-layout'
 import Empty from '../../utils/empty-list'
 import PillComponent from '../components/pill-component';
+import { connect } from 'react-redux'
+import { getMateria } from '../../../reducers/materias';
+
+
 
 class SubjectDescription extends Component {
 
@@ -40,17 +44,12 @@ class SubjectDescription extends Component {
       }
     ]
   }
-  goToOption = item => {
+  goToOption = (item) => {
     if (item.route != '') {
-      this.props.navigation.navigate(`${item.route}`,{scores: this.props.navigation.getParam('scores')})
+      this.props.navigation.navigate(`${item.route}`,{scores: this.props.materia.scoreParcials})
     }
   }
 
-
-  defineTitle = title => {
-    const shortTitle = title.substr(0, title.indexOf(' '))
-    return shortTitle
-  }
 
   defineColor = formation => {
     let color
@@ -77,7 +76,7 @@ class SubjectDescription extends Component {
 
   isFaltasPill = name => {
     if(name === 'Faltas') {
-      return this.props.navigation.getParam('faults')
+      return this.props.materia.faults
     }
   }
   
@@ -100,14 +99,15 @@ class SubjectDescription extends Component {
   }
 
   render() {
+    {console.log(this.props.materia)}
     return (
       <SubjectDescriptionLayout
-        classRoom={this.props.navigation.getParam('classRoom')}
-        parallel={this.props.navigation.getParam('parallel')}
-        teacher={this.props.navigation.getParam('teacher')}
-        email={this.props.navigation.getParam('email')}
+        classRoom={this.props.materia.classroom}
+        parallel={this.props.materia.parallel}
+        teacher={this.props.materia.teacher}
+        email={this.props.materia.email}
         onEmailPress={this.onEmailPress}
-        colorPanel={this.defineColor(this.props.navigation.getParam('formation'))}
+        colorPanel={this.defineColor(this.props.materia.formation)}
       >
         <FlatList
           keyExtractor={this.keyExtractor}
@@ -118,9 +118,11 @@ class SubjectDescription extends Component {
       </SubjectDescriptionLayout >
     )
   }
-
-
-
 }
 
-export default SubjectDescription
+const mapStateToProps = (state, props) => ({
+  materia: getMateria(state, props.navigation.getParam('idMateria'))
+})
+
+
+export default connect(mapStateToProps)(SubjectDescription)
