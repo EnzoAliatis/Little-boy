@@ -18,6 +18,7 @@ import MaterialList from './screens/containers/material-list'
 import PdfContainer from './screens/containers/pdf-container';
 import PdfErrorComponent from './utils/pdf-error-component';
 import AdsList from './screens/containers/ads-list';
+import ScheduleList from './screens/containers/schedule-list';
 
 
 
@@ -26,9 +27,9 @@ import AdsList from './screens/containers/ads-list';
 const Main = createStackNavigator({
   InitialLoadingLayout: {
     screen: Home,
-    navigationOptions: {
-      header: Header
-    }
+    navigationOptions: ({ navigation }) => ({
+      header: <Header onPress={() => navigation.navigate('Schedule')} />
+    })
   },
   SubjectDescription: {
     screen: SubjectDescription,
@@ -97,27 +98,27 @@ const tabStack = createBottomTabNavigator({
     }
   }
 }, {
-  navigationOptions: ({ navigation }) => ({
-    tabBarIcon: ({ focused, tintColor }) => {
-      const routesName = ['Home', 'Notifications', 'Homework', 'Profile']
-      const sizeIcon = 34
-      const { routeName } = navigation.state;
-      let iconName;
-      if (routeName === routesName[0]) {
-        iconName = `home${focused ? '' : '-outline'}`
-        return <MaterialComunitiIcons name={iconName} size={sizeIcon} color={tintColor} />
-      } else if (routeName === routesName[1]) {
-        iconName = `notifications${focused ? '' : '-none'}`
-        return <MaterialIcons name={iconName} size={sizeIcon} color={tintColor} />
-      } else if (routeName === routesName[2]) {
-        iconName = `format-list-checkbox`
-        return <MaterialComunitiIcons name={iconName} size={sizeIcon} color={tintColor} />
-      } else if (routeName === routesName[3]) {
-        iconName = `user${focused ? '' : '-o'}`
-        return <FontAwesome name={iconName} size={sizeIcon} color={tintColor} />
-      }
-    },
-  }),
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const routesName = ['Home', 'Notifications', 'Homework', 'Profile']
+        const sizeIcon = 34
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === routesName[0]) {
+          iconName = `home${focused ? '' : '-outline'}`
+          return <MaterialComunitiIcons name={iconName} size={sizeIcon} color={tintColor} />
+        } else if (routeName === routesName[1]) {
+          iconName = `notifications${focused ? '' : '-none'}`
+          return <MaterialIcons name={iconName} size={sizeIcon} color={tintColor} />
+        } else if (routeName === routesName[2]) {
+          iconName = `format-list-checkbox`
+          return <MaterialComunitiIcons name={iconName} size={sizeIcon} color={tintColor} />
+        } else if (routeName === routesName[3]) {
+          iconName = `user${focused ? '' : '-o'}`
+          return <FontAwesome name={iconName} size={sizeIcon} color={tintColor} />
+        }
+      },
+    }),
     tabBarOptions: {
       activeTintColor: '#C20E1A',
       inactiveTintColor: 'gray',
@@ -135,15 +136,18 @@ const modalStack = createStackNavigator({
   },
   PdfError: {
     screen: PdfErrorComponent
+  },
+  Schedule: {
+    screen: ScheduleList
   }
 }, {
     mode: 'modal',
     headerMode: 'none',
     navigationOptions: {
       gesturesEnabled: true,
-      header:null
+      header: null
     }
-  },{
+  }, {
     headerMode: 'none'
   })
 

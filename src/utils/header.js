@@ -9,7 +9,10 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-const Header = () => (
+
+
+
+const Header = ({ onPress }) => (
   <View>
     <SafeAreaView style={styles.statusBar}>
       <View style={styles.container}>
@@ -19,7 +22,10 @@ const Header = () => (
             style={styles.logo}
           />
         </View>
-        <TouchableOpacity style={styles.right}>
+        <TouchableOpacity
+          style={styles.right}
+          onPress={onPress}
+        >
           <Icon name={'calendar'} size={25} color={'#C20E1A'} />
         </TouchableOpacity>
       </View>
