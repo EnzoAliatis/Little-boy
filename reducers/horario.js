@@ -1,12 +1,23 @@
-import { INCREMENT_DAY } from '../constant'
+import { INCREMENT_DAY, DECREMENT_DAY } from '../constant'
 
 const initialState = 0
 
 
-const horario = (state = 1, action) => {
+const horario = (state = initialState, action) => {
   switch (action.type) {
-    case 'INCREMENT_DAY':
-      return state + 1
+    case INCREMENT_DAY:
+      if (action.idx === 4) {
+        return initialState
+      } else {
+        return state + 1
+      }
+
+    case DECREMENT_DAY:
+      if (action.idx === 0) {
+        return state + 4
+      } else {
+        return state - 1
+      }
     default:
       return state
   }
