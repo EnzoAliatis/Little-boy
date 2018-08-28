@@ -9,6 +9,7 @@ import Empty from '../../utils/empty-list'
 import PillComponent from '../components/pill-component';
 import { connect } from 'react-redux'
 import { getMateria } from '../../../reducers/materias';
+import { defineColor } from '../../utils/defineColorFunction'
 
 
 
@@ -46,40 +47,19 @@ class SubjectDescription extends Component {
   }
   goToOption = (item) => {
     if (item.route != '') {
-      this.props.navigation.navigate(`${item.route}`,{scores: this.props.materia.scoreParcials})
+      this.props.navigation.navigate(`${item.route}`, { scores: this.props.materia.scoreParcials })
     }
   }
 
 
-  defineColor = formation => {
-    let color
-    switch (formation) {
-      case 'basica':
-        return color = '#E8D246'
 
-      case 'profesional':
-        return color = '#9CBA5F'
-
-      case 'optativa':
-        return color = '#BE5150'
-
-      case 'humana':
-        return color = '#B4C6DB'
-
-      case 'curricular':
-        return color = '#F5964F'
-
-      default:
-        return color = '#9CBA5F'
-    }
-  }
 
   isFaltasPill = name => {
-    if(name === 'Faltas') {
+    if (name === 'Faltas') {
       return this.props.materia.faults
     }
   }
-  
+
 
   keyExtractor = (item, idx) => (item + idx).toString()
   renderEmpty = () => <Empty text="Cargando las materias..." />
@@ -99,7 +79,7 @@ class SubjectDescription extends Component {
   }
 
   render() {
-    {console.log(this.props.materia)}
+    { console.log(this.props.materia) }
     return (
       <SubjectDescriptionLayout
         classRoom={this.props.materia.classroom}
@@ -107,7 +87,7 @@ class SubjectDescription extends Component {
         teacher={this.props.materia.teacher}
         email={this.props.materia.email}
         onEmailPress={this.onEmailPress}
-        colorPanel={this.defineColor(this.props.materia.formation)}
+        colorPanel={defineColor(this.props.materia.formation)}
       >
         <FlatList
           keyExtractor={this.keyExtractor}

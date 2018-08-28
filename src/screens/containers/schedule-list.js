@@ -2,9 +2,20 @@ import React, { Component } from 'react'
 import {
   FlatList
 } from 'react-native'
+
+import { connect } from 'react-redux'
+
+
+
 import ScheduleListLayout from '../components/schedule-list-layout';
 import ScheduleListItem from '../components/schedule-list-item';
 import ScheduleHeader from '../components/schedule-header';
+import { getMateriaByDay } from '../../../reducers/materias';
+import EmptyList from '../../utils/empty-list';
+
+
+import { defineColor } from '../../utils/defineColorFunction'
+
 
 
 
@@ -35,33 +46,48 @@ class ScheduleList extends Component {
     ]
   }
 
+
+
+
   keyExtractor = item => item.name
 
   renderHeader = () => <ScheduleHeader />
 
   renderItem = ({ item }) => (
     <ScheduleListItem
-      hour={item.hora}
+      hour={item.hour}
+      number={item.classroom}
       name={item.name}
-      number={item.salon}
-      color={item.color}
+      color={defineColor(item.formation)}
     />
   )
 
+  renderEmpty = () => <EmptyList text={'No tienes materias'} />
+
 
   render() {
+    console.log(this.props.materias)
+
     return (
+
       <ScheduleListLayout>
+        {console.log(this.props.materias)}
         <FlatList
           keyExtractor={this.keyExtractor}
+          data={this.props.materias}
+          ListEmptyComponent={this.renderEmpty}
           renderItem={this.renderItem}
-          data={this.state.info}
-        />
+        >
+        </FlatList>
       </ScheduleListLayout>
     )
   }
 }
 
 
+mapStateToProps = state => ({
+  materias: getMateriaByDay(state.materias, state.diaSemana)
+})
 
-export default ScheduleList
+
+export default connect(mapStateToProps)(ScheduleList)
