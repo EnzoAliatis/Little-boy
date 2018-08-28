@@ -1,0 +1,1 @@
+export const INCREMENT_DAY = 'INCREMENT_DAY'

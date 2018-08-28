@@ -3,13 +3,14 @@ import { combineReducers } from 'redux'
 import navigation from './navigation'
 
 import materias from './materias'
-// borrar despues
-import example from './example'
+
+import horario from './horario'
+
 
 const reducer = combineReducers({
   navigation,
   materias,
-  example
+  horario
 })
 
 export default reducer
