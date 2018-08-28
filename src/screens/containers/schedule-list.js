@@ -54,7 +54,6 @@ class ScheduleList extends Component {
       <ScheduleListLayout>
         <FlatList
           keyExtractor={this.keyExtractor}
-
           renderItem={this.renderItem}
           data={this.state.info}
         />

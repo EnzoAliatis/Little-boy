@@ -6,10 +6,11 @@ import {
   SafeAreaView
 } from 'react-native'
 import ScheduleHeader from './schedule-header';
+import ScheduleHeaderContainer from '../containers/schedule-header-container';
 
 const ScheduleListLayout = ({ children }) => (
   <SafeAreaView style={styles.container}>
-    <ScheduleHeader />
+    <ScheduleHeaderContainer />
     {children}
   </SafeAreaView>
 )
