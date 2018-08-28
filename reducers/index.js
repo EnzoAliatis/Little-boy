@@ -4,13 +4,13 @@ import navigation from './navigation'
 
 import materias from './materias'
 
-import horario from './horario'
+import diaSemana from './diaSemana'
 
 
 const reducer = combineReducers({
   navigation,
   materias,
-  horario
+  diaSemana
 })
 
 export default reducer

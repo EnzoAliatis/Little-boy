@@ -30,7 +30,7 @@ class ScheduleHeaderContainer extends Component {
 
 
 const mapStateToProps = state => ({
-  selected: state.horario
+  selected: state.diaSemana
 })
 
 const mapDispatchToProps = dispatch => ({
