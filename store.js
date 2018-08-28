@@ -11,7 +11,7 @@ import reducer from './reducers/'
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['navigation']
+  blacklist: ['navigation', 'horario']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)

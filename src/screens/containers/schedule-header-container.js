@@ -11,7 +11,7 @@ import { incrementDay } from '../../../actions'
 class ScheduleHeaderContainer extends Component {
 
   state = {
-    selected: 0
+    days: ['Lun','Mier','juev']
   }
 
 
@@ -41,8 +41,8 @@ class ScheduleHeaderContainer extends Component {
   render() {
     return (
       <ScheduleHeader
-        dia={this.props.dias[this.props.selected]}
-        onPressRight={() => this.props.onPressRight}
+        dia={this.state.days[this.props.selected]}
+        onPressRight={this.props.onPressRight}
         onPressLeft={() => console.log(this.props.selected)}
       />
     )
@@ -51,12 +51,11 @@ class ScheduleHeaderContainer extends Component {
 
 
 const mapStateToProps = state => ({
-  dias: state.horario.days,
-  selected: state.horario.daySelected
+  selected: state.horario
 })
 
 const mapDispatchToProps = dispatch => ({
-  onPressRight: () => dispatch(incrementDay)
+  onPressRight: () => dispatch(incrementDay())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(ScheduleHeaderContainer)
