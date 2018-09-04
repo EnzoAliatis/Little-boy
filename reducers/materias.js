@@ -41,7 +41,7 @@ const initialState = [
     email: 'el-arnold@live.uleam.edu.ec',
     scoreParcials: ['8.99', '2.90'],
     faults: '10',
-    days: [1, 3],
+    days: [3],
     hour: ['9:00', '11:00'],
 
   },
@@ -55,7 +55,7 @@ const initialState = [
     email: 'mashi@live.uleam.edu.ec',
     scoreParcials: ['5.00', '4.79'],
     faults: '4',
-    days: [1, 3],
+    days: [3],
     hour: ['11:00', '13:00'],
 
   },

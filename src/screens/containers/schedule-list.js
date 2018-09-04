@@ -15,6 +15,7 @@ import EmptyList from '../../utils/empty-list';
 
 
 import { defineColor } from '../../utils/defineColorFunction'
+import SeparatorList from '../../utils/separator-list';
 
 
 
@@ -22,32 +23,6 @@ import { defineColor } from '../../utils/defineColorFunction'
 
 
 class ScheduleList extends Component {
-
-  state = {
-    info: [
-      {
-        name: 'Matematicas',
-        hora: ['9:00', '11:00'],
-        salon: '301',
-        color: '#E8D246'
-      },
-      {
-        name: 'Bases de datos Distribuidas',
-        hora: ['11:00', '13:00'],
-        salon: '303',
-        color: '#9CBA5F'
-      },
-      {
-        name: 'Quimica',
-        hora: ['15:00', '17:00'],
-        salon: '302',
-        color: '#BE5150'
-      }
-    ]
-  }
-
-
-
 
   keyExtractor = item => item.name
 
@@ -62,21 +37,19 @@ class ScheduleList extends Component {
     />
   )
 
-  renderEmpty = () => <EmptyList text={'No tienes materias'} />
+  renderEmpty = () => <EmptyList text={'No tienes materias hoy'} />
+  renderSeparator = () => <SeparatorList />
 
 
   render() {
-    console.log(this.props.materias)
-
     return (
-
       <ScheduleListLayout>
-        {console.log(this.props.materias)}
         <FlatList
           keyExtractor={this.keyExtractor}
           data={this.props.materias}
           ListEmptyComponent={this.renderEmpty}
           renderItem={this.renderItem}
+          ItemSeparatorComponent={this.renderSeparator}
         >
         </FlatList>
       </ScheduleListLayout>

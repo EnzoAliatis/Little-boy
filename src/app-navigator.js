@@ -20,6 +20,8 @@ import PdfErrorComponent from './utils/pdf-error-component';
 import AdsList from './screens/containers/ads-list';
 import ScheduleList from './screens/containers/schedule-list';
 
+import CommingSoonComponent from './utils/comming-soon-component'
+
 
 
 // AQUI TUS COMPOMENTES SCREENS
@@ -80,19 +82,19 @@ const tabStack = createBottomTabNavigator({
     }
   },
   Notifications: {
-    screen: Home,
+    screen: CommingSoonComponent,
     navigationOptions: {
       title: 'Notifi'
     }
   },
   Homework: {
-    screen: Home,
+    screen: CommingSoonComponent,
     navigationOptions: {
       title: 'Tareas'
     }
   },
   Profile: {
-    screen: Home,
+    screen: CommingSoonComponent,
     navigationOptions: {
       title: 'Perfil'
     }
