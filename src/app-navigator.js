@@ -8,17 +8,17 @@ import MaterialComunitiIcons from 'react-native-vector-icons/MaterialCommunityIc
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
-import Home from './screens/containers/home'
+import Home from './main-stack/containers/home'
 
 import Header from './utils/header';
-import SubjectDescription from './screens/containers/subject-description'
-import HomeworkList from './screens/containers/homework-list'
-import EvaluationList from './screens/containers/evaluation-list'
-import MaterialList from './screens/containers/material-list'
-import PdfContainer from './screens/containers/pdf-container';
+import SubjectDescription from './main-stack/containers/subject-description'
+import HomeworkList from './main-stack/containers/homework-list'
+import EvaluationList from './main-stack/containers/evaluation-list'
+import MaterialList from './main-stack/containers/material-list'
+import PdfContainer from './main-stack/containers/pdf-container';
 import PdfErrorComponent from './utils/pdf-error-component';
-import AdsList from './screens/containers/ads-list';
-import ScheduleList from './screens/containers/schedule-list';
+import AdsList from './main-stack/containers/ads-list';
+import ScheduleList from './main-stack/containers/schedule-list';
 
 import CommingSoonComponent from './utils/comming-soon-component'
 
