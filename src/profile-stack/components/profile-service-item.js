@@ -16,11 +16,11 @@ const ProfileServiceItem = ({name}) => (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'yellow',
     height: 40,
     justifyContent: 'space-between',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: 'white'
   },
   texto: {
     fontSize: 20,

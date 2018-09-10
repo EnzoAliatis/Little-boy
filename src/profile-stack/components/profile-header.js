@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     height: '40%',
     alignItems: 'center',
-    backgroundColor: 'red'
+    backgroundColor: '#575757'
   },
   backHeader: {
     position: 'absolute',
@@ -73,15 +73,20 @@ const styles = StyleSheet.create({
   },
   textName: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'white'
   },
   textCedula: {
     fontSize: 15,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'white'
+
   },
   textCarrera: {
     fontSize: 15,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'white'
+
   }
 })
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ProfileMainLayout from '../components/profile-main-layout';
-import { FlatList } from 'react-native'
+import { SectionList } from 'react-native'
 import ProfileServiceItem from '../components/profile-service-item';
+import ProfileSectionServiceHeader from '../components/profile-section-service-header';
 
 
 class ProfileMain extends Component {
@@ -9,39 +10,32 @@ class ProfileMain extends Component {
   state = {
     services: [
       {
-        name: 'Mis Datos',
-        route: ''
+        title: 'Información Estudiante', 
+        data: [{ name: 'Mis Datos', route: '' }, { name: 'Mis Notas', route: '' }, { name: 'Hoja de Vida', route: '' }]
       },
       {
-        name: 'Mis Notas',
-        route: ''
+        title: 'Materias', 
+        data: [{ name: 'Materias Abiertas', route: '' }, { name: 'Registro', route: '' }]
       },
       {
-        name: 'Registros',
-        route: ''
+        title: 'Informatívos', 
+        data: [{ name: 'Plantillas Universitaria', route: '' }, { name: 'Cronograma Academico', route: '' }]
       },
       {
-        name: 'Plantillas Universitarias',
-        route: ''
+        title: 'Soporte', 
+        data: [{ name: 'Sugerencias', route: '' }, { name: 'Reportar Problema', route: '' }, {name: 'Contacto', route: ''}]
       },
       {
-        name: 'Sugerencias',
-        route: ''
-      },
-      {
-        name: 'Cambiar Contraseña',
-        route: ''
-      },
-      {
-        name: 'Cerrar Sesion',
-        route: ''
-      },
-
+        title: 'Cuenta', 
+        data: [{ name: 'Cambiar Contraseña', route: '' }, { name: 'Cerrar Sesión', route: '' }]
+      }
     ]
   }
 
 
   keyExtractor = item => item.name
+
+  renderSectionHeader =  ({ section: { title } }) => <ProfileSectionServiceHeader title={title} />
 
   renderItem = ({ item }) => (
     <ProfileServiceItem
@@ -53,9 +47,10 @@ class ProfileMain extends Component {
   render() {
     return (
       <ProfileMainLayout>
-        <FlatList 
-          data={this.state.services}
+        <SectionList
+          sections={this.state.services}
           keyExtractor={this.keyExtractor}
+          renderSectionHeader={this.renderSectionHeader}
           renderItem={this.renderItem}
         />
       </ProfileMainLayout>
