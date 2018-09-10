@@ -15,7 +15,7 @@ class ProfileMain extends Component {
     services: [
       {
         title: 'Información Estudiante',
-        data: [{ name: 'Mis Datos', route: '' }, { name: 'Mis Notas', route: '' }, { name: 'Hoja de Vida', route: '' }]
+        data: [{ name: 'Mis Datos', route: 'StudenData' }, { name: 'Mis Notas', route: '' }, { name: 'Hoja de Vida', route: '' }]
       },
       {
         title: 'Materias',
@@ -36,6 +36,9 @@ class ProfileMain extends Component {
     ]
   }
 
+  goToOption = route => {
+    this.props.navigation.navigate(`${route}`)
+  }
 
   keyExtractor = item => item.name
 
@@ -44,6 +47,7 @@ class ProfileMain extends Component {
   renderItem = ({ item }) => (
     <ProfileServiceItem
       name={item.name}
+      onPress={() => this.goToOption(item.route)}
     />
   )
 
@@ -51,9 +55,9 @@ class ProfileMain extends Component {
   render() {
     return (
       <ProfileMainLayout
-        cedula={this.props.infoStudent.cedula}
-        nombre={this.props.infoStudent.fullName}
-        carrera={this.props.infoStudent.career}
+        cedula={this.props.cedula}
+        nombre={this.props.fullName}
+        carrera={this.props.career}
       >
         <SectionList
           sections={this.state.services}
@@ -67,7 +71,9 @@ class ProfileMain extends Component {
 }
 
 const mapStateToProps = state => ({
-  infoStudent: state.infoStudent
+  cedula: state.infoStudent.cedula,
+  fullName: state.infoStudent.fullName,
+  career: state.infoStudent.career
 })
 
 

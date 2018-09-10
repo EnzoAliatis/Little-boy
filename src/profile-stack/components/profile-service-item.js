@@ -5,9 +5,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
 
-const ProfileServiceItem = ({name}) => (
+const ProfileServiceItem = ({name, onPress}) => (
   <TouchableOpacity
     style={styles.container}
+    onPress={onPress}
   >
     <Text style={styles.texto}>{name}</Text>
     <Ionicons style={styles.icon} name={'ios-arrow-forward'} size={25} color={'darkslategray'} />

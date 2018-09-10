@@ -23,6 +23,7 @@ import ScheduleList from './main-stack/containers/schedule-list';
 import ProfileMain from './profile-stack/containers/profile-main'
 
 import CommingSoonComponent from './utils/comming-soon-component'
+import StudenData from './profile-stack/containers/student-data';
 
 
 
@@ -79,6 +80,9 @@ const MainStack = createStackNavigator({
 const ProfileStack = createStackNavigator({
   Profile: {
     screen: ProfileMain
+  },
+  StudenData: {
+    screen: StudenData
   }
 }, {
   headerMode: 'none'
