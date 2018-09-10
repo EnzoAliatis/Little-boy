@@ -26,8 +26,6 @@ class ScheduleList extends Component {
 
   keyExtractor = item => item.name
 
-  renderHeader = () => <ScheduleHeader />
-
   renderItem = ({ item }) => (
     <ScheduleListItem
       hour={item.hour}

@@ -20,14 +20,16 @@ import PdfErrorComponent from './utils/pdf-error-component';
 import AdsList from './main-stack/containers/ads-list';
 import ScheduleList from './main-stack/containers/schedule-list';
 
+import ProfileMain from './profile-stack/containers/profile-main'
+
 import CommingSoonComponent from './utils/comming-soon-component'
 
 
 
 // AQUI TUS COMPOMENTES SCREENS
 
-const Main = createStackNavigator({
-  InitialLoadingLayout: {
+const MainStack = createStackNavigator({
+  Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
       header: <Header onPress={() => navigation.navigate('Schedule')} />
@@ -74,9 +76,18 @@ const Main = createStackNavigator({
   })
 
 
+const ProfileStack = createStackNavigator({
+  Profile: {
+    screen: ProfileMain
+  }
+}, {
+  headerMode: 'none'
+})
+
+
 const tabStack = createBottomTabNavigator({
   Home: {
-    screen: Main,
+    screen: MainStack,
     navigationOptions: {
       title: 'Inicio'
     }
@@ -94,7 +105,7 @@ const tabStack = createBottomTabNavigator({
     }
   },
   Profile: {
-    screen: CommingSoonComponent,
+    screen: ProfileStack,
     navigationOptions: {
       title: 'Perfil'
     }
