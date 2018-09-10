@@ -6,11 +6,14 @@ import materias from './materias'
 
 import diaSemana from './diaSemana'
 
+import infoStudent from './infoStudent'
+
 
 const reducer = combineReducers({
   navigation,
   materias,
-  diaSemana
+  diaSemana,
+  infoStudent
 })
 
 export default reducer

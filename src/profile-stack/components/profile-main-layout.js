@@ -1,14 +1,17 @@
 import React from 'react'
 import {
   View,
-  Text,
   StyleSheet
 } from 'react-native'
 import ProfileHeader from './profile-header';
 
-const ProfileMainLayout = ({ children }) => (
+const ProfileMainLayout = ({ children, cedula, nombre, carrera }) => (
   <View style={styles.contianer}>
-    <ProfileHeader />
+    <ProfileHeader
+      cedula={cedula}
+      nombre={nombre}
+      carrera={carrera}
+    />
     <View style={styles.serviceContainer}>
       {children}
     </View>

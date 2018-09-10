@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import ProfileMainLayout from '../components/profile-main-layout';
 import { SectionList } from 'react-native'
+import { connect } from 'react-redux'
+
+
+
 import ProfileServiceItem from '../components/profile-service-item';
 import ProfileSectionServiceHeader from '../components/profile-section-service-header';
 
@@ -10,23 +14,23 @@ class ProfileMain extends Component {
   state = {
     services: [
       {
-        title: 'Información Estudiante', 
+        title: 'Información Estudiante',
         data: [{ name: 'Mis Datos', route: '' }, { name: 'Mis Notas', route: '' }, { name: 'Hoja de Vida', route: '' }]
       },
       {
-        title: 'Materias', 
+        title: 'Materias',
         data: [{ name: 'Materias Abiertas', route: '' }, { name: 'Registro', route: '' }]
       },
       {
-        title: 'Informatívos', 
+        title: 'Informatívos',
         data: [{ name: 'Plantillas Universitaria', route: '' }, { name: 'Cronograma Academico', route: '' }]
       },
       {
-        title: 'Soporte', 
-        data: [{ name: 'Sugerencias', route: '' }, { name: 'Reportar Problema', route: '' }, {name: 'Contacto', route: ''}]
+        title: 'Soporte',
+        data: [{ name: 'Sugerencias', route: '' }, { name: 'Reportar Problema', route: '' }, { name: 'Contacto', route: '' }]
       },
       {
-        title: 'Cuenta', 
+        title: 'Cuenta',
         data: [{ name: 'Cambiar Contraseña', route: '' }, { name: 'Cerrar Sesión', route: '' }]
       }
     ]
@@ -35,7 +39,7 @@ class ProfileMain extends Component {
 
   keyExtractor = item => item.name
 
-  renderSectionHeader =  ({ section: { title } }) => <ProfileSectionServiceHeader title={title} />
+  renderSectionHeader = ({ section: { title } }) => <ProfileSectionServiceHeader title={title} />
 
   renderItem = ({ item }) => (
     <ProfileServiceItem
@@ -46,7 +50,11 @@ class ProfileMain extends Component {
 
   render() {
     return (
-      <ProfileMainLayout>
+      <ProfileMainLayout
+        cedula={this.props.infoStudent.cedula}
+        nombre={this.props.infoStudent.fullName}
+        carrera={this.props.infoStudent.career}
+      >
         <SectionList
           sections={this.state.services}
           keyExtractor={this.keyExtractor}
@@ -58,5 +66,9 @@ class ProfileMain extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  infoStudent: state.infoStudent
+})
 
-export default ProfileMain
+
+export default connect(mapStateToProps)(ProfileMain)

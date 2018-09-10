@@ -9,7 +9,7 @@ import {
 const HEADER_MAX_HEIGHT = 120
 const PROFILE_IMAGE_MAX_HEIGHT = 120
 
-const ProfileHeader = () => (
+const ProfileHeader = ({cedula, nombre, carrera}) => (
   <View style={styles.container}>
     <View style={styles.backHeader}>
       <Image
@@ -25,9 +25,9 @@ const ProfileHeader = () => (
       />
     </View>
     <View style={styles.textContainer}>
-      <Text style={styles.textCedula}>1310729510</Text>
-      <Text style={styles.textName}>Enzo Paolo Aliatis Ramírez</Text>
-      <Text style={styles.textCarrera}>Ingeniero en Sistemas</Text>
+      <Text style={styles.textCedula}>{cedula}</Text>
+      <Text style={styles.textName}>{nombre}</Text>
+      <Text style={styles.textCarrera}>{carrera}</Text>
     </View>
   </View>
 )
