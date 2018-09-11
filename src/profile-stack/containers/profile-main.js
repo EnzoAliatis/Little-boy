@@ -15,7 +15,7 @@ class ProfileMain extends Component {
     services: [
       {
         title: 'Información Estudiante',
-        data: [{ name: 'Mis Datos', route: 'StudenData' }, { name: 'Mis Notas', route: '' }]
+        data: [{ name: 'Mis Datos', route: 'StudenData' }, { name: 'Mis Notas', route: 'Qualifications' }]
       },
       {
         title: 'Materias',

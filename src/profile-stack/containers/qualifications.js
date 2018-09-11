@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import QualificationsLayouts from '../components/qualifications-layout';
 
 
-class Qualification extends Component {
+class Qualifications extends Component {
   render() {
-    return
+    return (
+      <QualificationsLayouts />
+    )
   }
 }
 
-export default Qualification
+export default Qualifications
