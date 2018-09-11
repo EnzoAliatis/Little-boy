@@ -5,10 +5,9 @@ import {
 } from 'react-native'
 import ProfileHeader from './profile-header';
 
-const ProfileMainLayout = ({ children, cedula, nombre, carrera }) => (
+const ProfileMainLayout = ({ children, nombre, carrera }) => (
   <View style={styles.contianer}>
     <ProfileHeader
-      cedula={cedula}
       nombre={nombre}
       carrera={carrera}
     />

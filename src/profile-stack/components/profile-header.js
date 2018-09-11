@@ -9,7 +9,7 @@ import {
 const HEADER_MAX_HEIGHT = 120
 const PROFILE_IMAGE_MAX_HEIGHT = 120
 
-const ProfileHeader = ({cedula, nombre, carrera}) => (
+const ProfileHeader = ({nombre, carrera}) => (
   <View style={styles.container}>
     <View style={styles.backHeader}>
       <Image
@@ -25,7 +25,6 @@ const ProfileHeader = ({cedula, nombre, carrera}) => (
       />
     </View>
     <View style={styles.textContainer}>
-      <Text style={styles.textCedula}>{cedula}</Text>
       <Text style={styles.textName}>{nombre}</Text>
       <Text style={styles.textCarrera}>{carrera}</Text>
     </View>
@@ -34,7 +33,7 @@ const ProfileHeader = ({cedula, nombre, carrera}) => (
 
 const styles = StyleSheet.create({
   container: {
-    height: '40%',
+    marginBottom: 10,
     alignItems: 'center',
     backgroundColor: '#575757'
   },

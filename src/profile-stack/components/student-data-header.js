@@ -3,6 +3,7 @@ import {
   View,
   Text,
   Image,
+  TouchableOpacity,
   StyleSheet
 } from 'react-native'
 
@@ -14,8 +15,13 @@ const StudentDataHeader = ({ }) => (
           source={require('../../../assets/images/fotoEnzo.jpeg')}
           style={styles.imagen}
         />
-
       </View>
+      <TouchableOpacity
+        style={styles.textChangeContainer}
+        hitSlop={{top:120}}
+      >
+        <Text style={styles.textChange}>Cambiar Foto</Text>
+      </TouchableOpacity>
     </View>
     <View style={styles.infoContainer}>
       <Text style={styles.infoTitle}>Cédula:</Text>
@@ -39,17 +45,15 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     marginHorizontal: 25,
-    backgroundColor: 'white',
-    borderRadius: 120,
-
   },
   imageFrame: {
     width: 120,
     height: 120,
     borderColor: 'white',
-    borderWidth: 3,  
-    borderRadius: 100,
-    overflow: 'hidden'
+    borderWidth: 3,
+    borderRadius: 60,
+    overflow: 'hidden',
+    backgroundColor: 'white'
   },
   imagen: {
     flex: 1,
@@ -69,6 +73,13 @@ const styles = StyleSheet.create({
   infoText: {
     fontSize: 16,
     color: 'white',
+  },
+  textChangeContainer: {
+    alignItems: 'center',
+    margin: 2
+  },
+  textChange: {
+    color: 'white'
   }
 })
 

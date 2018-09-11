@@ -55,7 +55,6 @@ class ProfileMain extends Component {
   render() {
     return (
       <ProfileMainLayout
-        cedula={this.props.cedula}
         nombre={this.props.fullName}
         carrera={this.props.career}
       >
@@ -71,7 +70,6 @@ class ProfileMain extends Component {
 }
 
 const mapStateToProps = state => ({
-  cedula: state.infoStudent.cedula,
   fullName: state.infoStudent.fullName,
   career: state.infoStudent.career
 })
