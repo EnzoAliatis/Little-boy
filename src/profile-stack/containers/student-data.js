@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
-import StudenDataLayout from '../components/studen-data-layout';
-import StudentDataHeader from '../components/student-data-header';
+import { connect } from 'react-redux'
+
+
+import StudentDataLayout from '../components/student-data-layout';
 
 
 class StudenData extends Component {
-  render () {
+  render() {
     return (
-      <StudenDataLayout />
+      <StudentDataLayout
+        infoStudent={this.props.infoStudent}
+      />
     )
   }
 }
 
+const mapStateToProps = state => ({
+  infoStudent: state.infoStudent
+})
 
-export default StudenData
+
+
+export default connect(mapStateToProps)(StudenData)
 
 

@@ -7,7 +7,7 @@ import {
   StyleSheet
 } from 'react-native'
 
-const StudentDataHeader = ({ }) => (
+const StudentDataHeader = ({ cedula, fullName, faculty, career }) => (
   <View style={styles.container}>
     <View style={styles.imageContainer}>
       <View style={styles.imageFrame}>
@@ -25,15 +25,13 @@ const StudentDataHeader = ({ }) => (
     </View>
     <View style={styles.infoContainer}>
       <Text style={styles.infoTitle}>Cédula:</Text>
-      <Text style={styles.infoText}>1310729510</Text>
+      <Text style={styles.infoText}>{cedula}</Text>
       <Text style={styles.infoTitle}>Nombres y Apellidos:</Text>
-      <Text style={styles.infoText}>Enzo Paolo Aliatis Ramírez</Text>
+      <Text style={styles.infoText}>{fullName}</Text>
       <Text style={styles.infoTitle}>Facultad:</Text>
-      <Text style={styles.infoText}>Ciencias Informáticas</Text>
+      <Text style={styles.infoText}>{faculty}</Text>
       <Text style={styles.infoTitle}>Carrera:</Text>
-      <Text style={styles.infoText}>Ingeniería en Sistemas</Text>
-      <Text style={styles.infoTitle}>Itinerario:</Text>
-      <Text style={styles.infoText}>Crédito</Text>
+      <Text style={styles.infoText}>{career}</Text>
     </View>
   </View>
 )
@@ -60,10 +58,6 @@ const styles = StyleSheet.create({
     width: null,
     height: null,
     resizeMode: 'contain',
-
-  },
-  infoContainer: {
-
   },
   infoTitle: {
     fontSize: 20,
@@ -73,6 +67,7 @@ const styles = StyleSheet.create({
   infoText: {
     fontSize: 16,
     color: 'white',
+    marginBottom: 2
   },
   textChangeContainer: {
     alignItems: 'center',
