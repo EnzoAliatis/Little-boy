@@ -39,19 +39,24 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     marginHorizontal: 25,
-    backgroundColor: 'blue'
+    backgroundColor: 'white',
+    borderRadius: 120,
 
   },
   imageFrame: {
     width: 120,
     height: 120,
     borderColor: 'white',
-    borderWidth: 3,  },
+    borderWidth: 3,  
+    borderRadius: 100,
+    overflow: 'hidden'
+  },
   imagen: {
     flex: 1,
     width: null,
     height: null,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+
   },
   infoContainer: {
 
