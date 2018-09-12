@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#3E3E3E'
   },
   touch: {
     width: 35,

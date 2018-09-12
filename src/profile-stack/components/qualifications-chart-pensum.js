@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   textLegend: {
-    color: 'white',
+    color: '#3E3E3E',
     fontWeight: 'bold'
   }
 })

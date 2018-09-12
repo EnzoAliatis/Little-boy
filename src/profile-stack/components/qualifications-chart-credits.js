@@ -15,11 +15,11 @@ const QualificationsChartCredits = () => (
       backgroundColor={'#E1E1E1'}
     >
       <Text
-        fill={'white'}
+        fill={'#151515'}
         textAnchor={'middle'}
         alignmentBaseline={'middle'}
         fontSize={28}
-        stroke={'white'}
+        stroke={'#151515'}
         strokeWidth={0.3}>24%</Text>
     </ProgressCircle>
 )

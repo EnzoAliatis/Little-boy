@@ -37,13 +37,13 @@ const QualificationsBody = () => (
 const styles = StyleSheet.create({
   titleText: {
     fontSize: 25,
-    color: 'white',
+    color: '#151515',
     fontWeight: 'bold',
     marginVertical: 10
   },
   textContainer: {
     borderBottomWidth: 2,
-    borderBottomColor: 'white',
+    borderBottomColor: '#E1E1E1',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   chartContainer: {
     marginVertical: 5,
     marginHorizontal: 5,
-    backgroundColor: '#B0B0B0',
+    backgroundColor: '#F7F7F7',
     borderRadius: 10,
 
   }
