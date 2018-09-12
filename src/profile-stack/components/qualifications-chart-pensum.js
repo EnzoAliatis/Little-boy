@@ -1,61 +1,64 @@
 import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import { PieChart } from 'react-native-svg-charts'
-import { Text } from 'react-native-svg'
+
 
 
 const data = [
-  {
-    key: 1,
-    amount: 33,
-    svg: { fill: '#38E86F' },
-    name: 'Aprovadas'
-  },
-  {
-    key: 2,
-    amount: 39,
-    svg: { fill: '#F9644D' },
-    name: 'No tomadas'
-  },
   {
     key: 3,
     amount: 7,
     svg: { fill: '#3ABEFF' },
     name: 'Actual'
   },
+  {
+    key: 2,
+    amount: 32,
+    svg: { fill: '#F9644D' },
+    name: 'No tomadas'
+  },
+  {
+    key: 1,
+    amount: 33,
+    svg: { fill: '#38E86F' },
+    name: 'Aprovadas'
+  },
 ]
-const Labels = ({ slices, height, width }) => {
-  return slices.map((slice, index) => {
-    const { labelCentroid, pieCentroid, data } = slice;
-    return (
-      <Text
-        key={index}
-        x={pieCentroid[0]}
-        y={pieCentroid[1]}
-        fill={'white'}
-        textAnchor={'middle'}
-        alignmentBaseline={'middle'}
-        fontSize={24}
-        stroke={'green'}
-        strokeWidth={0.2}
-      >
-        {data.amount}
-      </Text>
-    )
-  })
-}
-
 
 const QualificationsChartPensum = () => (
-  <PieChart
-    style={{ height: 200 }}
-    valueAccessor={({ item }) => item.amount}
-    data={data}
-    spacing={0}
-    outerRadius={'95%'}
-  >
-  
-    <Labels />
-  </PieChart>
+  <View>
+    <PieChart
+      style={{ height: 200 }}
+      valueAccessor={({ item }) => item.amount}
+      data={data}
+      spacing={0}
+      outerRadius={'95%'}
+    />
+    <View style={styles.legendContainer}>
+      <View style={{ backgroundColor: '#38E86F', height: 20, width: 20 }}></View>
+      <Text style={styles.textLegend}>Aprobadas: 33</Text>
+      <View style={{ backgroundColor: '#3ABEFF', height: 20, width: 20 }}></View>
+      <Text style={styles.textLegend}>Actual: 7</Text>
+      <View style={{ backgroundColor: '#F9644D', height: 20, width: 20 }}></View>
+      <Text style={styles.textLegend}>No Tomadas: 32</Text>
+
+    </View>
+  </View>
 )
+
+const styles = StyleSheet.create({
+  legendContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 7,
+    marginTop: 10,
+    marginBottom: 15
+  },
+  textLegend: {
+    color: 'white',
+    fontWeight: 'bold'
+  }
+})
 
 export default QualificationsChartPensum

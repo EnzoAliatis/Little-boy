@@ -12,7 +12,7 @@ const SubjectListLayout = ({children}) => (
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 1
+    paddingTop: 1,
   }
 })
 

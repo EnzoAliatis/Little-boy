@@ -3,22 +3,22 @@ import {
   View,
   Text,
   SafeAreaView,
-  StyleSheet
+  StyleSheet,
+  ScrollView
 } from 'react-native'
 import QualificationsHeader from './qualifications-header';
 import QualificationsBody from './qualifications-body';
 
 
+
 const QualificationsLayouts = () => (
   <View style={styles.container} >
-    <SafeAreaView>
       <View>
         <QualificationsHeader />
       </View>
-      <View>
+      <ScrollView>
         <QualificationsBody />
-      </View>
-    </SafeAreaView>
+      </ScrollView>
   </View>
 )
 

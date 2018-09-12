@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   statusBar: {
-    backgroundColor: 'white'
+    backgroundColor: '#F7F7F7'
   },
   right: {
     paddingRight: 15
