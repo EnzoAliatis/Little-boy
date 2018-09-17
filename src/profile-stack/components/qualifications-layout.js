@@ -4,13 +4,13 @@ import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
+  StatusBar
 } from 'react-native'
-import QualificationsBody from './qualifications-body';
 import HeaderWithArrows from '../../utils/components/header-with-arrows'
 
 
 
-const QualificationsLayouts = ({headetTitle, onPressLeft, onPressRight}) => (
+const QualificationsLayouts = ({ headetTitle, onPressLeft, onPressRight, children }) => (
   <SafeAreaView style={styles.container} >
     <View style={styles.headerContainer}>
       <HeaderWithArrows
@@ -20,7 +20,7 @@ const QualificationsLayouts = ({headetTitle, onPressLeft, onPressRight}) => (
       />
     </View>
     <ScrollView style={styles.scroll}>
-      <QualificationsBody />
+      {children}
     </ScrollView>
   </SafeAreaView>
 )

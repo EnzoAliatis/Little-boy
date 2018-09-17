@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import QualificationsLayouts from '../components/qualifications-layout';
+import QualificationsBody from '../components/qualifications-body';
 
 
 class Qualifications extends Component {
@@ -40,7 +41,9 @@ class Qualifications extends Component {
         headetTitle={this.state.titles[this.state.titleSelected]}
         onPressRight={this.onPressRight}
         onPressLeft={this.onPressLeft}
-      />
+      >
+        { this.state.titleSelected === 0 && <QualificationsBody /> }   
+      </QualificationsLayouts>
     )
   }
 }
