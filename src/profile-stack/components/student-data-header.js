@@ -18,20 +18,28 @@ const StudentDataHeader = ({ cedula, fullName, faculty, career }) => (
       </View>
       <TouchableOpacity
         style={styles.textChangeContainer}
-        hitSlop={{top:120}}
+        hitSlop={{ top: 120 }}
       >
         <Text style={styles.textChange}>Cambiar Foto</Text>
       </TouchableOpacity>
     </View>
     <View style={styles.infoContainer}>
-      <Text style={styles.infoTitle}>Cédula:</Text>
-      <Text style={styles.infoText}>{cedula}</Text>
-      <Text style={styles.infoTitle}>Nombres y Apellidos:</Text>
-      <Text style={styles.infoText}>{fullName}</Text>
-      <Text style={styles.infoTitle}>Facultad:</Text>
-      <Text style={styles.infoText}>{faculty}</Text>
-      <Text style={styles.infoTitle}>Carrera:</Text>
-      <Text style={styles.infoText}>{career}</Text>
+      <View style={styles.infoTextContainer}>
+        <Text style={styles.infoTitle}>Cédula:</Text>
+        <Text style={styles.infoText}>{cedula}</Text>
+      </View>
+      <View style={styles.infoTextContainer}>
+        <Text style={styles.infoTitle}>Nombres y Apellidos:</Text>
+        <Text style={styles.infoText}>{fullName}</Text>
+      </View>
+      <View style={styles.infoTextContainer}>
+        <Text style={styles.infoTitle}>Facultad:</Text>
+        <Text style={styles.infoText}>{faculty}</Text>
+      </View>
+      <View style={styles.infoTextContainer}>
+        <Text style={styles.infoTitle}>Carrera:</Text>
+        <Text style={styles.infoText}>{career}</Text>
+      </View>
     </View>
   </View>
 )
@@ -40,13 +48,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F7F7F7',
-    margin: 3,
+    backgroundColor: '#F1F1F1',
+    marginHorizontal: 5,
     borderRadius: 5,
-    paddingVertical: 10
+    paddingVertical: 15
+
   },
   imageContainer: {
-    marginHorizontal: 20,
+    marginHorizontal: 25,
   },
   imageFrame: {
     width: 120,
@@ -55,7 +64,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 60,
     overflow: 'hidden',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   imagen: {
     flex: 1,
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   infoTitle: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#151515',
     fontWeight: 'bold'
   },
@@ -78,7 +87,12 @@ const styles = StyleSheet.create({
     margin: 2
   },
   textChange: {
-    color: 'white'
+    color: '#444444'
+  },
+  infoTextContainer: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#E1E1E1',
+    marginBottom: 8,
   }
 })
 

@@ -26,14 +26,22 @@ const StudentDataBody = ({ }) => (
       </View>
     </View>
     <View>
-      <Text style={styles.infoTitle}>Número Matrícula:</Text>
-      <Text style={styles.infoText}>E2018-590</Text>
-      <Text style={styles.infoTitle}>Tipo Alumno:</Text>
-      <Text style={styles.infoText}>Regular</Text>
-      <Text style={styles.infoTitle}>Valor Pagado:</Text>
-      <Text style={styles.infoText}>$8.00</Text>
-      <Text style={styles.infoTitle}>Valor Generado:</Text>
-      <Text style={styles.infoText}>$0.00</Text>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Número Matrícula:</Text>
+        <Text style={styles.infoText}>E2018-590</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Tipo Alumno:</Text>
+        <Text style={styles.infoText}>Regular</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Valor Pagado:</Text>
+        <Text style={styles.infoText}>$8.00</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Valor Generado:</Text>
+        <Text style={styles.infoText}>$0.00</Text>
+      </View>
     </View>
   </View>
 )
@@ -41,28 +49,28 @@ const StudentDataBody = ({ }) => (
 
 const styles = StyleSheet.create({
   container: {
-
+    margin: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: '#F7F7F7',
-    margin: 3,
-    borderRadius: 5,
-    paddingVertical: 10
+    backgroundColor: '#F1F1F1',
 
   },
   infoTitle: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#151515',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginTop: 15
   },
   infoText: {
     fontSize: 16,
+    color: 'white',
     color: '#1D1D1D',
-    marginBottom: 8
   },
   infoContainer: {
-    borderBottomWidth: 3,
-    borderBottomColor: '#444444' 
+    borderBottomWidth: 2,
+    borderBottomColor: '#E1E1E1',
+    marginBottom: 8,
+
   }
 })
 

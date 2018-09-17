@@ -1,7 +1,11 @@
-import React from "react";
-import { View, SafeAreaView, StyleSheet } from "react-native";
-import StudentDataHeader from "./student-data-header";
-import StudentDataBody from "./student-data-body";
+import React from 'react'
+import {
+  View,
+  SafeAreaView,
+  StyleSheet
+} from 'react-native'
+import StudentDataHeader from './student-data-header';
+import StudentDataBody from './student-data-body';
 
 const StudenDataLayout = ({ infoStudent }) => (
   <View style={styles.container}>
@@ -21,26 +25,21 @@ const StudenDataLayout = ({ infoStudent }) => (
       </View>
     </SafeAreaView>
   </View>
-);
+)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#9FB459",
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#9FB459'
   },
   headerContainer: {
-    marginVertical: 10
-  },
-  bodyContainer: {
-
+    marginTop: 10
   },
   infoContainer: {
     backgroundColor: '#E1E1E1',
-    borderRadius: 5 ,
-    paddingVertical: 20
-
+    margin: 2
   }
-});
+})
 
-export default StudenDataLayout;
+export default StudenDataLayout
