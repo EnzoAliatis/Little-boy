@@ -12,13 +12,24 @@ class Qualifications extends Component {
   state = {
     titles: ['General', 'Primer Año', 'Segundo Año', 'Tercer Año', 'Cuarto Año', 'Quinto Año'],
     titleSelected: 0,
-    firstSemestre: [
-      { title: 'Cultura Física', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
-      { title: 'Algebra Lineal', par1: '8.50', par2: '7.00', rec: '', final: '15.50' },
-      { title: 'Calcula Diferencial', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
-      { title: 'Física I', par1: '7.60', par2: '6.82', rec: '', final: '14.42' },
-      { title: 'Fundamentos de Programacion', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
-      { title: 'Introduccion a la Informática', par1: '9.50', par2: '9.50', rec: '', final: '19.00' },
+    scores: [
+      [
+        { title: 'Cultura Física', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+        { title: 'Algebra Lineal', par1: '8.50', par2: '7.00', rec: '', final: '15.50' },
+        { title: 'Calcula Diferencial', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+        { title: 'Física I', par1: '7.60', par2: '6.82', rec: '', final: '14.42' },
+        { title: 'Fundamentos de Programacion', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+        { title: 'Introduccion a la Informática', par1: '9.50', par2: '9.50', rec: '', final: '19.00' },
+      ],
+      [
+        { title: 'Calculo Integral', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+        { title: 'Física II', par1: '8.50', par2: '7.00', rec: '', final: '15.50' },
+        { title: 'Matemáticas Discretas', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+        { title: 'Programacion Orientada a Objetos', par1: '7.60', par2: '6.82', rec: '', final: '14.42' },
+        { title: 'Sistemas Operativos', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+        { title: 'Tecnicas de Expresión Oral y Escrita', par1: '9.50', par2: '9.50', rec: '', final: '19.00' },
+        { title: 'Teoría de Sistemas', par1: '9.50', par2: '9.50', rec: '', final: '19.00' },
+      ]
     ],
   }
 
@@ -77,7 +88,7 @@ class Qualifications extends Component {
               level={(this.state.titleSelected * 2) - 1}
             >
               <FlatList
-                data={this.state.firstSemestre}
+                data={this.state.scores[(this.state.titleSelected * 2) - 2]}
                 keyExtractor={this.keyExtractor}
                 renderItem={this.renderItem}
                 ItemSeparatorComponent={this.renderSeparator}
@@ -88,7 +99,7 @@ class Qualifications extends Component {
               level={this.state.titleSelected * 2}
             >
               <FlatList
-                data={this.state.firstSemestre}
+                data={this.state.scores[(this.state.titleSelected * 2) - 1]}
                 keyExtractor={this.keyExtractor}
                 renderItem={this.renderItem}
                 ItemSeparatorComponent={this.renderSeparator}
