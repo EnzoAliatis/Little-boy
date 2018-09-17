@@ -5,42 +5,42 @@ import {
   StyleSheet
 } from 'react-native'
 
-const StudentDataBody = ({ }) => (
+const StudentDataBody = ({ email, phone, level, itinerary, registrationNumber, typeStudent, Vgenerated, Vpaid }) => (
   <View style={styles.container}>
     <View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Email:</Text>
-        <Text style={styles.infoText}>enzo.aliatis@gmail.com</Text>
+        <Text style={styles.infoText}>{email}</Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Teléfono:</Text>
-        <Text style={styles.infoText}>0980730006</Text>
+        <Text style={styles.infoText}>{phone}</Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Nivel:</Text>
-        <Text style={styles.infoText}>Sexto</Text>
+        <Text style={styles.infoText}>{level}</Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Itinerario:</Text>
-        <Text style={styles.infoText}>Crédito</Text>
+        <Text style={styles.infoText}>{itinerary}</Text>
       </View>
     </View>
     <View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Número Matrícula:</Text>
-        <Text style={styles.infoText}>E2018-590</Text>
+        <Text style={styles.infoText}>{registrationNumber}</Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Tipo Alumno:</Text>
-        <Text style={styles.infoText}>Regular</Text>
+        <Text style={styles.infoText}>{typeStudent}</Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Valor Pagado:</Text>
-        <Text style={styles.infoText}>$8.00</Text>
+        <Text style={styles.infoText}>${Vpaid}</Text>
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.infoTitle}>Valor Generado:</Text>
-        <Text style={styles.infoText}>$0.00</Text>
+        <Text style={styles.infoText}>${Vgenerated}</Text>
       </View>
     </View>
   </View>

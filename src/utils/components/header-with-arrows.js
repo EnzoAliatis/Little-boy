@@ -3,13 +3,12 @@ import {
   View,
   Text,
   StyleSheet,
-  FlatList,
   TouchableOpacity
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const ScheduleHeader = ({ dia, onPressRight, onPressLeft }) => (
+const HeaderWithArrows = ({ title, onPressRight, onPressLeft }) => (
   <View style={styles.container}>
     <TouchableOpacity
       style={styles.touch}
@@ -17,7 +16,7 @@ const ScheduleHeader = ({ dia, onPressRight, onPressLeft }) => (
     >
       <Icon name={'ios-arrow-back'} size={35} color={'#3ABEFF'} />
     </TouchableOpacity>
-    <Text style={styles.text}>{dia}</Text>
+    <Text style={styles.text}>{title}</Text>
     <TouchableOpacity
       style={styles.touch}
       onPress={onPressRight}
@@ -47,4 +46,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ScheduleHeader
+export default HeaderWithArrows

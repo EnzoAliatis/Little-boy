@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 
 import ScheduleListLayout from '../components/schedule-list-layout';
 import ScheduleListItem from '../components/schedule-list-item';
-import ScheduleHeader from '../components/schedule-header';
+
 import { getMateriaByDay } from '../../../reducers/materias';
 import EmptyList from '../../utils/empty-list';
 

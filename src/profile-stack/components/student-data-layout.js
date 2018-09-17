@@ -20,9 +20,19 @@ const StudenDataLayout = ({ infoStudent }) => (
           />
         </View>
         <View style={styles.bodyContainer}>
-          <StudentDataBody />
+          <StudentDataBody
+            email={infoStudent.email}
+            phone={infoStudent.phone}
+            level={infoStudent.level}
+            itinerary={infoStudent.itinerary}
+            registrationNumber={infoStudent.registrationNumber}
+            typeStudent={infoStudent.typeStudent}
+            Vgenerated={infoStudent.Vgenerated}
+            Vpaid={infoStudent.Vpaid}
+          />
         </View>
       </View>
+      {console.log(infoStudent)}
     </SafeAreaView>
   </View>
 )

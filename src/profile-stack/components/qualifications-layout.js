@@ -1,30 +1,34 @@
 import React from 'react'
 import {
   View,
-  Text,
   SafeAreaView,
   StyleSheet,
-  ScrollView
+  ScrollView,
 } from 'react-native'
-import QualificationsHeader from './qualifications-header';
 import QualificationsBody from './qualifications-body';
+import HeaderWithArrows from '../../utils/components/header-with-arrows'
 
 
 
 const QualificationsLayouts = () => (
-  <View style={styles.container} >
-      <View>
-        <QualificationsHeader />
-      </View>
-      <ScrollView>
-        <QualificationsBody />
-      </ScrollView>
-  </View>
+  <SafeAreaView style={styles.container} >
+    <View style={styles.headerContainer}>
+      <HeaderWithArrows
+        title="General"
+      />
+    </View>
+    <ScrollView style={styles.scroll}>
+      <QualificationsBody />
+    </ScrollView>
+  </SafeAreaView>
 )
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#F7F7F7'
+  },
+  scroll: {
     backgroundColor: '#9FB459'
   }
 })
