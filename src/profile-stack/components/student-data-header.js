@@ -40,9 +40,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#F7F7F7',
+    margin: 3,
+    borderRadius: 5,
+    paddingVertical: 10
   },
   imageContainer: {
-    marginHorizontal: 25,
+    marginHorizontal: 20,
   },
   imageFrame: {
     width: 120,
@@ -61,12 +65,12 @@ const styles = StyleSheet.create({
   },
   infoTitle: {
     fontSize: 20,
-    color: 'white',
+    color: '#151515',
     fontWeight: 'bold'
   },
   infoText: {
     fontSize: 16,
-    color: 'white',
+    color: '#1D1D1D',
     marginBottom: 2
   },
   textChangeContainer: {

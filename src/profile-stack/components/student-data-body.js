@@ -8,14 +8,22 @@ import {
 const StudentDataBody = ({ }) => (
   <View style={styles.container}>
     <View>
-      <Text style={styles.infoTitle}>Email:</Text>
-      <Text style={styles.infoText}>enzo.aliatis@gmail.com</Text>
-      <Text style={styles.infoTitle}>Teléfono:</Text>
-      <Text style={styles.infoText}>0980730006</Text>
-      <Text style={styles.infoTitle}>Nivel:</Text>
-      <Text style={styles.infoText}>Sexto</Text>
-      <Text style={styles.infoTitle}>Itinerario:</Text>
-      <Text style={styles.infoText}>Crédito</Text>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Email:</Text>
+        <Text style={styles.infoText}>enzo.aliatis@gmail.com</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Teléfono:</Text>
+        <Text style={styles.infoText}>0980730006</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Nivel:</Text>
+        <Text style={styles.infoText}>Sexto</Text>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoTitle}>Itinerario:</Text>
+        <Text style={styles.infoText}>Crédito</Text>
+      </View>
     </View>
     <View>
       <Text style={styles.infoTitle}>Número Matrícula:</Text>
@@ -33,20 +41,28 @@ const StudentDataBody = ({ }) => (
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 10,
+
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor: '#F7F7F7',
+    margin: 3,
+    borderRadius: 5,
+    paddingVertical: 10
+
   },
   infoTitle: {
     fontSize: 20,
-    color: 'white',
+    color: '#151515',
     fontWeight: 'bold'
   },
   infoText: {
     fontSize: 16,
-    color: 'white',
+    color: '#1D1D1D',
     marginBottom: 8
-
+  },
+  infoContainer: {
+    borderBottomWidth: 3,
+    borderBottomColor: '#444444' 
   }
 })
 
