@@ -32,7 +32,6 @@ const StudenDataLayout = ({ infoStudent }) => (
           />
         </View>
       </View>
-      {console.log(infoStudent)}
     </SafeAreaView>
   </View>
 )

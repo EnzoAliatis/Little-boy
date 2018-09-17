@@ -1,13 +1,25 @@
 import React, { Component } from 'react'
+import { FlatList, View } from 'react-native'
 import QualificationsLayouts from '../components/qualifications-layout';
 import QualificationsBody from '../components/qualifications-body';
+import QualificationsTable from '../components/qualifications-table';
+import QualificationTableItem from '../components/qualification-table-item';
+import SeparatorList from '../../utils/separator-list';
 
 
 class Qualifications extends Component {
 
   state = {
     titles: ['General', 'Primer Año', 'Segundo Año', 'Tercer Año', 'Cuarto Año', 'Quinto Año'],
-    titleSelected: 0
+    titleSelected: 0,
+    firstSemestre: [
+      { title: 'Cultura Física', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+      { title: 'Algebra Lineal', par1: '8.50', par2: '7.00', rec: '', final: '15.50' },
+      { title: 'Calcula Diferencial', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+      { title: 'Física I', par1: '7.60', par2: '6.82', rec: '', final: '14.42' },
+      { title: 'Fundamentos de Programacion', par1: '9.50', par2: '9.00', rec: '', final: '18.50' },
+      { title: 'Introduccion a la Informática', par1: '9.50', par2: '9.50', rec: '', final: '19.00' },
+    ],
   }
 
   onPressRight = () => {
@@ -35,6 +47,20 @@ class Qualifications extends Component {
   }
 
 
+  keyExtractor = (item, index) => (item.title + index).toString()
+  renderItem = ({ item }) => (
+    <QualificationTableItem
+      materia={item.title}
+      par1={item.par1}
+      par2={item.par2}
+      rec={item.rec}
+      final={item.final}
+    />
+  )
+
+  renderSeparator = () => <SeparatorList />
+
+
   render() {
     return (
       <QualificationsLayouts
@@ -42,7 +68,35 @@ class Qualifications extends Component {
         onPressRight={this.onPressRight}
         onPressLeft={this.onPressLeft}
       >
-        { this.state.titleSelected === 0 && <QualificationsBody /> }   
+        {this.state.titleSelected === 0 && <QualificationsBody />}
+        {
+          this.state.titleSelected !== 0 &&
+
+          <View>
+            <QualificationsTable
+              level={(this.state.titleSelected * 2) - 1}
+            >
+              <FlatList
+                data={this.state.firstSemestre}
+                keyExtractor={this.keyExtractor}
+                renderItem={this.renderItem}
+                ItemSeparatorComponent={this.renderSeparator}
+              />
+            </QualificationsTable>
+
+            <QualificationsTable
+              level={this.state.titleSelected * 2}
+            >
+              <FlatList
+                data={this.state.firstSemestre}
+                keyExtractor={this.keyExtractor}
+                renderItem={this.renderItem}
+                ItemSeparatorComponent={this.renderSeparator}
+              />
+            </QualificationsTable>
+          </View>
+
+        }
       </QualificationsLayouts>
     )
   }
