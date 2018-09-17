@@ -10,11 +10,13 @@ import HeaderWithArrows from '../../utils/components/header-with-arrows'
 
 
 
-const QualificationsLayouts = () => (
+const QualificationsLayouts = ({headetTitle, onPressLeft, onPressRight}) => (
   <SafeAreaView style={styles.container} >
     <View style={styles.headerContainer}>
       <HeaderWithArrows
-        title="General"
+        title={headetTitle}
+        onPressLeft={onPressLeft}
+        onPressRight={onPressRight}
       />
     </View>
     <ScrollView style={styles.scroll}>
