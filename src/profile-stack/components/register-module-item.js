@@ -9,15 +9,15 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
-const RegisterModuleItem = () => (
+const RegisterModuleItem = ({parallel, schedule, teacher}) => (
   <View style={styles.container}>
     <View style={styles.infoContainer}>
-      <Text style={styles.textParallel}>A</Text>
+      <Text style={styles.textParallel}>{parallel}</Text>
       <Text style={styles.textTitle}>Horario:</Text>
-      <Text style={styles.textInfo}>Martes 9:00-11:00</Text>
-      <Text style={styles.textInfo}>Jueves 9:00-11:00</Text>
+      <Text style={styles.textInfo}>{schedule[0]}</Text>
+      <Text style={styles.textInfo}>{schedule[1]}</Text>
       <Text style={styles.textTitle}>Profesor:</Text>
-      <Text style={styles.textInfo}>Ing. Omero Simpson</Text>
+      <Text style={styles.textInfo}>{teacher}</Text>
     </View>
     <TouchableOpacity style={styles.bottonContainer}>
       <Icon name={true ? 'check-circle-o' : 'circle-o'} size={35} color={'#3ABEFF'} />
@@ -28,8 +28,8 @@ const RegisterModuleItem = () => (
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#E1E1E1',
-    width: '45%',
-    borderRadius: 5
+    borderRadius: 5,
+    margin: 10
   },
   infoContainer: {
     backgroundColor: '#F7F7F7',
@@ -59,7 +59,9 @@ const styles = StyleSheet.create({
   bottonContainer: {
     backgroundColor: '#F7F7F7',
     padding: 2,
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: 5
+    
   }
 
 })

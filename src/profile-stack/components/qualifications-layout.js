@@ -12,13 +12,11 @@ import HeaderWithArrows from '../../utils/components/header-with-arrows'
 
 const QualificationsLayouts = ({ headetTitle, onPressLeft, onPressRight, children }) => (
   <SafeAreaView style={styles.container} >
-    <View style={styles.headerContainer}>
-      <HeaderWithArrows
-        title={headetTitle}
-        onPressLeft={onPressLeft}
-        onPressRight={onPressRight}
-      />
-    </View>
+    <HeaderWithArrows
+      title={headetTitle}
+      onPressLeft={onPressLeft}
+      onPressRight={onPressRight}
+    />
     <ScrollView style={styles.scroll}>
       {children}
     </ScrollView>
