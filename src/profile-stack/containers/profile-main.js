@@ -19,7 +19,7 @@ class ProfileMain extends Component {
       },
       {
         title: 'Materias',
-        data: [{ name: 'Materias Abiertas', route: '' }, { name: 'Registro', route: '' }]
+        data: [{ name: 'Materias Abiertas', route: '' }, { name: 'Registro', route: 'Register' }]
       },
       {
         title: 'Informatívos',
