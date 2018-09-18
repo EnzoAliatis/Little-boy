@@ -1,12 +1,26 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import {
+  Text,
+  View,
+  SafeAreaView,
+  StyleSheet,
+
+} from 'react-native'
+import RegisterModuleItem from './register-module-item';
 
 const RegisterModuleLayout = () => (
-  <View>
-    <Text>En el mdodulo</Text>
-  </View>
+  <SafeAreaView style={styles.container}>
+    <RegisterModuleItem />
+  </SafeAreaView>
 )
 
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#9FB459'
+  }
+})
 
 
 
