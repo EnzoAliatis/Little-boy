@@ -8,13 +8,14 @@ import {
 } from 'react-native'
 import RegisterInfoPanel from './register-info-panel';
 
-const RegisterLayout = () => (
+const RegisterLayout = ({bottonOnPress}) => (
   <SafeAreaView style={styles.container}>
     <RegisterInfoPanel />
     <View style={styles.buttonContainer}>
       <Button
         title="Empezar proceso de matriculación"
         accessibilityLabel="Empezar"
+        onPress={bottonOnPress}
       />
     </View>
   </SafeAreaView>

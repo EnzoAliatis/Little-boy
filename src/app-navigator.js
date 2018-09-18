@@ -26,6 +26,7 @@ import CommingSoonComponent from './utils/comming-soon-component'
 import StudenData from './profile-stack/containers/student-data';
 import Qualifications from './profile-stack/containers/qualifications';
 import RegisterContainer from './profile-stack/containers/register-container';
+import RegisterModule from './profile-stack/containers/register-module'
 
 
 
@@ -91,6 +92,9 @@ const ProfileStack = createStackNavigator({
   },
   Register: {
     screen: RegisterContainer
+  },
+  RegisterModule: {
+    screen: RegisterModule
   }
 }, {
   headerMode: 'none'

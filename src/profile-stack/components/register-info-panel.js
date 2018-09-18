@@ -15,7 +15,8 @@ const RegisterInfoPanel = ({ title, texto }) => (
       <Text style={styles.texto}>{'\u2022'} Su número de asignaturas reprobadas pendientes de aprobación: 0</Text>
       <Text style={styles.texto}>{'\u2022'} Observación: Para ser considerado estudiante regular, usted debe registrarse en mínimo 4 asignaturas que representan el 60% mínimo en las que debe matricularse para el período académico. O, si usted se encuentra en su úlitmo périodo académico, en todas las asignaturas pendientes para concluir su carrera.</Text>
       <Text style={styles.texto}>{'\u2022'} Valor preliminar de matrícula: $0.00</Text>
-      <Text style={styles.texto}>{'\u2022'} Antes de empezar el proceso de matriculación, haber leído antes las materias abiertas</Text>
+      <Text style={styles.texto}>{'\u2022'} Este porcentaje se obtiene de la relación entre el total de créditos u horas reprobados de todas las carreras que usted ha cursado en la ULEAM y el total de créditos u horas de su carrera actual.</Text>
+      <Text style={styles.texto}>{'\u2022'} Antes de empezar el proceso de matriculación, haber leído antes las materias abiertas.</Text>
     </View>
   </View>
 )
