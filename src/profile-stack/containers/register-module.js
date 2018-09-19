@@ -69,6 +69,7 @@ class RegisterModule extends Component {
       schedule={item.schedule}
       teacher={item.teacher}
       selected={item.selected}
+      onPressItem={() => this.onPressItem(item.parallel)}
     />
   )
 
@@ -87,7 +88,16 @@ class RegisterModule extends Component {
   }
 
   onPressItem = (parallel) => {
-    console.log(parallel)
+
+    console.log(this.state.availableSubjects[this.state.step].avaliables.filter(item => item.parallel === parallel)[0])
+
+    const item = this.state.availableSubjects
+
+    item[this.state.step].avaliables.filter(item => item.parallel === parallel)[0].selected = !item[this.state.step].avaliables.filter(item => item.parallel === parallel)[0].selected
+
+
+    this.forceUpdate()
+
   }
 
 
