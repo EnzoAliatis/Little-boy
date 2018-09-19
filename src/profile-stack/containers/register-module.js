@@ -95,8 +95,11 @@ class RegisterModule extends Component {
 
     item[this.state.step].avaliables.filter(item => item.parallel === parallel)[0].selected = !item[this.state.step].avaliables.filter(item => item.parallel === parallel)[0].selected
 
+    this.setState((state) => ({
+      availableSubjects: item
+    }))
 
-    this.forceUpdate()
+    this.onPressRight()
 
   }
 
