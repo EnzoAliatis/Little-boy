@@ -9,7 +9,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
-const RegisterModuleItem = ({parallel, schedule, teacher}) => (
+const RegisterModuleItem = ({ parallel, schedule, teacher, selected, onPressItem }) => (
   <View style={styles.container}>
     <View style={styles.infoContainer}>
       <Text style={styles.textParallel}>{parallel}</Text>
@@ -19,8 +19,11 @@ const RegisterModuleItem = ({parallel, schedule, teacher}) => (
       <Text style={styles.textTitle}>Profesor:</Text>
       <Text style={styles.textInfo}>{teacher}</Text>
     </View>
-    <TouchableOpacity style={styles.bottonContainer}>
-      <Icon name={true ? 'check-circle-o' : 'circle-o'} size={35} color={'#3ABEFF'} />
+    <TouchableOpacity
+      style={styles.bottonContainer}
+      onPress={onPressItem}
+    >
+      <Icon name={selected ? 'check-circle-o' : 'circle-o'} size={35} color={'#3ABEFF'} />
     </TouchableOpacity>
   </View>
 )
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
     padding: 2,
     alignItems: 'center',
     borderRadius: 5
-    
+
   }
 
 })
