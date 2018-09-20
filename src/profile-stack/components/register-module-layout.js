@@ -7,6 +7,7 @@ import {
 
 } from 'react-native'
 import HeaderWithArrows from '../../utils/components/header-with-arrows';
+import RegisterModuleHeader from './register-module-header';
 
 const RegisterModuleLayout = (
   { children,
@@ -16,7 +17,8 @@ const RegisterModuleLayout = (
     subjectCredits,
     avaliableParallel,
     onPressRight,
-    onPressLeft }) => (
+    onPressLeft,
+    stepEnd }) => (
     <SafeAreaView style={styles.container}>
       <HeaderWithArrows
         title={headerTitle}
@@ -25,24 +27,15 @@ const RegisterModuleLayout = (
       />
       <View style={styles.frontContainer}>
         <View style={styles.panelContainer}>
-          <View style={styles.infoContainer}>
-            <Text style={styles.textTitle}>Materia: </Text>
-            <Text style={styles.textInfo}>{subjectName}</Text>
-          </View>
-          <View style={styles.infoContainer}>
-            <Text style={styles.textTitle}>Nivel: </Text>
-            <Text style={styles.textInfo}>{subjectLevel}</Text>
-          </View>
-          <View style={[styles.infoContainer, { justifyContent: 'space-between' }]}>
-            <View style={styles.infoContainer}>
-              <Text style={styles.textTitle}>Paralelos: </Text>
-              <Text style={styles.textInfo}>{avaliableParallel}</Text>
-            </View>
-            <View style={[styles.infoContainer, { paddingRight: 10 }]}>
-              <Text style={styles.textTitle}>Créditos: </Text>
-              <Text style={styles.textInfo}>{subjectCredits}</Text>
-            </View>
-          </View>
+          {!stepEnd ?
+            <RegisterModuleHeader
+              subjectName={subjectName}
+              subjectLevel={subjectLevel}
+              subjectCredits={subjectCredits}
+              avaliableParallel={avaliableParallel}
+            /> :
+            <View><Text>Hola</Text></View>
+          }
         </View>
         {children}
       </View>
@@ -67,18 +60,8 @@ const styles = StyleSheet.create({
     padding: 2,
     borderRadius: 5
   },
-  textTitle: {
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  textInfo: {
-    fontSize: 18,
-    fontWeight: 'normal'
-  },
-  infoContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  }
+
+
 })
 
 

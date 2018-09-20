@@ -58,6 +58,7 @@ class RegisterModule extends Component {
       }
     ],
     step: 0,
+    stepEnd: false,
     selectedSubjects: []
   }
 
@@ -74,54 +75,60 @@ class RegisterModule extends Component {
   )
 
   onPressRight = () => {
-    this.setState(prev => ({
-      step: prev.step + 1
-    }))
+    if (this.state.step < this.state.availableSubjects.length - 1) {
+      this.setState(prev => ({
+        step: prev.step + 1
+      }))
+    } else {
+      this.setState(prev => ({
+        stepEnd: true
+      }))
+    }
+
   }
 
   onPressLeft = () => {
     if (this.state.step !== 0) {
       this.setState(prev => ({
-        step: prev.step - 1
+        step: prev.step - 1,
+        stepEnd: false
       }))
-    }
+    } 
   }
 
   onPressItem = (parallel) => {
+    const item = Object.assign([], this.state.availableSubjects)
 
-    console.log(this.state.availableSubjects[this.state.step].avaliables.filter(item => item.parallel === parallel)[0])
-
-    const item = this.state.availableSubjects
-
+    item[this.state.step].avaliables.map(item => item.selected = false)
     item[this.state.step].avaliables.filter(item => item.parallel === parallel)[0].selected = !item[this.state.step].avaliables.filter(item => item.parallel === parallel)[0].selected
 
-    this.setState((state) => ({
+    this.setState(() => ({
       availableSubjects: item
     }))
 
     this.onPressRight()
-
   }
 
+ 
 
 
   render() {
     return (
       <RegisterModuleLayout
-        headerTitle={`${this.state.step + 1} de ${this.state.availableSubjects.length}`}
+        headerTitle={this.state.stepEnd ? 'General' : `${this.state.step + 1} de ${this.state.availableSubjects.length} Materias`}
         subjectName={this.state.availableSubjects[this.state.step].name}
         subjectLevel={this.state.availableSubjects[this.state.step].level}
         subjectCredits={this.state.availableSubjects[this.state.step].credits}
         avaliableParallel={this.state.availableSubjects[this.state.step].avaliables.length}
         onPressRight={this.onPressRight}
         onPressLeft={this.onPressLeft}
+        stepEnd={this.state.stepEnd}
       >
         <FlatList
           data={this.state.availableSubjects[this.state.step].avaliables}
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
-
       </RegisterModuleLayout>
     )
   }
