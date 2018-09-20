@@ -2,12 +2,14 @@ import React from 'react'
 import {
   Text,
   View,
+  Button,
   SafeAreaView,
   StyleSheet,
 
 } from 'react-native'
 import HeaderWithArrows from '../../utils/components/header-with-arrows';
 import RegisterModuleHeader from './register-module-header';
+import RegisterModuleHederEnd from './register-module-headerEnd';
 
 const RegisterModuleLayout = (
   { children,
@@ -34,7 +36,7 @@ const RegisterModuleLayout = (
               subjectCredits={subjectCredits}
               avaliableParallel={avaliableParallel}
             /> :
-            <View><Text>Hola</Text></View>
+            <RegisterModuleHederEnd />
           }
         </View>
         {children}

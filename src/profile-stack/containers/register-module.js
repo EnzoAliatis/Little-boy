@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
+import { FlatList, Button } from 'react-native'
 
 
 import RegisterModuleLayout from '../components/register-module-layout';
@@ -129,6 +129,7 @@ class RegisterModule extends Component {
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
         />
+        
       </RegisterModuleLayout>
     )
   }
