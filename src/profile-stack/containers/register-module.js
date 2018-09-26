@@ -4,10 +4,11 @@ import { FlatList, Button } from "react-native";
 import RegisterModuleLayout from "../components/register-module-layout";
 import RegisterModuleItem from "../components/register-module-item";
 import MyBotton from "../../utils/components/my-botton"
+import RegisterModuleHederEnd from "../components/register-module-headerEnd";
 
 class RegisterModule extends Component {
   state = {
-    
+
     step: 0,
     availableSubjects: [
       {
@@ -111,12 +112,12 @@ class RegisterModule extends Component {
 
   renderItem = ({ item }) => (
     <RegisterModuleItem
-      parallel={item.parallel || `${item[0].materia} \n "${item[0].parallel}"`}
-      schedule={item.schedule || item[0].schedule}
-      teacher={item.teacher || item[0].teacher}
+      parallel={item.parallel || `${item[0].materia}\n"${item[0].parallel}"` || '-'}
+      schedule={item.schedule || item[0].schedule || '-'}
+      teacher={item.teacher || item[0].teacher || '-'}
       selected={item.selected}
       onPressItem={() => this.onPressItem(item.parallel)}
-      isStepEnd = {this.state.stepEnd}
+      isStepEnd={this.state.stepEnd}
     />
   );
 
@@ -131,6 +132,7 @@ class RegisterModule extends Component {
       }));
       console.log(this.filterSelected(this.state.availableSubjects))
     }
+    setTimeout(this.scrollToTop, 200)
   };
 
   onPressLeft = () => {
@@ -145,10 +147,18 @@ class RegisterModule extends Component {
         }));
       }
     }
+    setTimeout(this.scrollToTop, 200)
+
   };
 
   onPressEnd = () => {
-    this.props.navigation.navigate('Profile')
+    //this.props.navigation.navigate('Profile')
+    setTimeout(this.scrollToTop, 200)
+
+  }
+
+  scrollToTop = () => {
+    this.refs._scrollView.scrollToOffset({x: 0, y: 0, animated: true});
   }
 
   onPressItem = parallel => {
@@ -185,8 +195,8 @@ class RegisterModule extends Component {
           this.state.stepEnd
             ? "General"
             : `${this.state.step + 1} de ${
-                this.state.availableSubjects.length
-              } Materias`
+            this.state.availableSubjects.length
+            } Materias`
         }
         subjectName={this.state.availableSubjects[this.state.step].name}
         subjectLevel={this.state.availableSubjects[this.state.step].level}
@@ -199,10 +209,12 @@ class RegisterModule extends Component {
         stepEnd={this.state.stepEnd}
       >
         <FlatList
-          data={!this.state.stepEnd ? this.state.availableSubjects[this.state.step].avaliables: this.filterSelected(this.state.availableSubjects)}
+          ref='_scrollView'
+          data={!this.state.stepEnd ? this.state.availableSubjects[this.state.step].avaliables : this.filterSelected(this.state.availableSubjects)}
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
-          ListFooterComponent={this.state.stepEnd && <MyBotton onPress={this.onPressEnd} title={'Finalizar Matrícula'}/>}
+          ListHeaderComponent={this.state.stepEnd && <RegisterModuleHederEnd />}
+          ListFooterComponent={this.state.stepEnd && <MyBotton onPress={this.onPressEnd} title={'Finalizar Matrícula'} />}
         />
       </RegisterModuleLayout>
     );
