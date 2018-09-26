@@ -9,7 +9,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
-const RegisterModuleItem = ({ parallel, schedule, teacher, selected, onPressItem }) => (
+const RegisterModuleItem = ({ parallel, schedule, teacher, selected, onPressItem, isStepEnd }) => (
   <View style={styles.container}>
     <View style={styles.infoContainer}>
       <Text style={styles.textParallel}>{parallel}</Text>
@@ -19,12 +19,23 @@ const RegisterModuleItem = ({ parallel, schedule, teacher, selected, onPressItem
       <Text style={styles.textTitle}>Profesor:</Text>
       <Text style={styles.textInfo}>{teacher}</Text>
     </View>
-    <TouchableOpacity
-      style={styles.bottonContainer}
-      onPress={onPressItem}
-    >
-      <Icon name={selected ? 'check-circle-o' : 'circle-o'} size={35} color={'#3ABEFF'} />
-    </TouchableOpacity>
+    {
+      !isStepEnd ? (
+        <TouchableOpacity
+          style={styles.bottonContainer}
+          onPress={onPressItem}
+        >
+          <Icon name={selected ? 'check-circle-o' : 'circle-o'} size={35} color={'#3ABEFF'} />
+        </TouchableOpacity>
+      ) : (
+        <View
+          style={styles.bottonContainer}
+          onPress={onPressItem}
+        >
+          <Icon name={'check-circle-o'} size={35} color={'#3ABEFF'} />
+        </View>
+      )
+    }
   </View>
 )
 
