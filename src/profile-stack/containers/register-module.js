@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, Button } from "react-native";
+import { FlatList, Alert } from "react-native";
 
 import RegisterModuleLayout from "../components/register-module-layout";
 import RegisterModuleItem from "../components/register-module-item";
@@ -112,14 +112,30 @@ class RegisterModule extends Component {
 
   renderItem = ({ item }) => (
     <RegisterModuleItem
-      parallel={item.parallel || `${item[0].materia}\n"${item[0].parallel}"` || '-'}
-      schedule={item.schedule || item[0].schedule || '-'}
-      teacher={item.teacher || item[0].teacher || '-'}
-      selected={item.selected}
+      parallel={item.parallel ||  this.defineItemModuleItem(item,'fullname')}
+      schedule={item.schedule || this.defineItemModuleItem(item, 'schedule')}
+      teacher={item.teacher || this.defineItemModuleItem(item, 'teacher')}
+      selected={item.selected || false}
       onPressItem={() => this.onPressItem(item.parallel)}
       isStepEnd={this.state.stepEnd}
     />
   );
+
+  defineItemModuleItem = (item, opc) => {
+    if (item.length > 0) {
+      switch (opc) {
+        case 'fullname':
+          return `${item[0].materia}\n"${item[0].parallel}"`
+        case 'schedule':
+          return item[0].schedule
+        case 'teacher':
+          return item[0].teacher
+      }
+    } else {
+      return '-'
+    }
+  }
+
 
   onPressRight = () => {
     if (this.state.step < this.state.availableSubjects.length - 1) {
@@ -153,12 +169,19 @@ class RegisterModule extends Component {
 
   onPressEnd = () => {
     //this.props.navigation.navigate('Profile')
-    setTimeout(this.scrollToTop, 200)
+    Alert.alert(
+      'Confirmar Matrícula',
+      'Al presionar "Aceptar", ud aprueba terminos y condiciones del proceso de Matriculacion y a su vez que ha escogido sus materias con premeditación',
+      [
+        { text: 'Cancelar', style: 'destructive' },
+        { text: 'Aceptar', onPress: () => this.props.navigation.navigate('Profile')}
+      ]
+    )
 
   }
 
   scrollToTop = () => {
-    this.refs._scrollView.scrollToOffset({x: 0, y: 0, animated: true});
+    this.refs._scrollView.scrollToOffset({ x: 0, y: 0, animated: true });
   }
 
   onPressItem = parallel => {
@@ -184,7 +207,6 @@ class RegisterModule extends Component {
       ite.materia = item.name
       return ite
     }))
-    console.log(selected)
     return selected
   }
 

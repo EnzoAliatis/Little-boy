@@ -12,12 +12,12 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 const RegisterModuleItem = ({ parallel, schedule, teacher, selected, onPressItem, isStepEnd }) => (
   <View style={styles.container}>
     <View style={styles.infoContainer}>
-      <Text style={styles.textParallel}>{parallel || 'No Tomada'}</Text>
+      <Text style={styles.textParallel}>{parallel}</Text>
       <Text style={styles.textTitle}>Horario:</Text>
-      <Text style={styles.textInfo}>{schedule[0] || '-'}</Text>
-      <Text style={styles.textInfo}>{schedule[1] || '-'}</Text>
+      <Text style={styles.textInfo}>{ schedule ? schedule[0] : '-'}</Text>
+      <Text style={styles.textInfo}>{schedule ? schedule[0] : '-'}</Text>
       <Text style={styles.textTitle}>Profesor:</Text>
-      <Text style={styles.textInfo}>{teacher || '-'}</Text>
+      <Text style={styles.textInfo}>{teacher}</Text>
     </View>
     {
       !isStepEnd ? (

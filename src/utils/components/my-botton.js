@@ -16,16 +16,17 @@ const MyBotton = ({title, onPress}) => (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#F9644D',
     alignItems: 'center',
     paddingVertical: 15,
     borderWidth: 3,
-    borderColor: '#E1E1E1',
+    borderColor: '#9F4032',
     borderRadius: 5
   },
   texto: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#F7F7F7'
   }
 })
 

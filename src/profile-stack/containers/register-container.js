@@ -11,7 +11,7 @@ class RegisterContainer extends Component {
       '¿Ya planificó sus matrículas ?',
       'De no ser así, lea las materias abiertas',
       [
-        { text: 'Canelar', style: 'destructive' },
+        { text: 'Cancelar', style: 'destructive' },
         { text: 'Empezar', onPress: () => this.props.navigation.navigate('RegisterModule')}
       ],
       { cancelable: false }
