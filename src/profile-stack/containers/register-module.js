@@ -8,7 +8,8 @@ import MyBotton from "../../utils/components/my-botton"
 class RegisterModule extends Component {
   state = {
     
-    step: 0,availableSubjects: [
+    step: 0,
+    availableSubjects: [
       {
         id: "1",
         name: "Gestion de Calidad de Software",
@@ -103,14 +104,14 @@ class RegisterModule extends Component {
       }
     ],
     stepEnd: false,
-    selectedSubjects: []
+
   };
 
   keyExtractor = (item, idx) => idx.toString();
 
   renderItem = ({ item }) => (
     <RegisterModuleItem
-      parallel={item.parallel || item[0].parallel}
+      parallel={item.parallel || `${item[0].materia} \n "${item[0].parallel}"`}
       schedule={item.schedule || item[0].schedule}
       teacher={item.teacher || item[0].teacher}
       selected={item.selected}
@@ -168,8 +169,12 @@ class RegisterModule extends Component {
   };
 
 
-  filterSelected = (avaliables) => {
-    const selected = avaliables.map(item => item.avaliables.filter(it => it.selected))
+  filterSelected = (subjects) => {
+    const selected = subjects.map(item => item.avaliables.filter(it => it.selected).map(ite => {
+      ite.materia = item.name
+      return ite
+    }))
+    console.log(selected)
     return selected
   }
 
@@ -194,7 +199,7 @@ class RegisterModule extends Component {
         stepEnd={this.state.stepEnd}
       >
         <FlatList
-          data={!this.state.stepEnd ? this.state.availableSubjects[this.state.step].avaliables: this.filterSelected( this.state.availableSubjects)}
+          data={!this.state.stepEnd ? this.state.availableSubjects[this.state.step].avaliables: this.filterSelected(this.state.availableSubjects)}
           keyExtractor={this.keyExtractor}
           renderItem={this.renderItem}
           ListFooterComponent={this.state.stepEnd && <MyBotton onPress={this.onPressEnd} title={'Finalizar Matrícula'}/>}
