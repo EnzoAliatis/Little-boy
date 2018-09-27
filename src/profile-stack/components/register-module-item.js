@@ -15,7 +15,7 @@ const RegisterModuleItem = ({ parallel, schedule, teacher, selected, onPressItem
       <Text style={styles.textParallel}>{parallel}</Text>
       <Text style={styles.textTitle}>Horario:</Text>
       <Text style={styles.textInfo}>{ schedule ? schedule[0] : '-'}</Text>
-      <Text style={styles.textInfo}>{schedule ? schedule[0] : '-'}</Text>
+      <Text style={styles.textInfo}>{schedule ? schedule[1] : '-'}</Text>
       <Text style={styles.textTitle}>Profesor:</Text>
       <Text style={styles.textInfo}>{teacher}</Text>
     </View>
