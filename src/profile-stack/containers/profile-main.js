@@ -27,7 +27,7 @@ class ProfileMain extends Component {
       },
       {
         title: 'Soporte',
-        data: [{ name: 'Sugerencias', route: '' }, { name: 'Reportar Problema', route: '' }, { name: 'Contacto', route: '' }]
+        data: [{ name: 'Sugerencias', route: 'Suggestions' }, { name: 'Contactos', route: '' }]
       },
       {
         title: 'Cuenta',

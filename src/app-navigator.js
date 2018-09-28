@@ -28,6 +28,7 @@ import Qualifications from './profile-stack/containers/qualifications';
 import RegisterContainer from './profile-stack/containers/register-container';
 import RegisterModule from './profile-stack/containers/register-module'
 import UtemplatesContainer from './profile-stack/containers/Utemplates-container';
+import SuggestionsContainer from './profile-stack/containers/suggestions-container';
 
 
 
@@ -99,6 +100,9 @@ const ProfileStack = createStackNavigator({
   },
   Utemplates: {
     screen: UtemplatesContainer
+  },
+  Suggestions: {
+    screen: SuggestionsContainer
   }
 }, {
   headerMode: 'none'
