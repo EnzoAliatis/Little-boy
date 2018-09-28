@@ -3,7 +3,10 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView
+  TextInput,
+  SafeAreaView,
+  Keyboard,
+  TouchableOpacity
 } from 'react-native'
 import { Dropdown } from 'react-native-material-dropdown';
 
@@ -13,7 +16,7 @@ import { Dropdown } from 'react-native-material-dropdown';
 import HeaderOnlyTitle from '../../utils/components/header-only-title';
 
 
-const SuggestionsLayout = ({ categories }) => (
+const SuggestionsLayout = ({ categories, onReportSubmit }) => (
   <SafeAreaView style={styles.container}>
     <View style={{ flex: 1, backgroundColor: "#BE5150" }}>
       <HeaderOnlyTitle
@@ -30,9 +33,25 @@ const SuggestionsLayout = ({ categories }) => (
         <Dropdown
           label='Categorias'
           data={categories}
-          baseColor='rgba(29, 29, 29, 1)'
+          baseColor='rgba(190, 81, 80, 1)'
         />
       </View>
+      <TextInput
+        style={[styles.infoPanel, { height: 120, textAlignVertical: "top"}]}
+        multiline={true}
+        numberOfLines={2}
+        maxLength={200}
+        placeholder='Escribenos tu sugerencia'
+        returnKeyType='done'
+        onSubmitEditing={Keyboard.dismiss}
+      />
+      <TouchableOpacity
+        onPress={onReportSubmit}
+        style={styles.botonContainer}
+      >
+        <Text style={styles.textBottom}>Enviar reporte</Text>
+      </TouchableOpacity>
+
     </View>
   </SafeAreaView>
 )
@@ -53,6 +72,21 @@ const styles = StyleSheet.create({
   infoText: {
     textAlign: 'justify'
   },
+  botonContainer: {
+    backgroundColor: '#F7F7F7',
+    width: 200,
+    marginVertical: 20,
+    padding: 8,
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderRadius: 5,
+    borderWidth: 2,
+    borderColor: '#E1E1E1',
+  },
+  textBottom: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  }
 })
 
 
