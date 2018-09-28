@@ -23,7 +23,7 @@ class ProfileMain extends Component {
       },
       {
         title: 'Informatívos',
-        data: [{ name: 'Plantillas Universitaria', route: '' }, { name: 'Cronograma Academico', route: '' }]
+        data: [{ name: 'Plantillas Universitaria', route: 'Utemplates' }, { name: 'Cronograma Academico', route: '' }]
       },
       {
         title: 'Soporte',

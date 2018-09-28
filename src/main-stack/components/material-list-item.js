@@ -9,17 +9,19 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
-const MaterialListItem = ({ title, onPress, initDate }) => (
+const MaterialListItem = ({ title, onPress, initDate, colorIcon }) => (
   <TouchableOpacity
     style={styles.itemContainer}
     onPress={onPress}
   >
     <View style={styles.info}>
       <Text style={styles.itemText}>{title}</Text>
-      <Text style={styles.date}>Fecha Inicio: {initDate}</Text>
+      {
+        initDate && <Text style={styles.date}>Fecha Inicio: {initDate}</Text>
+      }
     </View>
     <View style={styles.iconContainer}>
-      <Icon name={'file-download'} size={35} color={'#212121'} />
+      <Icon name={'file-download'} size={35} color={colorIcon || '#212121'} />
     </View>
   </TouchableOpacity>
 )

@@ -27,6 +27,7 @@ import StudenData from './profile-stack/containers/student-data';
 import Qualifications from './profile-stack/containers/qualifications';
 import RegisterContainer from './profile-stack/containers/register-container';
 import RegisterModule from './profile-stack/containers/register-module'
+import UtemplatesContainer from './profile-stack/containers/Utemplates-container';
 
 
 
@@ -95,6 +96,9 @@ const ProfileStack = createStackNavigator({
   },
   RegisterModule: {
     screen: RegisterModule
+  },
+  Utemplates: {
+    screen: UtemplatesContainer
   }
 }, {
   headerMode: 'none'
