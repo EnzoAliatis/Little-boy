@@ -20,6 +20,23 @@ class SuggestionsContainer extends Component {
         value: 'Reportar error ortográfico',
       }
     ],
+    screens: [
+      {
+        value: 'Inicio',
+      },
+      {
+        value: 'Perfil',
+      },
+      {
+        value: 'Mis notas',
+      },
+      {
+        value: 'Plantillas ',
+      },
+      {
+        value: 'Contactos',
+      },
+    ],
     selected: ''
   }
 
@@ -38,6 +55,7 @@ class SuggestionsContainer extends Component {
     return (
       <SuggestionsLayout
         categories={this.state.categories}
+        screens={this.state.screens}
         onReportSubmit={this.onReportSubmit}
       />
     )

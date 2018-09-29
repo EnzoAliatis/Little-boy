@@ -79,7 +79,6 @@ class SubjectDescription extends Component {
   }
 
   render() {
-    { console.log(this.props.materia) }
     return (
       <SubjectDescriptionLayout
         classRoom={this.props.materia.classroom}

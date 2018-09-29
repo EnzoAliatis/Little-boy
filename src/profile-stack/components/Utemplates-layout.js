@@ -18,7 +18,7 @@ const UtemplatesLayout = ({ children }) => (
 const styles = StyleSheet.create({
   childrenContainer: {
     flex: 1,
-    backgroundColor: '#BE5150'
+    backgroundColor: '#F5964F'
   }
 })
 

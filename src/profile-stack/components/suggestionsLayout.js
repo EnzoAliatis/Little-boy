@@ -16,7 +16,7 @@ import { Dropdown } from 'react-native-material-dropdown';
 import HeaderOnlyTitle from '../../utils/components/header-only-title';
 
 
-const SuggestionsLayout = ({ categories, onReportSubmit }) => (
+const SuggestionsLayout = ({ categories, screens, onReportSubmit }) => (
   <SafeAreaView style={styles.container}>
     <View style={{ flex: 1, backgroundColor: "#BE5150" }}>
       <HeaderOnlyTitle
@@ -36,8 +36,15 @@ const SuggestionsLayout = ({ categories, onReportSubmit }) => (
           baseColor='rgba(190, 81, 80, 1)'
         />
       </View>
+      <View style={styles.infoPanel}>
+        <Dropdown
+          label='Pantalla'
+          data={screens}
+          baseColor='rgba(190, 81, 80, 1)'
+        />
+      </View>
       <TextInput
-        style={[styles.infoPanel, { height: 120, textAlignVertical: "top"}]}
+        style={[styles.infoPanel, { height: 120, textAlignVertical: "top" }]}
         multiline={true}
         numberOfLines={2}
         maxLength={200}
