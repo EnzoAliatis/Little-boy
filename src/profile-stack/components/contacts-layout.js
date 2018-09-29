@@ -19,14 +19,9 @@ import HeaderOnlyTitle from '../../utils/components/header-only-title';
 const ContactsLayout = (
   {
     headerTitle,
-    onEmailPress,
-    onPhonePress,
-    onMapPress,
-    onWebPress,
-    onTwitterPress,
-    onFacebookPress,
-    onYoutubePress,
-    onGplusPress
+    locals,
+    socials,
+    onContactPress
   }) => (
     <SafeAreaView style={styles.screen}>
       <HeaderOnlyTitle
@@ -35,96 +30,54 @@ const ContactsLayout = (
       <View style={styles.container}>
         <View style={styles.infoPanel}>
           <View style={styles.col}>
-            <TouchableOpacity
-              style={styles.socialPanel}
-              onPress={onEmailPress}
-            >
-              <Icon
-                name={'mail'}
-                size={40}
-                color={'#438519'}
-              />
-              <Text>Email Soporte</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.socialPanel}
-              onPress={onPhonePress}
-            >
-              <Icon
-                name={'phone'}
-                size={40}
-                color={'#438519'}
-              />
-              <Text>Telefono Soporte</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={onMapPress}
-              style={styles.socialPanel}
-            >
-              <Icon
-                name={'location-pin'}
-                size={40}
-                color={'#438519'}
-              />
-              <Text>Direccíon ULEAM</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.socialPanel}
-              onPress={onWebPress}
-            >
-              <IconM
-                name={'web'}
-                size={40}
-                color={'#438519'}
-              />
-              <Text>Página Web ULEAM</Text>
-            </TouchableOpacity>
+            {
+              locals.map(item => (
+                <TouchableOpacity
+                  style={styles.socialPanel}
+                  key={item.id}
+                  onPress={() => onContactPress(item.url)}
+                >
+                  {item.iconType === 'Entypo' &&
+                    <Icon
+                      name={item.iconName}
+                      size={40}
+                      color={'#438519'}
+                    />}
+                  {item.iconType === 'MaterialCommunityIcons' &&
+                    <IconM
+                      name={item.iconName}
+                      size={40}
+                      color={'#438519'}
+                    />}
+                  <Text>{item.label}</Text>
+                </TouchableOpacity>
+              ))
+            }
           </View>
           <View style={styles.col}>
-            <TouchableOpacity
-              style={styles.socialPanel}
-              onPress={onTwitterPress}
-            >
-              <Icon
-                name={'twitter'}
-                size={40}
-                color={'#1da1f2'}
-              />
-              <Text>Twitter ULEAM</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.socialPanel}
-              onPress={onFacebookPress}
-            >
-              <Icon
-                name={'facebook'}
-                size={40}
-                color={'#3b5998'}
-              />
-              <Text>Facebook ULEAM</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={onYoutubePress}
-              style={styles.socialPanel}
-            >
-              <Icon
-                name={'youtube'}
-                size={40}
-                color={'#ff0000'}
-              />
-              <Text>Youtube ULEAM</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.socialPanel}
-              onPress={onGplusPress}
-            >
-              <IconF
-                name={'google-plus-official'}
-                size={40}
-                color={'#dd4b39'}
-              />
-              <Text>GooglePlus ULEAM</Text>
-            </TouchableOpacity>
+            {
+              socials.map(item => (
+                <TouchableOpacity
+                  style={styles.socialPanel}
+                  key={item.id}
+                  onPress={() => onContactPress(item.url)}
+                >
+                  {item.iconType === 'Entypo' &&
+                    <Icon
+                      name={item.iconName}
+                      size={40}
+                      color={item.iconColor}
+                    />}
+                  {item.iconType === 'FontAwesome' &&
+                    <IconF
+                      name={item.iconName}
+                      size={40}
+                      color={item.iconColor}
+                    />}
+                  <Text>{item.label}</Text>
+                </TouchableOpacity>
+              ))
+            }
           </View>
         </View>
       </View>
@@ -161,6 +114,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#E1E1E1',
     backgroundColor: '#FAFAFA',
+    height: 100
 
   },
   col: {
