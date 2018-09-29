@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Entypo'
-import IconI from 'react-native-vector-icons/Ionicons'
+import IconF from 'react-native-vector-icons/FontAwesome'
 import IconM from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
@@ -25,7 +25,8 @@ const ContactsLayout = (
     onWebPress,
     onTwitterPress,
     onFacebookPress,
-    onYoutubePress
+    onYoutubePress,
+    onGplusPress
   }) => (
     <SafeAreaView style={styles.screen}>
       <HeaderOnlyTitle
@@ -113,14 +114,17 @@ const ContactsLayout = (
               />
               <Text>Youtube ULEAM</Text>
             </TouchableOpacity>
-            <View style={styles.socialPanel}>
-              <IconM
-                name={'linkedin-box'}
+            <TouchableOpacity
+              style={styles.socialPanel}
+              onPress={onGplusPress}
+            >
+              <IconF
+                name={'google-plus-official'}
                 size={40}
-                color={'#007bb5'}
+                color={'#dd4b39'}
               />
-              <Text>Whatsapp ULEAM</Text>
-            </View>
+              <Text>GooglePlus ULEAM</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
