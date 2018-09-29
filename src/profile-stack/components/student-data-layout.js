@@ -6,10 +6,12 @@ import {
 } from 'react-native'
 import StudentDataHeader from './student-data-header';
 import StudentDataBody from './student-data-body';
+import HeaderOnlyTitle from '../../utils/components/header-only-title';
 
 const StudenDataLayout = ({ infoStudent }) => (
-  <View style={styles.container}>
-    <SafeAreaView>
+  <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F7F7' }}>
+    <HeaderOnlyTitle title="Mis Datos" />
+    <View style={styles.container}>
       <View style={styles.infoContainer}>
         <View style={styles.headerContainer}>
           <StudentDataHeader
@@ -32,8 +34,8 @@ const StudenDataLayout = ({ infoStudent }) => (
           />
         </View>
       </View>
-    </SafeAreaView>
-  </View>
+    </View>
+  </SafeAreaView>
 )
 
 const styles = StyleSheet.create({
