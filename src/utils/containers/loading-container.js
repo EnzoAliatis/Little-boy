@@ -5,11 +5,13 @@ import InitialLoadingLayout from '../../main-stack/components/initial-loading-la
 
 class LoadingContainer extends Component {
   componentDidMount() {
-    if (this.props.user) {
-      this.props.navigation.navigate('App');
-    } else {
-      this.props.navigation.navigate('Login');
-    }
+    setTimeout(() => {
+      if (this.props.user) {
+        this.props.navigation.navigate('App');
+      } else {
+        this.props.navigation.navigate('Login');
+      }
+    }, 1000)
   }
   render() {
     return <InitialLoadingLayout />

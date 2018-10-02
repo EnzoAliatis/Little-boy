@@ -25,12 +25,6 @@ class PdfContainer extends Component {
         <View style={styles.container}>
           <Pdf
             source={source}
-            onLoadComplete={(numberOfPages, filePath) => {
-              console.log(`number of pages: ${numberOfPages}`);
-            }}
-            onPageChanged={(page, numberOfPages) => {
-              console.log(`current page: ${page}`);
-            }}
             onError={(error) => {
               this.props.navigation.replace('PdfError');
             }}
