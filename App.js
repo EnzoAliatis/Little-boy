@@ -5,7 +5,7 @@ import { store, persistor } from './store'
 
 
 import AppNavigatorWithState from './src/app-navigator-with-state'
-import InitialLoadingLayout from './src/main-stack/components/initial-loading-layout';
+import InitialLoadingLayout from './src/utils/components/initial-loading-layout';
 
 
 type Props = {};

@@ -18,7 +18,7 @@ const Header = ({ onPress }) => (
       <View style={styles.container}>
         <View>
           <Image
-            source={require('../../assets/images/logo.png')}
+            source={require('../../../assets/images/logo.png')}
             style={styles.logo}
           />
         </View>

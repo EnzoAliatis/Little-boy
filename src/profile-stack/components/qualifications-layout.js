@@ -1,10 +1,8 @@
 import React from 'react'
 import {
-  View,
   SafeAreaView,
   StyleSheet,
   ScrollView,
-  StatusBar
 } from 'react-native'
 import HeaderWithArrows from '../../utils/components/header-with-arrows'
 

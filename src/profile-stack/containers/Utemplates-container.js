@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import {
-  View,
   Text,
   FlatList
 } from 'react-native'
 import UtemplatesLayout from '../components/Utemplates-layout';
 import HeaderSearch from '../../utils/components/header-search';
-import UtemplatesItem from '../components/Utemplates-item';
 import MaterialListItem from '../../main-stack/components/material-list-item';
 import SeparatorList from '../../utils/separator-list';
 

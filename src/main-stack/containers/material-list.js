@@ -37,7 +37,7 @@ class MaterialList extends Component {
 
   filterMaterial = (materials) => materials.filter(material => material.data.length > 0)
 
-  goToMaterial = item => {
+  goToMaterial = () => {
     this.props.navigation.navigate('PdfContainer', {
       pdfUrl: 'https://aulavirtual.uleam.edu.ec/xisce/docs/cursos/%C3%81LGEBRA%20DE%20BOOLE%20Y%20SIMPLIFICACI%C3%93N%20L%C3%93GICA-1526292289.pdf'
     })

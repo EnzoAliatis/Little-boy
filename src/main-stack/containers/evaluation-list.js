@@ -107,6 +107,7 @@ class EvaluationList extends Component {
 
   render() {
     const scores = this.props.navigation.getParam('scores')
+    // Aqui inteta sacarlo del Redux
     
     return (
       <EvaluationListLayout

@@ -11,19 +11,19 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 import Home from './main-stack/containers/home'
 
-import Header from './utils/header';
+import Header from './utils/components/header';
 import SubjectDescription from './main-stack/containers/subject-description'
 import HomeworkList from './main-stack/containers/homework-list'
 import EvaluationList from './main-stack/containers/evaluation-list'
 import MaterialList from './main-stack/containers/material-list'
-import PdfContainer from './main-stack/containers/pdf-container';
-import PdfErrorComponent from './utils/pdf-error-component';
+import PdfContainer from './utils/containers/pdf-container';
+import PdfErrorComponent from './utils/components/pdf-error-component';
 import AdsList from './main-stack/containers/ads-list';
 import ScheduleList from './main-stack/containers/schedule-list';
 
 import ProfileMain from './profile-stack/containers/profile-main'
 
-import CommingSoonComponent from './utils/comming-soon-component'
+import CommingSoonComponent from './utils/components/comming-soon-component'
 import StudenData from './profile-stack/containers/student-data';
 import Qualifications from './profile-stack/containers/qualifications';
 import RegisterContainer from './profile-stack/containers/register-container';

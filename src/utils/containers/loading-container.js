@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import InitialLoadingLayout from '../../main-stack/components/initial-loading-layout';
+import InitialLoadingLayout from '../../utils/components/initial-loading-layout';
 
 class LoadingContainer extends Component {
   componentDidMount() {
