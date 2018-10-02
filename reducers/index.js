@@ -8,12 +8,15 @@ import diaSemana from './diaSemana'
 
 import infoStudent from './infoStudent'
 
+import userLoading from './user-loading'
+
 
 const reducer = combineReducers({
   navigation,
   materias,
   diaSemana,
-  infoStudent
+  infoStudent,
+  userLoading
 })
 
 export default reducer

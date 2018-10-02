@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ProfileMainLayout from '../components/profile-main-layout';
 import { SectionList } from 'react-native'
 import { connect } from 'react-redux'
+import { Alert } from 'react-native'
 
 
 
@@ -31,12 +32,30 @@ class ProfileMain extends Component {
       },
       {
         title: 'Cuenta',
-        data: [{ name: 'Cambiar Contraseña', route: '' }, { name: 'Cerrar Sesión', route: '' }]
+        data: [{ name: 'Cambiar Contraseña', route: '' }, { name: 'Cerrar Sesión', route: 'Logout' }]
       }
     ]
   }
 
+  handleLogout = () => {
+    this.props.dispatch({
+      type: 'REMOVE_USER',
+    }),
+    this.props.navigation.navigate('Loading')
+    // En el componenete Loading es que se hacen todas las validaciones de logeo
+  }
+
   goToOption = route => {
+    if (route === 'Logout') {
+      Alert.alert(
+        '¿Cerrar sesión?',
+        '¿Está seguro que desea cerrar sesión?',
+        [
+          { text: 'Cancelar', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+          { text: 'Cerrar Sesión', onPress: this.handleLogout },
+        ]
+      )
+    }
     this.props.navigation.navigate(`${route}`)
   }
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   createStackNavigator,
-  createBottomTabNavigator
+  createBottomTabNavigator,
+  createSwitchNavigator
 } from 'react-navigation'
 
 import MaterialComunitiIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -30,6 +31,9 @@ import RegisterModule from './profile-stack/containers/register-module'
 import UtemplatesContainer from './profile-stack/containers/Utemplates-container';
 import SuggestionsContainer from './profile-stack/containers/suggestions-container';
 import ContactsContainer from './profile-stack/containers/contacts-container';
+
+import LoginContainer from './utils/containers/login-container';
+import LoadingContainer from './utils/containers/loading-container';
 
 
 
@@ -109,8 +113,8 @@ const ProfileStack = createStackNavigator({
     screen: ContactsContainer
   }
 }, {
-  headerMode: 'none'
-})
+    headerMode: 'none'
+  })
 
 
 const tabStack = createBottomTabNavigator({
@@ -192,5 +196,22 @@ const modalStack = createStackNavigator({
     headerMode: 'none'
   })
 
+const SwitchNavigator = createSwitchNavigator(
+  {
+    App: {
+      screen: modalStack
+    },
+    Loading: {
+      screen: LoadingContainer
+      // En el componenete Loading es que se hacen todas las validaciones de logeo
+    },
+    Login: {
+      screen: LoginContainer
+    }
 
-export default modalStack
+  },{
+    initialRouteName: 'Loading'
+  }
+)
+
+export default SwitchNavigator
