@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-import { Alert, Keyboard } from 'react-native'
+import { Alert} from 'react-native'
 import SuggestionsLayout from '../components/suggestionsLayout';
 
 

@@ -3,11 +3,13 @@ import {
   View,
   Text,
   TextInput,
-  Button,
+  KeyboardAvoidingView,
+  Keyboard,
   StyleSheet,
   SafeAreaView,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -27,31 +29,42 @@ class LoginContainer extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={{alignItems:'center'}}>
-          <Image
-            source={require('../../../assets/images/logo.png')}
-            style={styles.logo}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Nombre de usuario"
-            placeholderTextColor="white"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Contraseña"
-            placeholderTextColor="white"
-            secureTextEntry={true}
-          />
-          <TouchableOpacity
-            onPress={this.handleLogin}
-            style={styles.button}
-          >
-            <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+      <TouchableWithoutFeedback
+        onPress={Keyboard.dismiss}
+      >
+        <SafeAreaView style={styles.container}>
+          <View style={{ alignItems: 'center' }}
+            onPress={console.log('click')}>
+            <Image
+              source={require('../../../assets/images/logo.png')}
+              style={styles.logo}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Nombre de usuario"
+              placeholderTextColor="white"
+              autoFocus={true}
+              returnKeyType="next"
+              onSubmitEditing={() => this.passwordInput.focus()}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Contraseña"
+              placeholderTextColor="white"
+              secureTextEntry={true}
+              returnKeyType="go"
+              ref={(input) => { this.passwordInput = input }}
+              onSubmitEditing={this.handleLogin}
+            />
+            <TouchableOpacity
+              onPress={this.handleLogin}
+              style={styles.button}
+            >
+              <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      </TouchableWithoutFeedback>
     )
   }
 }
@@ -66,7 +79,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 350,
     height: 100,
-    alignItems:'center',
+    alignItems: 'center',
     resizeMode: 'cover',
     marginBottom: 10,
 
