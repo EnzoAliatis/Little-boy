@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+  Platform,
   KeyboardAvoidingView,
   Keyboard,
   StyleSheet,
@@ -29,40 +30,46 @@ class LoginContainer extends Component {
   }
   render() {
     return (
-      <TouchableWithoutFeedback
-        onPress={Keyboard.dismiss}
-      >
+      <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: '#ecf0f1' }} onPress={Keyboard.dismiss}>
         <SafeAreaView style={styles.container}>
-          <View style={{ alignItems: 'center' }}
-            onPress={console.log('click')}>
-            <Image
-              source={require('../../../assets/images/logo.png')}
-              style={styles.logo}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Nombre de usuario"
-              placeholderTextColor="white"
-              autoFocus={true}
-              returnKeyType="next"
-              onSubmitEditing={() => this.passwordInput.focus()}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Contraseña"
-              placeholderTextColor="white"
-              secureTextEntry={true}
-              returnKeyType="go"
-              ref={(input) => { this.passwordInput = input }}
-              onSubmitEditing={this.handleLogin}
-            />
-            <TouchableOpacity
-              onPress={this.handleLogin}
-              style={styles.button}
-            >
-              <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
-            </TouchableOpacity>
-          </View>
+          <KeyboardAvoidingView behavior={Platform.OS === 'ios' && 'padding'} style={styles.form}>
+            <View>
+              <Image
+                source={require('../../../assets/images/logo.png')}
+                style={styles.logo}
+              />
+            </View>
+            <View>
+              <TextInput
+                style={styles.input}
+                placeholder="Nombre de usuario"
+                placeholderTextColor="gray"
+                autoFocus={true}
+                returnKeyType="next"
+                onSubmitEditing={() => this.passwordInput.focus()}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Contraseña"
+                placeholderTextColor="gray"
+                secureTextEntry={true}
+                returnKeyType="go"
+                ref={(input) => { this.passwordInput = input }}
+                onSubmitEditing={this.handleLogin}
+              />
+            </View>
+            <View style={{ marginTop: 30, alignItems:'center' }}>
+              <TouchableOpacity
+                onPress={this.handleLogin}
+                style={styles.button}
+              >
+                <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
+              </TouchableOpacity>
+              <Text style={styles.legal}>
+                MANTA - MANABÍ - ECUADOR © Copyright 2018
+            </Text>
+            </View>
+          </KeyboardAvoidingView>
         </SafeAreaView>
       </TouchableWithoutFeedback>
     )
@@ -72,9 +79,6 @@ class LoginContainer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
   },
   logo: {
     width: 350,
@@ -82,16 +86,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     resizeMode: 'cover',
     marginBottom: 10,
-
   },
   input: {
-    marginBottom: 10,
-    width: 250,
-    height: 50,
+    margin: 20,
+    marginBottom: 0,
+    height: 34,
     paddingHorizontal: 10,
-    borderRadius: 5,
-    backgroundColor: '#838383',
-    color: 'white',
+    borderRadius: 4,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    fontSize: 16,
+  },
+  legal: {
+    margin: 10,
+    color: '#333',
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  form: {
+    flex: 1,
+    justifyContent: 'center',
   },
   button: {
     backgroundColor: '#249447',
@@ -103,8 +117,9 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center'
-  }
-})
+    textAlign: 'center',
+
+  },
+});
 
 export default connect(null)(LoginContainer)
