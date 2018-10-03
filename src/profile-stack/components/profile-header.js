@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 10,
     alignItems: 'center',
-    backgroundColor: '#575757'
+    backgroundColor: '#BE5150'
   },
   backHeader: {
     position: 'absolute',
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     height: PROFILE_IMAGE_MAX_HEIGHT,
     width: PROFILE_IMAGE_MAX_HEIGHT,
     borderRadius: PROFILE_IMAGE_MAX_HEIGHT / 2,
-    borderColor: 'white',
+    borderColor: '#444444',
     borderWidth: 3,
     overflow: 'hidden',
     marginTop: HEADER_MAX_HEIGHT - (PROFILE_IMAGE_MAX_HEIGHT / 2)

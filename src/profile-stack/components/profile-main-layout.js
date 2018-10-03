@@ -20,7 +20,7 @@ const ProfileMainLayout = ({ children, nombre, carrera }) => (
 const styles = StyleSheet.create({
   contianer: {
     flex: 1,
-    backgroundColor: '#575757'
+    backgroundColor: '#BE5150'
   },
   serviceContainer:{
     flex: 1
