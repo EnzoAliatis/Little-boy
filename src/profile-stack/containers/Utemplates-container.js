@@ -115,7 +115,7 @@ class UtemplatesContainer extends Component {
 
   onItemPress = (uri) => {
     this.props.navigation.navigate('PdfContainer', {
-      pdfUrl: item.pdfUrl
+      pdfUrl: 'https://aulavirtual.uleam.edu.ec/xisce/docs/cursos/SISTEMAS%20DIGITALES-1526292443.pdf'
     })
   }
 
@@ -125,6 +125,7 @@ class UtemplatesContainer extends Component {
     <MaterialListItem
       title={item.title}
       colorIcon={'#444444'}
+      onPress={this.onItemPress}
     />
   )
 
