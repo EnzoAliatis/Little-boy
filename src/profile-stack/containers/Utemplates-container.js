@@ -113,6 +113,12 @@ class UtemplatesContainer extends Component {
 
   }
 
+  onItemPress = (uri) => {
+    this.props.navigation.navigate('PdfContainer', {
+      pdfUrl: item.pdfUrl
+    })
+  }
+
   keyExtractor = item => item.id
 
   renderItem = ({ item }) => (
