@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import InitialLoadingLayout from '../../utils/components/initial-loading-layout';
 
 class LoadingContainer extends Component {
-  componentDidMount() {
+  componentDidMount () {
     setTimeout(() => {
       if (this.props.user) {
         this.props.navigation.navigate('App');
@@ -13,11 +13,11 @@ class LoadingContainer extends Component {
       }
     }, 1000)
   }
-  render() {
+  render () {
     return <InitialLoadingLayout />
   }
 }
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     user: state.userLoading
   }

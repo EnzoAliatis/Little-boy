@@ -5,6 +5,7 @@ import {
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
+import thunk from 'redux-thunk'
 
 import reducer from './reducers/'
 
@@ -23,7 +24,7 @@ const navigationMiddleware = createReactNavigationReduxMiddleware(
 
 const store = createStore(
   persistedReducer,
-  applyMiddleware(navigationMiddleware)
+  applyMiddleware(navigationMiddleware, thunk)
 )
 
 const persistor = persistStore(store)
