@@ -8,7 +8,7 @@ import SubjectDescriptionLayout from '../components/subject-description-layout'
 import Empty from '../../utils/empty-list'
 import PillComponent from '../components/pill-component';
 import { connect } from 'react-redux'
-import { getMateria } from '../../../reducers/materias';
+import { getMateria } from '../../../reducers/infoUser';
 import { defineColor } from '../../utils/defineColorFunction'
 
 
@@ -56,7 +56,7 @@ class SubjectDescription extends Component {
 
   isFaltasPill = name => {
     if (name === 'Faltas') {
-      return this.props.materia.faults
+      return this.props.materia.faults.toString()
     }
   }
 
@@ -83,8 +83,8 @@ class SubjectDescription extends Component {
       <SubjectDescriptionLayout
         classRoom={this.props.materia.classroom}
         parallel={this.props.materia.parallel}
-        teacher={this.props.materia.teacher}
-        email={this.props.materia.email}
+        teacher={this.props.materia.teacherName}
+        email={this.props.materia.teacherEmail}
         onEmailPress={this.onEmailPress}
         colorPanel={defineColor(this.props.materia.formation)}
       >

@@ -24,7 +24,7 @@ class SubjectList extends Component {
       })
     )
   }
-  keyExtractor = item => item.id.toString()
+  keyExtractor = item => item.id
   renderEmpty = () => <Empty text="Cargando las materias..." />
   renderItem = ({ item }) => (
     <PillComponent
@@ -35,7 +35,7 @@ class SubjectList extends Component {
 
 
   render() {
-    console.log(this.props.stado)
+    console.log(this.props.materias)
     return (
       <SubjectListLayout>
         <FlatList
@@ -51,8 +51,7 @@ class SubjectList extends Component {
 }
 
 mapStateToProps = state => ({
-  materias: state.materias,
-  stado: state
+  materias: state.infoUser.data.studentById.subjects,
 })
 
 export default connect(mapStateToProps)(SubjectList)

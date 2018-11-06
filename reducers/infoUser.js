@@ -34,6 +34,11 @@ const status = (state = initialStatus, action) => {
   }
 }
 
+export const getMateria = (state, idMateria) => {
+  let filtered = state.infoUser.data.studentById.subjects.filter(item => item.id === idMateria)
+  return filtered[0]
+}
+
 export default combineReducers({
   data,
   status
