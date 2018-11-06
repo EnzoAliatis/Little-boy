@@ -1,5 +1,18 @@
+import { combineReducers } from 'redux'
 
 import { REQUEST_INFO_USER, RECIVE_INFO_USER } from '../constant'
+
+const infoUser = (state = {}, action) => {
+  switch (action.type) {
+    case RECIVE_INFO_USER:
+      return {
+        ...state,
+        ...action.infoUser
+      }
+    default:
+      return state
+  }
+}
 
 const initialStatus = {
   didInvalid: false,
@@ -19,4 +32,7 @@ const status = (state = initialStatus, action) => {
   }
 }
 
-export default status
+export default combineReducers({
+  infoUser,
+  status
+})
