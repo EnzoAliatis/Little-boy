@@ -7,15 +7,13 @@ import { fetchInfoUserIfNeeded, fetchInfoUser } from '../../../actions'
 
 class LoadingContainer extends Component {
   componentDidMount () {
-    // this.props.fetchInfoUserIfNeeded()
-    this.props.fetchInfoUser()
     console.log(this.props.state)
-    console.log(this.props.fetchInfoUserIfNeeded)
-    console.log(this.props.state)
+    this.props.fetchInfoUserIfNeeded()
+    // this.props.fetchInfoUser()
 
     setTimeout(() => {
       console.log(this.props.state)
-    }, 2000)
+    }, 4000)
 
     // setTimeout(() => {
     //   if (this.props.user) {

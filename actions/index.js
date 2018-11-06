@@ -34,8 +34,8 @@ export const fetchInfoUser = () => async dispatch => {
 }
 
 const shouldFetchInfoUser = (state) => {
-  const infoUser = state.infoUser.infoUser
-  if (true) {
+  const id = state.infoUser.data.id
+  if (!id) {
     return true
   } else if (state.infoUser.status.isFetching) {
     return false
@@ -47,7 +47,7 @@ const shouldFetchInfoUser = (state) => {
 export const fetchInfoUserIfNeeded = (infoUser) => {
   return (dispatch, getState) => {
     if (shouldFetchInfoUser(getState(), infoUser)) {
-      return dispatch(fetchInfoUser)
+      return dispatch(fetchInfoUser())
     }
   }
 }
