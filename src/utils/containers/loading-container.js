@@ -7,7 +7,7 @@ import InitialLoadingLayout from '../../utils/components/initial-loading-layout'
 class LoadingContainer extends Component {
   componentDidMount () {
     setTimeout(() => {
-      console.log(this.props.status)
+      console.log(this.props.state)
       if (Object.keys(this.props.infoUser).length !== 0) {
         console.log(this.props.infoUser)
         this.props.navigation.navigate('App')
@@ -24,7 +24,7 @@ class LoadingContainer extends Component {
 function mapStateToProps (state) {
   return {
     infoUser: state.infoUser.data,
-    status: state.infoUser.status
+    state: state
   }
 }
 
