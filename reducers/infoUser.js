@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 
-import { REQUEST_INFO_USER, RECIVE_INFO_USER } from '../constant'
+import { REQUEST_INFO_USER, RECIVE_INFO_USER, FAIL_INFO_USER } from '../constant'
 
 const data = (state = {}, action) => {
   switch (action.type) {
     case RECIVE_INFO_USER:
       return {
         ...state,
-        ...action.infoUser.data.studentById
+        ...action.infoUser.data
       }
     default:
       return state
@@ -26,6 +26,8 @@ const status = (state = initialStatus, action) => {
       return { ...state, isFetching: true }
     case RECIVE_INFO_USER:
       return { ...state, isFetching: false }
+    case FAIL_INFO_USER:
+      return { ...state, didInvalid: true }
 
     default:
       return state

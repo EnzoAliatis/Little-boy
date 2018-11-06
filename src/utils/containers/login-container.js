@@ -13,22 +13,17 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 import { connect } from 'react-redux';
+import { fetchInfoUserIfNeeded } from '../../../actions'
 
 class LoginContainer extends Component {
   handleLogin = () => {
     // Aqui haces la peticion Al API para ver las validaciones de usuario
-    const token = 'ABCDEFGHIJK';
-    this.props.dispatch({
-      type: 'SET_USER',
-      payload: {
-        token,
-        username: 'EnzoAliatis'
-      }
-    })
+    this.props.fetchInfoUserIfNeeded()
     this.props.navigation.navigate('Loading');
     // En el componenete Loading es que se hacen todas las validaciones de logeo
   }
   render() {
+    console.log(this.props.status)
     return (
       <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: '#ecf0f1' }} onPress={Keyboard.dismiss}>
         <SafeAreaView style={styles.container}>
@@ -122,4 +117,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(null)(LoginContainer)
+function mapStateToProps (state) {
+  return {
+    status: state.infoUser.status
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    fetchInfoUserIfNeeded: () => dispatch(fetchInfoUserIfNeeded())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)

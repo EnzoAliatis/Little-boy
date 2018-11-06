@@ -26,10 +26,13 @@ const reciveInfoUser = infoUser => ({
   infoUser
 })
 
+const failInfoUser = () => ({
+  type: types.FAIL_INFO_USER
+})
+
 export const fetchInfoUser = () => async dispatch => {
   dispatch(requestInfoUser)
   const data = await fetch({ query: '{studentById(id: "5be0b91f9ae31f8a01148b93") { fullName, id }}' })
-  console.log(data)
   dispatch(reciveInfoUser(data))
 }
 
