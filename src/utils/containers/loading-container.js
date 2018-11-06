@@ -3,15 +3,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import InitialLoadingLayout from '../../utils/components/initial-loading-layout';
-import { fetchInfoUserIfNeeded } from '../../../actions'
+import { fetchInfoUserIfNeeded, fetchInfoUser } from '../../../actions'
 
 class LoadingContainer extends Component {
   componentDidMount () {
-    this.props.fetchInfoUserIfNeeded()
+    // this.props.fetchInfoUserIfNeeded()
+    this.props.fetchInfoUser()
     console.log(this.props.state)
     console.log(this.props.fetchInfoUserIfNeeded)
     console.log(this.props.state)
 
+    setTimeout(() => {
+      console.log(this.props.state)
+    }, 2000)
 
     // setTimeout(() => {
     //   if (this.props.user) {
@@ -37,7 +41,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    fetchInfoUserIfNeeded: () => dispatch(fetchInfoUserIfNeeded())
+    fetchInfoUserIfNeeded: () => dispatch(fetchInfoUserIfNeeded()),
+    fetchInfoUser: () => dispatch(fetchInfoUser())
   }
 }
 

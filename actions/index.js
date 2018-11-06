@@ -26,15 +26,10 @@ const reciveInfoUser = infoUser => ({
   infoUser
 })
 
-const fetchInfoUser = () => async dispatch => {
+export const fetchInfoUser = () => async dispatch => {
   dispatch(requestInfoUser)
-  let data
-  fetch({
-    query: '{ studentsAll { id fullname }}'
-  }).then(res => {
-    console.log(res.data)
-    data = res.data
-  })
+  const data = await fetch({ query: '{studentById(id: "5be0b91f9ae31f8a01148b93") { fullName, id }}' })
+  console.log(data)
   dispatch(reciveInfoUser(data))
 }
 

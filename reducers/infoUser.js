@@ -7,7 +7,7 @@ const data = (state = {}, action) => {
     case RECIVE_INFO_USER:
       return {
         ...state,
-        ...action.infoUser.data
+        ...action.infoUser.data.studentById
       }
     default:
       return state
