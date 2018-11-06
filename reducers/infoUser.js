@@ -2,12 +2,12 @@ import { combineReducers } from 'redux'
 
 import { REQUEST_INFO_USER, RECIVE_INFO_USER } from '../constant'
 
-const infoUser = (state = {}, action) => {
+const data = (state = {}, action) => {
   switch (action.type) {
     case RECIVE_INFO_USER:
       return {
         ...state,
-        ...action.infoUser
+        ...action.infoUser.data
       }
     default:
       return state
@@ -33,6 +33,6 @@ const status = (state = initialStatus, action) => {
 }
 
 export default combineReducers({
-  infoUser,
+  data,
   status
 })
