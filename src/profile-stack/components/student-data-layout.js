@@ -4,13 +4,13 @@ import {
   SafeAreaView,
   StyleSheet
 } from 'react-native'
-import StudentDataHeader from './student-data-header';
-import StudentDataBody from './student-data-body';
-import HeaderOnlyTitle from '../../utils/components/header-only-title';
+import StudentDataHeader from './student-data-header'
+import StudentDataBody from './student-data-body'
+import HeaderOnlyTitle from '../../utils/components/header-only-title'
 
 const StudenDataLayout = ({ infoStudent }) => (
   <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F7F7' }}>
-    <HeaderOnlyTitle title="Mis Datos" />
+    <HeaderOnlyTitle title='Mis Datos' />
     <View style={styles.container}>
       <View style={styles.infoContainer}>
         <View style={styles.headerContainer}>
@@ -29,8 +29,8 @@ const StudenDataLayout = ({ infoStudent }) => (
             itinerary={infoStudent.itinerary}
             registrationNumber={infoStudent.registrationNumber}
             typeStudent={infoStudent.typeStudent}
-            Vgenerated={infoStudent.Vgenerated}
-            Vpaid={infoStudent.Vpaid}
+            Vgenerated={infoStudent.vGenered}
+            Vpaid={infoStudent.vPaid}
           />
         </View>
       </View>

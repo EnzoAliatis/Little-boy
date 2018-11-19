@@ -6,7 +6,7 @@ import navigation from './navigation'
 
 import diaSemana from './diaSemana'
 
-import infoStudent from './infoStudent'
+// import infoStudent from './infoStudent'
 
 // import userLoading from './user-loading'
 
@@ -15,7 +15,6 @@ import infoUser from './infoUser'
 const reducer = combineReducers({
   navigation,
   diaSemana,
-  infoStudent,
   infoUser
 })
 

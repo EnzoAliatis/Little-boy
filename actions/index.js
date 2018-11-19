@@ -5,7 +5,7 @@ import * as types from '../constant'
 const fetch = createApolloFetch({
   uri: 'https://fatman-server.herokuapp.com/graphql'
 })
-const graphqlQuery = '{studentById(id: "5be0b91f9ae31f8a01148b93") { fullName, subjects {id name classroom parallel teacherName teacherEmail faults scoreParcials formation days hours}}}'
+const graphqlQuery = '{studentById(id: "5be0b91f9ae31f8a01148b93") { fullName, career, cedula, faculty, email, phone, level, itinerary, registrationNumber, typeStudent, vPaid, vGenered, subjects {id name classroom parallel teacherName teacherEmail faults scoreParcials formation days hours}}}'
 
 export const incrementDay = (idx) => ({
   type: types.INCREMENT_DAY,

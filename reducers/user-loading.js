@@ -1,4 +1,4 @@
-//Esto se borra por que el usuario se lo pide en infoStudent
+// Esto se borra por que el usuario se lo pide en infoStudent
 
 const userLoading = (state = false, action) => {
   switch (action.type) {

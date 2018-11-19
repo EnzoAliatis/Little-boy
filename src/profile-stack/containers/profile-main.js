@@ -72,6 +72,8 @@ class ProfileMain extends Component {
 
 
   render() {
+    console.log(this.props.fullName)
+    console.log(this.props.career)
     return (
       <ProfileMainLayout
         nombre={this.props.fullName}
@@ -89,8 +91,8 @@ class ProfileMain extends Component {
 }
 
 const mapStateToProps = state => ({
-  fullName: state.infoStudent.fullName,
-  career: state.infoStudent.career
+  fullName: state.infoUser.data.studentById.fullName,
+  career: state.infoUser.data.studentById.career
 })
 
 

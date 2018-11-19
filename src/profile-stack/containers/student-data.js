@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-
-import StudentDataLayout from '../components/student-data-layout';
-
+import StudentDataLayout from '../components/student-data-layout'
 
 class StudenData extends Component {
-  render() {
+  render () {
     return (
       <StudentDataLayout
         infoStudent={this.props.infoStudent}
@@ -16,11 +14,7 @@ class StudenData extends Component {
 }
 
 const mapStateToProps = state => ({
-  infoStudent: state.infoStudent
+  infoStudent: state.infoUser.data.studentById
 })
 
-
-
 export default connect(mapStateToProps)(StudenData)
-
-

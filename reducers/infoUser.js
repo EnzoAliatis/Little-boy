@@ -41,7 +41,17 @@ export const getMateria = (state, idMateria) => {
 
 export const getMateriaByDay = (materias, day) => {
   let filtered = materias.filter(item => item.days.includes(day))
-  return filtered
+  let sorted = filtered.sort((a, b) => {
+    if (a.hours[0] > b.hours[0]) {
+      return 1
+    }
+    if (a.hours[0] < b.hours[0]) {
+      return -1
+    }
+    return 0
+  })
+
+  return sorted
 }
 
 export default combineReducers({
