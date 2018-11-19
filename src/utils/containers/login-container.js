@@ -16,7 +16,7 @@ import { connect } from 'react-redux';
 
 import InitialLoadingLayout from '../components/initial-loading-layout'
 
-import { fetchInfoUserIfNeeded, requestInfoUser, fetchInfoUser } from '../../../actions'
+import { fetchInfoUserIfNeeded } from '../../../actions'
 
 class LoginContainer extends Component {
   handleLogin = async () => {

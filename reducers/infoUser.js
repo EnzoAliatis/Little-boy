@@ -13,7 +13,6 @@ const data = (state = initialState, action) => {
       }
     case LOG_OUT:
       return { ...state }
-
     default:
       return state
   }

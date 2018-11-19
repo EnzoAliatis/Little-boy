@@ -8,6 +8,8 @@ class LoadingContainer extends Component {
   componentDidMount () {
     // TODO: Evaluar cuando la peticion llega mala
 
+    console.log(this.props.infoUser)
+
     if (Object.keys(this.props.infoUser).length === 0) {
       this.props.navigation.navigate('Login')
     }

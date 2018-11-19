@@ -12,7 +12,7 @@ import reducer from './reducers/'
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['navigation', 'infoUser']
+  blacklist: ['navigation']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)
