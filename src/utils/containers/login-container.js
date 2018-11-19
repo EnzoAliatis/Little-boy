@@ -19,55 +19,57 @@ import InitialLoadingLayout from '../components/initial-loading-layout'
 import { fetchInfoUserIfNeeded, requestInfoUser, fetchInfoUser } from '../../../actions'
 
 class LoginContainer extends Component {
-  handleLogin = () => {
+  handleLogin = async () => {
     // Aqui haces la peticion Al API para ver las validaciones de usuario
-    this.props.fetchInfoUserIfNeeded()
+    await this.props.fetchInfoUserIfNeeded()
     this.props.navigation.navigate('Loading')
     // En el componenete Loading es que se hacen todas las validaciones de logeo
   }
   render() {
     return (
       <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: '#ecf0f1' }} onPress={Keyboard.dismiss}>
-        <SafeAreaView style={styles.container}>
-          <KeyboardAvoidingView behavior={Platform.OS === 'ios' && 'padding'} style={styles.form}>
-            <View>
-              <Image
-                source={require('../../../assets/images/logo.png')}
-                style={styles.logo}
-              />
-            </View>
-            <View>
-              <TextInput
-                style={styles.input}
-                placeholder="Nombre de usuario"
-                placeholderTextColor="gray"
-                autoFocus={true}
-                returnKeyType="next"
-                onSubmitEditing={() => this.passwordInput.focus()}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Contraseña"
-                placeholderTextColor="gray"
-                secureTextEntry={true}
-                returnKeyType="go"
-                ref={(input) => { this.passwordInput = input }}
-                onSubmitEditing={this.handleLogin}
-              />
-            </View>
-            <View style={{ marginTop: 30, alignItems: 'center' }}>
-              <TouchableOpacity
-                onPress={this.handleLogin}
-                style={styles.button}
-              >
-                <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
-              </TouchableOpacity>
-              <Text style={styles.legal}>
-                MANTA - MANABÍ - ECUADOR © Copyright 2018
-              </Text>
-            </View>
-          </KeyboardAvoidingView>
-        </SafeAreaView>
+        {this.props.status.isFetching ? <InitialLoadingLayout /> :
+          <SafeAreaView style={styles.container}>
+            <KeyboardAvoidingView behavior={Platform.OS === 'ios' && 'padding'} style={styles.form}>
+              <View>
+                <Image
+                  source={require('../../../assets/images/logo.png')}
+                  style={styles.logo}
+                />
+              </View>
+              <View>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Nombre de usuario"
+                  placeholderTextColor="gray"
+                  autoFocus={true}
+                  returnKeyType="next"
+                  onSubmitEditing={() => this.passwordInput.focus()}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Contraseña"
+                  placeholderTextColor="gray"
+                  secureTextEntry={true}
+                  returnKeyType="go"
+                  ref={(input) => { this.passwordInput = input }}
+                  onSubmitEditing={this.handleLogin}
+                />
+              </View>
+              <View style={{ marginTop: 30, alignItems: 'center' }}>
+                <TouchableOpacity
+                  onPress={this.handleLogin}
+                  style={styles.button}
+                >
+                  <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
+                </TouchableOpacity>
+                <Text style={styles.legal}>
+                  MANTA - MANABÍ - ECUADOR © Copyright 2018
+          </Text>
+              </View>
+            </KeyboardAvoidingView>
+          </SafeAreaView>
+        }
       </TouchableWithoutFeedback>
     )
   }
