@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import ScheduleListLayout from '../components/schedule-list-layout';
 import ScheduleListItem from '../components/schedule-list-item';
 
-import { getMateriaByDay } from '../../../reducers/materias';
+import { getMateriaByDay } from '../../../reducers/infoUser';
 import EmptyList from '../../utils/empty-list';
 
 
@@ -28,7 +28,7 @@ class ScheduleList extends Component {
 
   renderItem = ({ item }) => (
     <ScheduleListItem
-      hour={item.hour}
+      hour={item.hours}
       number={item.classroom}
       name={item.name}
       color={defineColor(item.formation)}
@@ -40,7 +40,7 @@ class ScheduleList extends Component {
 
 
   render() {
-    return (
+    return (      
       <ScheduleListLayout>
         <FlatList
           keyExtractor={this.keyExtractor}
@@ -57,7 +57,7 @@ class ScheduleList extends Component {
 
 
 mapStateToProps = state => ({
-  materias: getMateriaByDay(state.materias, state.diaSemana)
+  materias: getMateriaByDay(state.infoUser.data.studentById.subjects, state.diaSemana)
 })
 
 

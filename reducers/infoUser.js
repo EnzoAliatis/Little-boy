@@ -39,6 +39,11 @@ export const getMateria = (state, idMateria) => {
   return filtered[0]
 }
 
+export const getMateriaByDay = (materias, day) => {
+  let filtered = materias.filter(item => item.days.includes(day))
+  return filtered
+}
+
 export default combineReducers({
   data,
   status

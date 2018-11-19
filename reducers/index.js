@@ -12,7 +12,6 @@ import infoStudent from './infoStudent'
 
 import infoUser from './infoUser'
 
-
 const reducer = combineReducers({
   navigation,
   diaSemana,
