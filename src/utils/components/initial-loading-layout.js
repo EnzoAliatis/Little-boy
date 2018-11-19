@@ -6,13 +6,14 @@ import {
   ActivityIndicator
 } from 'react-native'
 
-const InitialLoadingLayout = () => (
+const InitialLoadingLayout = ({ children }) => (
   <View style={styles.container}>
     <Image
       source={require('../../../assets/images/logo.png')}
       style={styles.logo}
     />
     <ActivityIndicator />
+    {children}
   </View>
 )
 

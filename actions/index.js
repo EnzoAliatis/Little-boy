@@ -18,7 +18,7 @@ export const decrementDay = (idx) => ({
 })
 
 // INFO_USER_ACTIONS
-const requestInfoUser = () => ({
+export const requestInfoUser = () => ({
   type: types.REQUEST_INFO_USER
 })
 
@@ -32,8 +32,15 @@ const failInfoUser = () => ({
 })
 
 export const fetchInfoUser = () => async dispatch => {
-  dispatch(requestInfoUser)
-  const data = await fetch({ query: graphqlQuery })
+  dispatch(requestInfoUser())
+  let data
+  try {
+    data = await fetch({ query: graphqlQuery })
+  } catch (err) {
+    console.log('Soy el error')
+    dispatch(failInfoUser())
+  }
+  // Aqui validar si la data es vacia o no
   dispatch(reciveInfoUser(data))
 }
 

@@ -35,8 +35,6 @@ import ContactsContainer from './profile-stack/containers/contacts-container';
 import LoginContainer from './utils/containers/login-container';
 import LoadingContainer from './utils/containers/loading-container';
 
-
-
 // AQUI TUS COMPOMENTES SCREENS
 
 const MainStack = createStackNavigator({
@@ -86,7 +84,6 @@ const MainStack = createStackNavigator({
     headerMode: 'screen'
   })
 
-
 const ProfileStack = createStackNavigator({
   Profile: {
     screen: ProfileMain
@@ -112,10 +109,10 @@ const ProfileStack = createStackNavigator({
   Contacts: {
     screen: ContactsContainer
   }
-}, {
+},
+  {
     headerMode: 'none'
   })
-
 
 const tabStack = createBottomTabNavigator({
   Home: {
@@ -142,7 +139,8 @@ const tabStack = createBottomTabNavigator({
       title: 'Perfil'
     }
   }
-}, {
+},
+  {
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const routesName = ['Home', 'Notifications', 'Homework', 'Profile']
@@ -209,7 +207,7 @@ const SwitchNavigator = createSwitchNavigator(
       screen: LoginContainer
     }
 
-  },{
+  }, {
     initialRouteName: 'Loading'
   }
 )

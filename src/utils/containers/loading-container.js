@@ -3,28 +3,42 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import InitialLoadingLayout from '../../utils/components/initial-loading-layout'
+import LoginContainer from './login-container'
 
 class LoadingContainer extends Component {
   componentDidMount () {
+    console.log(this.props.state)
+    console.log(this.props.infoUser)
+    console.log(this.props.fetchStatus)
+
+    this.decidePage()
+  }
+
+  decidePage () {
     setTimeout(() => {
-      console.log(this.props.state)
-      if (Object.keys(this.props.infoUser).length !== 0) {
-        console.log(this.props.infoUser)
-        this.props.navigation.navigate('App')
-      } else {
+      if (Object.keys(this.props.infoUser).length === 0) {
         this.props.navigation.navigate('Login')
+      }
+  
+      if (Object.keys(this.props.infoUser).length !== 0) {
+        this.props.navigation.navigate('Home')
       }
     }, 2000)
   }
+
   render () {
-    return <InitialLoadingLayout />
+    return (
+      <InitialLoadingLayout />
+    )
   }
 }
 
 function mapStateToProps (state) {
   return {
+    state: state,
     infoUser: state.infoUser.data,
-    state: state
+    fetchStatus: state.infoUser.status.isFetching,
+    invalidStatus: state.infoUser.status.didInvalid
   }
 }
 

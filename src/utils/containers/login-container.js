@@ -13,17 +13,19 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchInfoUserIfNeeded } from '../../../actions'
+
+import InitialLoadingLayout from '../components/initial-loading-layout'
+
+import { fetchInfoUserIfNeeded, requestInfoUser, fetchInfoUser } from '../../../actions'
 
 class LoginContainer extends Component {
   handleLogin = () => {
     // Aqui haces la peticion Al API para ver las validaciones de usuario
     this.props.fetchInfoUserIfNeeded()
-    this.props.navigation.navigate('Loading');
+    this.props.navigation.navigate('Loading')
     // En el componenete Loading es que se hacen todas las validaciones de logeo
   }
   render() {
-    console.log(this.props.status)
     return (
       <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: '#ecf0f1' }} onPress={Keyboard.dismiss}>
         <SafeAreaView style={styles.container}>
@@ -53,7 +55,7 @@ class LoginContainer extends Component {
                 onSubmitEditing={this.handleLogin}
               />
             </View>
-            <View style={{ marginTop: 30, alignItems:'center' }}>
+            <View style={{ marginTop: 30, alignItems: 'center' }}>
               <TouchableOpacity
                 onPress={this.handleLogin}
                 style={styles.button}
@@ -62,7 +64,7 @@ class LoginContainer extends Component {
               </TouchableOpacity>
               <Text style={styles.legal}>
                 MANTA - MANABÍ - ECUADOR © Copyright 2018
-            </Text>
+              </Text>
             </View>
           </KeyboardAvoidingView>
         </SafeAreaView>
@@ -117,13 +119,14 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
-    status: state.infoUser.status
+    status: state.infoUser.status,
+    infoUser: state.infoUser.data
   }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     fetchInfoUserIfNeeded: () => dispatch(fetchInfoUserIfNeeded())
   }

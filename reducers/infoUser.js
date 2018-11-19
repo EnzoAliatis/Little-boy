@@ -28,11 +28,20 @@ const initialStatus = {
 const status = (state = initialStatus, action) => {
   switch (action.type) {
     case REQUEST_INFO_USER:
-      return { ...state, isFetching: true }
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalid: false
+      })
     case RECIVE_INFO_USER:
-      return { ...state, isFetching: false }
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalid: false
+      })
     case FAIL_INFO_USER:
-      return { ...state, didInvalid: true }
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalid: true
+      })
 
     default:
       return state
