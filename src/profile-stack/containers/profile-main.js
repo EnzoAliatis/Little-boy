@@ -39,7 +39,7 @@ class ProfileMain extends Component {
 
   handleLogout = () => {
     this.props.dispatch({
-      type: 'REMOVE_USER',
+      type: 'LOG_OUT',
     }),
     this.props.navigation.navigate('Loading')
     // En el componenete Loading es que se hacen todas las validaciones de logeo

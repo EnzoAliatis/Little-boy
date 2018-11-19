@@ -1,14 +1,19 @@
 import { combineReducers } from 'redux'
 
-import { REQUEST_INFO_USER, RECIVE_INFO_USER, FAIL_INFO_USER } from '../constant'
+import { REQUEST_INFO_USER, RECIVE_INFO_USER, FAIL_INFO_USER, LOG_OUT } from '../constant'
 
-const data = (state = {}, action) => {
+const initialState = {}
+
+const data = (state = initialState, action) => {
   switch (action.type) {
     case RECIVE_INFO_USER:
       return {
         ...state,
         ...action.infoUser.data
       }
+    case LOG_OUT:
+      return { ...state }
+
     default:
       return state
   }

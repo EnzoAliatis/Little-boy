@@ -55,4 +55,9 @@ export const fetchInfoUserIfNeeded = (infoUser) => {
     }
   }
 }
+
+export const logOut = () => ({
+  type: types.LOG_OUT
+})
+
 // INFO_USER_ACTIONS
