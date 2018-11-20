@@ -5,11 +5,8 @@ import {
   StyleSheet
 } from 'react-native'
 
-const EvaluationListItem = ({ parcial, componente, mecanismo, evaluacion }) => (
+const EvaluationListItem = ({ componente, mecanismo, evaluacion }) => (
   <View style={styles.itemContainer}>
-    <View style={styles.itemParcialContainer}>
-      <Text style={styles.itemText}>{parcial}</Text>
-    </View>
     <View style={styles.itemComponenteContainer}>
       <Text style={styles.itemText}>{componente}</Text>
     </View>

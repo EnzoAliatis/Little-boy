@@ -58,9 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9F9F9'
   },
   tableHeaderMateriaContainer: {
-    width: 140,
-
-
+    width: 140
   },
   tableHeaderTextContainer: {
     width: 45,
@@ -69,9 +67,8 @@ const styles = StyleSheet.create({
   tableHeaderText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#1D1D1D',
+    color: '#1D1D1D'
   }
 })
-
 
 export default QualificationsTable

@@ -97,7 +97,6 @@ class EvaluationList extends Component {
   itemSeparator = () => <SeparatorList />
   renderItem = ({ item }) => (
     <EvaluationListItem
-      parcial={item.parcial}
       componente={item.componente}
       mecanismo={item.mecanismo}
       evaluacion={item.evaluacion}

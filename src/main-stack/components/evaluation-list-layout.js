@@ -18,23 +18,19 @@ const EvaluationListLayout = ({ children, average1, average2, colorPanel }) => (
       </View>
     </View>
 
-
     <View style={styles.table}>
-      <View style={styles.tableHeader}>
-        <View style={styles.tableHeaderParcial}>
-          <Text style={styles.itemText}>P</Text>
+      <View style={styles.tableHeaderContainer}>
+        <View style={styles.tableHeaderMateriaContainer}>
+          <Text style={styles.tableHeaderText}>Componente</Text>
         </View>
-        <View style={styles.tableHeaderComponente}>
-          <Text style={styles.itemText}>Componente</Text>
+        <View style={styles.tableHeaderTextContainer}>
+          <Text style={styles.tableHeaderText}>Mecanismo</Text>
         </View>
-        <View style={styles.tableHeaderMecanismo}>
-          <Text style={styles.itemText}>Mecanismo</Text>
-        </View>
-        <View style={styles.tableHeaderEvaluacion}>
-          <Text style={styles.itemText}>N</Text>
+        <View style={styles.tableHeaderTextContainer}>
+          <Text style={styles.tableHeaderText}>Evaluacion</Text>
         </View>
       </View>
-      <View style={styles.childrens}>
+      <View style={styles.tableBoddyContainer}>
         {children}
       </View>
     </View>
@@ -53,7 +49,7 @@ const styles = StyleSheet.create({
   },
   averagePanel: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-evenly'
   },
   nota: {
     fontSize: 25,
@@ -62,48 +58,34 @@ const styles = StyleSheet.create({
   },
   average: {
     fontSize: 50,
-    color: 'white',
-  },
-  table: {
-    flex: 1,
-    marginVertical: 2
-  },
-  tableHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: 'white',
-    marginBottom: 2
-  },
-  tableHeaderParcial: {
-    width: 30,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  tableHeaderComponente: {
-    width: 200,
-    alignItems: 'flex-start',
-    justifyContent: 'center'
-
-  },
-  tableHeaderMecanismo: {
-    width: 100,
-    alignItems: 'flex-start',
-    justifyContent: 'center'
-
-  },
-  tableHeaderEvaluacion: {
-    width: 40,
-    alignItems: 'center',
-    justifyContent: 'center'
-
-  },
-  itemText: {
-    fontSize: 17,
-    fontWeight: 'bold',
+    color: 'white'
   },
   childrens: {
-    flex: 1,
-    backgroundColor: 'white',
+    flex: 1
+  },
+  table: {
+    backgroundColor: '#F7F7F7',
+    padding: 5,
+    margin: 2,
+    borderRadius: 5
+  },
+  tableHeaderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  tableHeaderMateriaContainer: {
+    width: '35%',
+    backgroundColor: 'red'
+  },
+  tableHeaderTextContainer: {
+    width: '30%',
+    alignItems: 'center',
+    backgroundColor: 'blue'
+  },
+  tableHeaderText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1D1D1D'
   }
 })
 
