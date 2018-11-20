@@ -35,7 +35,6 @@ class SubjectList extends Component {
 
 
   render() {
-    console.log(this.props.materias)
     return (
       <SubjectListLayout>
         <FlatList
@@ -51,7 +50,7 @@ class SubjectList extends Component {
 }
 
 mapStateToProps = state => ({
-  materias: state.infoUser.data.studentById.subjects,
+  materias: state.infoUser.data.studentById.subjects
 })
 
 export default connect(mapStateToProps)(SubjectList)

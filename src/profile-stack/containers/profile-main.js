@@ -39,12 +39,14 @@ class ProfileMain extends Component {
     ]
   }
 
-  handleLogout = async () => {
-    await this.props.dispatch({
+  handleLogout = () => {
+    this.props.navigation.navigate('Loading')
+    console.log('Siiiiiii')
+    this.props.dispatch({
       type: 'LOG_OUT',
-    }),
-    //this.props.logOut()
-    this.props.navigation.navigate('Login')
+    })
+    console.log('nooooooo')
+    console.log(this.props.state)
     // En el componenete Loading es que se hacen todas las validaciones de logeo
   }
 
@@ -95,7 +97,8 @@ class ProfileMain extends Component {
 
 const mapStateToProps = state => ({
   fullName: state.infoUser.data.studentById.fullName,
-  career: state.infoUser.data.studentById.career
+  career: state.infoUser.data.studentById.career,
+  state: state
 })
 
 // const mapDispatchToProps = dispatch => ({

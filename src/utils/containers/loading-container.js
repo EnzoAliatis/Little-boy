@@ -6,19 +6,32 @@ import InitialLoadingLayout from '../../utils/components/initial-loading-layout'
 
 class LoadingContainer extends Component {
   componentDidMount () {
-    // TODO: Evaluar cuando la peticion llega mala
-
-    console.log(this.props.infoUser)
-
+    console.log(this.props.state)
     if (Object.keys(this.props.infoUser).length === 0) {
       this.props.navigation.navigate('Login')
     }
-
-    if (Object.keys(this.props.infoUser).length !== 0) {
-      this.props.navigation.navigate('Home')
-    }
+    // if (Object.keys(this.props.infoUser).length !== 0) {
+    //   this.props.navigation.navigate('Home')
+    // }
   }
-
+  
+  // componentWillMount () {
+  //   console.log(this.props.state)
+  //   // if (Object.keys(this.props.infoUser).length === 0) {
+  //   //   this.props.navigation.navigate('Login')
+  //   // }
+  // }
+  componentDidUpdate () {
+    console.log('Se esta actualizando')
+    console.log(this.props.state)
+    console.log('Se actualizo')
+    if (Object.keys(this.props.infoUser).length === 0) {
+      this.props.navigation.navigate('Login')
+    }
+    // if (Object.keys(this.props.infoUser).length !== 0) {
+    //   this.props.navigation.navigate('Home')
+    // }
+  }
   render () {
     return (
       <InitialLoadingLayout />
@@ -28,9 +41,9 @@ class LoadingContainer extends Component {
 
 function mapStateToProps (state) {
   return {
-    state: state,
     infoUser: state.infoUser.data,
-    invalidStatus: state.infoUser.status.didInvalid
+    invalidStatus: state.infoUser.status.didInvalid,
+    state: state
   }
 }
 

@@ -22,13 +22,20 @@ class LoginContainer extends Component {
   handleLogin = async () => {
     // Aqui haces la peticion Al API para ver las validaciones de usuario
     await this.props.fetchInfoUserIfNeeded()
-    this.props.navigation.navigate('Loading')
+    this.props.navigation.navigate((Object.keys(this.props.infoUser).length !== 0) ? 'Home' : 'Login')
     // En el componenete Loading es que se hacen todas las validaciones de logeo
+  }
+  
+  componentDidMount () {
+    console.log(this.props.infoUser)
+    console.log(this.props.fetchStatus)
+    console.log(this.props.state)
+    this.props.navigation.navigate((Object.keys(this.props.infoUser).length !== 0) ? 'Home' : 'Login')
   }
   render() {
     return (
       <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: '#ecf0f1' }} onPress={Keyboard.dismiss}>
-        {this.props.status.isFetching ? <InitialLoadingLayout /> :
+        {this.props.fetchStatus.isFetching ? <InitialLoadingLayout /> :
           <SafeAreaView style={styles.container}>
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' && 'padding'} style={styles.form}>
               <View>
@@ -123,8 +130,9 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    status: state.infoUser.status,
-    infoUser: state.infoUser.data
+    fetchStatus: state.infoUser.status,
+    infoUser: state.infoUser.data,
+    state: state
   }
 }
 

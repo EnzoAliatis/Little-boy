@@ -12,7 +12,7 @@ const data = (state = initialState, action) => {
         ...action.infoUser.data
       }
     case LOG_OUT:
-      return { ...state }
+      return initialState
     default:
       return state
   }
