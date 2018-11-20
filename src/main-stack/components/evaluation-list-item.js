@@ -23,33 +23,25 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'white',
     marginVertical: 10,
     paddingRight: 2
   },
   itemText: {
-    fontSize: 17,
+    fontSize: 17
   },
-  itemParcialContainer: {
-    width: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  },
-  itemComponenteContainer:  {
-    width: 200,
+  itemComponenteContainer: {
+    width: '50%',
     alignItems: 'flex-start',
     justifyContent: 'center',
 
   },
   itemMecanismoContainer: {
-    width: 100,
     alignItems: 'flex-start',
     justifyContent: 'center'
 
   },
   itemEvaluacionContainer: {
-    width: 40,
+    minWidth: 45,
     alignItems: 'center',
     justifyContent: 'center'
 

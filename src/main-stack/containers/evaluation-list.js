@@ -106,6 +106,7 @@ class EvaluationList extends Component {
 
   render() {
     const scores = this.props.navigation.getParam('scores')
+    const totalScores = scores[0]+scores[1]
     // Aqui inteta sacarlo del Redux
     
     return (
@@ -120,7 +121,11 @@ class EvaluationList extends Component {
           ListEmptyComponent={this.renderEmpty}
           renderItem={this.renderItem}
           ItemSeparatorComponent={this.itemSeparator}
-
+          ListFooterComponent={
+          <EvaluationListItem 
+          componente='Nota Final' 
+          evaluacion={totalScores}
+          />}
         />
       </EvaluationListLayout>
 
