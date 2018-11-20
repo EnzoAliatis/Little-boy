@@ -4,12 +4,8 @@ import { SectionList } from 'react-native'
 import { connect } from 'react-redux'
 import { Alert } from 'react-native'
 
-
-
 import ProfileServiceItem from '../components/profile-service-item';
 import ProfileSectionServiceHeader from '../components/profile-section-service-header';
-
-import logOut from '../../../actions'
 
 
 class ProfileMain extends Component {
@@ -41,12 +37,9 @@ class ProfileMain extends Component {
 
   handleLogout = () => {
     this.props.navigation.navigate('Loading')
-    console.log('Siiiiiii')
     this.props.dispatch({
       type: 'LOG_OUT',
     })
-    console.log('nooooooo')
-    console.log(this.props.state)
     // En el componenete Loading es que se hacen todas las validaciones de logeo
   }
 
@@ -77,8 +70,6 @@ class ProfileMain extends Component {
 
 
   render() {
-    console.log(this.props.fullName)
-    console.log(this.props.career)
     return (
       <ProfileMainLayout
         nombre={this.props.fullName}
@@ -98,12 +89,6 @@ class ProfileMain extends Component {
 const mapStateToProps = state => ({
   fullName: state.infoUser.data.studentById.fullName,
   career: state.infoUser.data.studentById.career,
-  state: state
 })
-
-// const mapDispatchToProps = dispatch => ({
-//   logOut: () => dispatch(logOut())
-// })
-
 
 export default connect(mapStateToProps)(ProfileMain)

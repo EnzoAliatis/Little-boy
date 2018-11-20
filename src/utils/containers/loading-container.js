@@ -5,32 +5,8 @@ import { connect } from 'react-redux'
 import InitialLoadingLayout from '../../utils/components/initial-loading-layout'
 
 class LoadingContainer extends Component {
-  componentDidMount () {
-    console.log(this.props.state)
-    if (Object.keys(this.props.infoUser).length === 0) {
-      this.props.navigation.navigate('Login')
-    }
-    // if (Object.keys(this.props.infoUser).length !== 0) {
-    //   this.props.navigation.navigate('Home')
-    // }
-  }
-  
-  // componentWillMount () {
-  //   console.log(this.props.state)
-  //   // if (Object.keys(this.props.infoUser).length === 0) {
-  //   //   this.props.navigation.navigate('Login')
-  //   // }
-  // }
   componentDidUpdate () {
-    console.log('Se esta actualizando')
-    console.log(this.props.state)
-    console.log('Se actualizo')
-    if (Object.keys(this.props.infoUser).length === 0) {
-      this.props.navigation.navigate('Login')
-    }
-    // if (Object.keys(this.props.infoUser).length !== 0) {
-    //   this.props.navigation.navigate('Home')
-    // }
+    this.props.navigation.navigate((Object.keys(this.props.infoUser).length !== 0) ? 'Home' : 'Login')
   }
   render () {
     return (
@@ -41,9 +17,7 @@ class LoadingContainer extends Component {
 
 function mapStateToProps (state) {
   return {
-    infoUser: state.infoUser.data,
-    invalidStatus: state.infoUser.status.didInvalid,
-    state: state
+    infoUser: state.infoUser.data
   }
 }
 

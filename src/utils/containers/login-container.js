@@ -25,13 +25,11 @@ class LoginContainer extends Component {
     this.props.navigation.navigate((Object.keys(this.props.infoUser).length !== 0) ? 'Home' : 'Login')
     // En el componenete Loading es que se hacen todas las validaciones de logeo
   }
-  
-  componentDidMount () {
-    console.log(this.props.infoUser)
-    console.log(this.props.fetchStatus)
-    console.log(this.props.state)
+
+  componentDidMount() {
     this.props.navigation.navigate((Object.keys(this.props.infoUser).length !== 0) ? 'Home' : 'Login')
   }
+
   render() {
     return (
       <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: '#ecf0f1' }} onPress={Keyboard.dismiss}>
@@ -68,11 +66,11 @@ class LoginContainer extends Component {
                   onPress={this.handleLogin}
                   style={styles.button}
                 >
-                  <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
+                <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
                 </TouchableOpacity>
                 <Text style={styles.legal}>
                   MANTA - MANABÍ - ECUADOR © Copyright 2018
-          </Text>
+                </Text>
               </View>
             </KeyboardAvoidingView>
           </SafeAreaView>
@@ -131,8 +129,7 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
   return {
     fetchStatus: state.infoUser.status,
-    infoUser: state.infoUser.data,
-    state: state
+    infoUser: state.infoUser.data
   }
 }
 
