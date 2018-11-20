@@ -13,9 +13,12 @@ import SeparatorList from '../../utils/separator-list'
 
 import { getMateria } from '../../../reducers/infoUser'
 
+import { fetchInfoUserIfNeeded } from '../../../actions/'
+
 class EvaluationList extends Component {
 
   state = {
+    refreshing: false,
     notas: [
       {
         id: 1,
@@ -77,27 +80,25 @@ class EvaluationList extends Component {
 
   }
 
-  componentDidMount () {
-    const materiaId = this.props.navigation.getParam('materiaId')
-    this.setState({materiaId})
-  }
+  // handleRefresh () {
+  //   console.log(this.props.fetchInfoUserIfNeeded)
+  // }
 
-
-  defineAverage = (nota1, nota2) => (parseInt(nota1,10) +parseInt(nota2,10))
+  defineAverage = (nota1, nota2) => (parseFloat(nota1) + parseFloat(nota2))
   defineColor = (nota1, nota2) => {
     let average = this.defineAverage(nota1, nota2)
 
-    if (average >= 14) {
+    if (average >= 14.00) {
       return '#38E86F'
-    } else if (average >= 10 && average < 14) {
+    } else if (average >= 10.00 && average < 13.00) {
       return '#F6D817'
-    } else if (average < 10){
+    } else if (average < 9.99) {
       return '#F9644D'
     } else {
       return '#3ABEFF'
     }
   }
-  
+
 
 
   keyExtractor = item => item.id.toString()
@@ -114,15 +115,11 @@ class EvaluationList extends Component {
 
 
   render() {
-    console.log('siiiii')
-    console.log(this.props.scoreParcials)
-    console.log('nooo')
-    
     return (
       <EvaluationListLayout
         average1={this.props.scoreParcials[0]}
         average2={this.props.scoreParcials[1]}
-        colorPanel={this.defineColor(this.props.scoreParcials[0],this.props.scoreParcials[1])}
+        colorPanel={this.defineColor(this.props.scoreParcials[0], this.props.scoreParcials[1])}
       >
         <FlatList
           keyExtractor={this.keyExtractor}
@@ -131,10 +128,12 @@ class EvaluationList extends Component {
           renderItem={this.renderItem}
           ItemSeparatorComponent={this.itemSeparator}
           ListFooterComponent={
-          <EvaluationListItem 
-          componente='Nota Final' 
-          evaluacion={this.props.scoreParcials[0]+this.props.scoreParcials[1]}
-          />}
+            <EvaluationListItem
+              componente='Nota Final'
+              evaluacion={this.props.scoreParcials[0] + this.props.scoreParcials[1]}
+            />}
+          refreshing={this.props.fetchStatus.isFetching}
+          onRefresh={() => this.props.fetchInfoUserIfNeeded()}
         />
       </EvaluationListLayout>
 
@@ -143,7 +142,14 @@ class EvaluationList extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  scoreParcials: getMateria(state, props.navigation.getParam('materiaId')).scoreParcials
+  scoreParcials: getMateria(state, props.navigation.getParam('materiaId')).scoreParcials,
+  fetchStatus: state.infoUser.status,
+  infoUser: state.infoUser.data
 })
 
-export default connect(mapStateToProps)(EvaluationList)
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchInfoUserIfNeeded: () => dispatch(fetchInfoUserIfNeeded())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(EvaluationList)
