@@ -47,7 +47,7 @@ class SubjectDescription extends Component {
   }
   goToOption = (item) => {
     if (item.route != '') {
-      this.props.navigation.navigate(`${item.route}`, { scores: this.props.materia.scoreParcials })
+      this.props.navigation.navigate(`${item.route}`, { materiaId: this.props.materia.id  })
     }
   }
 

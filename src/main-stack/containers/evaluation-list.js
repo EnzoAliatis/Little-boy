@@ -3,11 +3,15 @@ import {
   FlatList
 } from 'react-native'
 
+import { connect } from 'react-redux'
+
 
 import EvaluationListLayout from '../components/evaluation-list-layout'
 import EvaluationListItem from '../components/evaluation-list-item'
 import EmptyList from '../../utils/empty-list';
 import SeparatorList from '../../utils/separator-list'
+
+import { getMateria } from '../../../reducers/infoUser'
 
 class EvaluationList extends Component {
 
@@ -73,6 +77,10 @@ class EvaluationList extends Component {
 
   }
 
+  componentDidMount () {
+    const materiaId = this.props.navigation.getParam('materiaId')
+    this.setState({materiaId})
+  }
 
 
   defineAverage = (nota1, nota2) => (parseInt(nota1,10) +parseInt(nota2,10))
@@ -104,16 +112,17 @@ class EvaluationList extends Component {
   )
 
 
+
   render() {
-    const scores = this.props.navigation.getParam('scores')
-    const totalScores = scores[0]+scores[1]
-    // Aqui inteta sacarlo del Redux
+    console.log('siiiii')
+    console.log(this.props.scoreParcials)
+    console.log('nooo')
     
     return (
       <EvaluationListLayout
-        average1={scores[0]}
-        average2={scores[1]}
-        colorPanel={this.defineColor(scores[0],scores[1])}
+        average1={this.props.scoreParcials[0]}
+        average2={this.props.scoreParcials[1]}
+        colorPanel={this.defineColor(this.props.scoreParcials[0],this.props.scoreParcials[1])}
       >
         <FlatList
           keyExtractor={this.keyExtractor}
@@ -124,7 +133,7 @@ class EvaluationList extends Component {
           ListFooterComponent={
           <EvaluationListItem 
           componente='Nota Final' 
-          evaluacion={totalScores}
+          evaluacion={this.props.scoreParcials[0]+this.props.scoreParcials[1]}
           />}
         />
       </EvaluationListLayout>
@@ -133,5 +142,8 @@ class EvaluationList extends Component {
   }
 }
 
+const mapStateToProps = (state, props) => ({
+  scoreParcials: getMateria(state, props.navigation.getParam('materiaId')).scoreParcials
+})
 
-export default EvaluationList
+export default connect(mapStateToProps)(EvaluationList)
