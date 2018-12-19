@@ -15,6 +15,7 @@ class LoginContainerV2 extends Component {
   handlerSubmit = async () => {
     await this.props.fetchUserIfNeeded(this.state.userCedula, this.state.userPassword)
     console.log(this.props.data)
+    // TODO: Hacer las verificaciones
     // Aqui hacer la verificacion de si los datos o credenciales son aceptados
     if (Object.keys(this.props.data).length !== 0) {
       this.props.navigation.navigate('App')
@@ -32,6 +33,7 @@ class LoginContainerV2 extends Component {
 
 
   render() {
+    console.log(this.props.state)
     return (
       this.props.isFetching ? (<LoadingScreen />) :
         (<LoginLayout
