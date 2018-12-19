@@ -1,16 +1,30 @@
-import { combineReducers } from 'redux'
 
-import { REQUEST_INFO_USER, RECIVE_INFO_USER, FAIL_INFO_USER, LOG_OUT } from '../constant'
+import { RECIVE_USER, REQUEST_USER, FAIL_USER, LOG_OUT } from '../constant'
 
-const initialState = {}
+const initialState = {
+  isFetching: false,
+  didInvalidate: false,
+  data: {}
+}
 
-const data = (state = initialState, action) => {
+const infoUser = (state = initialState, action) => {
   switch (action.type) {
-    case RECIVE_INFO_USER:
-      return {
-        ...state,
-        ...action.infoUser.data
-      }
+    case FAIL_USER:
+      return Object.assign({}, state, {
+        didInvalidate: true,
+        isFetching: false
+      })
+    case REQUEST_USER:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      })
+    case RECIVE_USER:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        data: action.payload
+      })
     case LOG_OUT:
       return initialState
     default:
@@ -18,35 +32,7 @@ const data = (state = initialState, action) => {
   }
 }
 
-const initialStatus = {
-  didInvalid: false,
-  isFetching: false,
-  lastUpdated: null
-}
-
-const status = (state = initialStatus, action) => {
-  switch (action.type) {
-    case REQUEST_INFO_USER:
-      return Object.assign({}, state, {
-        isFetching: true,
-        didInvalid: false
-      })
-    case RECIVE_INFO_USER:
-      return Object.assign({}, state, {
-        isFetching: false,
-        didInvalid: false
-      })
-    case FAIL_INFO_USER:
-      return Object.assign({}, state, {
-        isFetching: false,
-        didInvalid: true
-      })
-
-    default:
-      return state
-  }
-}
-
+// TODO: ARREGLAR ESTO
 export const getMateria = (state, idMateria) => {
   let filtered = state.infoUser.data.studentById.subjects.filter(item => item.id === idMateria)
   return filtered[0]
@@ -67,7 +53,5 @@ export const getMateriaByDay = (materias, day) => {
   return sorted
 }
 
-export default combineReducers({
-  data,
-  status
-})
+
+export default infoUser

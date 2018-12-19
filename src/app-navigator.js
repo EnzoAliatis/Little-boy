@@ -34,6 +34,7 @@ import ContactsContainer from './profile-stack/containers/contacts-container';
 
 import LoginContainer from './utils/containers/login-container';
 import LoadingContainer from './utils/containers/loading-container';
+import LoginContainerV2 from './utils/containers/login-container-v2';
 
 // AQUI TUS COMPOMENTES SCREENS
 
@@ -199,12 +200,8 @@ const SwitchNavigator = createSwitchNavigator(
     App: {
       screen: modalStack
     },
-    Loading: {
-      screen: LoadingContainer
-      // En el componenete Loading es que se hacen todas las validaciones de logeo
-    },
     Login: {
-      screen: LoginContainer
+      screen: LoginContainerV2
     }
 
   }, {

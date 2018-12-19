@@ -2,10 +2,10 @@ import { createApolloFetch } from 'apollo-fetch'
 
 import * as types from '../constant'
 
+// TODO: Poner la uri dotenv
 const fetch = createApolloFetch({
-  uri: 'https://fatman-server.herokuapp.com/graphql'
+  uri: 'http://localhost:3000/graphql'
 })
-const graphqlQuery = '{studentById(id: "5be0b91f9ae31f8a01148b93") { fullName, career, cedula, faculty, email, phone, level, itinerary, registrationNumber, typeStudent, vPaid, vGenered, subjects {id name classroom parallel teacherName teacherEmail faults scoreParcials formation days hours}}}'
 
 export const incrementDay = (idx) => ({
   type: types.INCREMENT_DAY,
@@ -18,47 +18,57 @@ export const decrementDay = (idx) => ({
 })
 
 // INFO_USER_ACTIONS
-export const requestInfoUser = () => ({
-  type: types.REQUEST_INFO_USER
+const failUser = () => ({
+  type: types.FAIL_USER
 })
 
-const reciveInfoUser = infoUser => ({
-  type: types.RECIVE_INFO_USER,
-  infoUser
+const requestUser = () => ({
+  type: types.REQUEST_USER
 })
 
-const failInfoUser = () => ({
-  type: types.FAIL_INFO_USER
+const reciveUser = (user) => ({
+  type: types.RECIVE_USER,
+  payload: user
 })
 
-export const fetchInfoUser = () => async dispatch => {
-  dispatch(requestInfoUser())
-  let data
+const fetchUser = (cedula, password) => async dispatch => {
+  console.log(cedula)
+  console.log(password)
+  // Le digo a redux que voy a epezar con la peticion
+  await dispatch(requestUser())
+  // Empiezo hacer el request
+  let q
   try {
-    data = await fetch({ query: graphqlQuery })
-  } catch (err) {
-    console.log('Soy el error')
-    dispatch(failInfoUser())
+    q = await fetch({ query: `{studentByCedulaPass(cedula:"1310729511", password:"enzoenzo") { fullName, career, cedula, faculty, email, phone, level, itinerary, registrationNumber, typeStudent, vPaid, vGenered, subjects {id name classroom parallel teacherName teacherEmail faults scoreParcials formation days hours}}}` })
+  } catch (error) {
+    console.log('Error al localizar con el servidor')
+    return dispatch(failUser())
   }
-  // Aqui validar si la data es vacia o no
-  dispatch(reciveInfoUser(data))
+
+  // Aqui validar si el query esta correcto
+  if (q.data.studentByCedulaPass === null) {
+    return dispatch(failUser())
+  }
+
+  // Devolver el q si ha sido exitodo
+  return dispatch(reciveUser(q.data.studentByCedulaPass))
 }
 
-const shouldFetchInfoUser = (state) => {
-  const id = state.infoUser.data.id
-  if (!id) {
+const shouldFetchUser = (state) => {
+  const infoUser = state.infoUser
+  if (Object.keys(infoUser.data).length === 0) {
     return true
-  } else if (state.infoUser.status.isFetching) {
+  } else if (infoUser.isFetching) {
     return false
   } else {
-    console.log('InfoUser fetched :)')
+    return infoUser.didInvalidate
   }
 }
 
-export const fetchInfoUserIfNeeded = (infoUser) => {
+export const fetchUserIfNeeded = (cedula, password) => {
   return (dispatch, getState) => {
-    if (shouldFetchInfoUser(getState(), infoUser)) {
-      return dispatch(fetchInfoUser())
+    if (shouldFetchUser(getState())) {
+      return dispatch(fetchUser(cedula, password))
     }
   }
 }
@@ -66,5 +76,4 @@ export const fetchInfoUserIfNeeded = (infoUser) => {
 export const logOut = () => ({
   type: types.LOG_OUT
 })
-
 // INFO_USER_ACTIONS
