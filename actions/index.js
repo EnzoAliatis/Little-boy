@@ -31,7 +31,7 @@ const reciveUser = (user) => ({
   payload: user
 })
 
-const fetchUser = (cedula, password) => async dispatch => {
+export const fetchUser = (cedula, password) => async dispatch => {
   console.log(cedula)
   console.log(password)
   // Le digo a redux que voy a epezar con la peticion

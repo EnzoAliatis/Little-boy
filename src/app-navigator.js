@@ -30,10 +30,7 @@ import RegisterContainer from './profile-stack/containers/register-container';
 import RegisterModule from './profile-stack/containers/register-module'
 import UtemplatesContainer from './profile-stack/containers/Utemplates-container';
 import SuggestionsContainer from './profile-stack/containers/suggestions-container';
-import ContactsContainer from './profile-stack/containers/contacts-container';
-
-import LoginContainer from './utils/containers/login-container';
-import LoadingContainer from './utils/containers/loading-container';
+import ContactsContainer from './profile-stack/containers/contacts-container'
 import LoginContainerV2 from './utils/containers/login-container-v2';
 
 // AQUI TUS COMPOMENTES SCREENS

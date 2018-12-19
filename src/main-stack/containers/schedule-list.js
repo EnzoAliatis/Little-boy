@@ -57,7 +57,7 @@ class ScheduleList extends Component {
 
 
 mapStateToProps = state => ({
-  materias: getMateriaByDay(state.infoUser.data.studentById.subjects, state.diaSemana)
+  materias: getMateriaByDay(state.infoUser.data.subjects, state.diaSemana)
 })
 
 

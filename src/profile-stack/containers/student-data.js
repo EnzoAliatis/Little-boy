@@ -14,7 +14,7 @@ class StudenData extends Component {
 }
 
 const mapStateToProps = state => ({
-  infoStudent: state.infoUser.data.studentById
+  infoStudent: state.infoUser.data
 })
 
 export default connect(mapStateToProps)(StudenData)

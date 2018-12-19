@@ -4,6 +4,8 @@ import LoadingScreen from '../components/loading-screen'
 import LoginLayout from '../components/login-layout';
 
 import { fetchUserIfNeeded } from '../../../actions/index'
+import { verifyAccessData } from '../functions/verify-access'
+
 
 class LoginContainerV2 extends Component {
 
@@ -14,14 +16,9 @@ class LoginContainerV2 extends Component {
 
   handlerSubmit = async () => {
     await this.props.fetchUserIfNeeded(this.state.userCedula, this.state.userPassword)
-    console.log(this.props.data)
     // TODO: Hacer las verificaciones
     // Aqui hacer la verificacion de si los datos o credenciales son aceptados
-    if (Object.keys(this.props.data).length !== 0) {
-      this.props.navigation.navigate('App')
-    } else {
-      this.props.navigation.navigate('Login')
-    }
+    this.props.navigation.navigate(verifyAccessData(this.props.data) ? 'App' : 'Login')
   }
 
   getUserCedula = (cedula) => {
@@ -31,9 +28,12 @@ class LoginContainerV2 extends Component {
     this.setState({ userPassword: password })
   }
 
+  componentDidMount = () => {
+    this.props.navigation.navigate(verifyAccessData(this.props.data) ? 'App' : 'Login')
+  }
+
 
   render() {
-    console.log(this.props.state)
     return (
       this.props.isFetching ? (<LoadingScreen />) :
         (<LoginLayout
@@ -49,12 +49,11 @@ class LoginContainerV2 extends Component {
 const mapStateToProps = state => ({
   data: state.infoUser.data,
   isFetching: state.infoUser.isFetching,
-  didInvalid: state.infoUser.didInvalid,
-  state: state
+  didInvalid: state.infoUser.didInvalid
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserIfNeeded: (cedula, password) => dispatch(fetchUserIfNeeded()),
+  fetchUserIfNeeded: (cedula, password) => dispatch(fetchUserIfNeeded(cedula, password)),
 })
 
 

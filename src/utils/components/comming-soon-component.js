@@ -5,7 +5,6 @@ import {
   StyleSheet
 } from 'react-native'
 
-
 const CommingSoonComponent = () => (
   <View style={styles.container}>
     <Text style={styles.texto}>Proximamente...</Text>
@@ -23,6 +22,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 })
-
 
 export default CommingSoonComponent

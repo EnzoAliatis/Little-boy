@@ -50,7 +50,7 @@ class SubjectList extends Component {
 }
 
 mapStateToProps = state => ({
-  materias: state.infoUser.data.studentById.subjects
+  materias: state.infoUser.data.subjects
 })
 
 export default connect(mapStateToProps)(SubjectList)

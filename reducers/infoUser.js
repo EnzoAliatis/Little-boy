@@ -34,7 +34,7 @@ const infoUser = (state = initialState, action) => {
 
 // TODO: ARREGLAR ESTO
 export const getMateria = (state, idMateria) => {
-  let filtered = state.infoUser.data.studentById.subjects.filter(item => item.id === idMateria)
+  let filtered = state.infoUser.data.subjects.filter(item => item.id === idMateria)
   return filtered[0]
 }
 
@@ -52,6 +52,5 @@ export const getMateriaByDay = (materias, day) => {
 
   return sorted
 }
-
 
 export default infoUser

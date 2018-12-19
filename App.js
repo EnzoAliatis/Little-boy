@@ -5,7 +5,7 @@ import { store, persistor } from './store'
 
 
 import AppNavigatorWithState from './src/app-navigator-with-state'
-import InitialLoadingLayout from './src/utils/components/initial-loading-layout';
+import LoadingScreen from './src/utils/components/loading-screen';
 
 
 type Props = {};
@@ -15,7 +15,7 @@ export default class App extends Component<Props> {
     return (
       <Provider store={store}>
         <PersistGate
-          loading={<InitialLoadingLayout />}
+          loading={<LoadingScreen />}
           persistor={persistor}
         >
           <AppNavigatorWithState />

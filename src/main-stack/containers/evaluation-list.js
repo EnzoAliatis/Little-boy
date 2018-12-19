@@ -13,12 +13,11 @@ import SeparatorList from '../../utils/separator-list'
 
 import { getMateria } from '../../../reducers/infoUser'
 
-import { fetchInfoUserIfNeeded } from '../../../actions/'
+import { fetchUser } from '../../../actions/'
 
 class EvaluationList extends Component {
 
   state = {
-    refreshing: false,
     notas: [
       {
         id: 1,
@@ -80,10 +79,6 @@ class EvaluationList extends Component {
 
   }
 
-  // handleRefresh () {
-  //   console.log(this.props.fetchInfoUserIfNeeded)
-  // }
-
   defineAverage = (nota1, nota2) => (parseFloat(nota1) + parseFloat(nota2))
   defineColor = (nota1, nota2) => {
     let average = this.defineAverage(nota1, nota2)
@@ -99,8 +94,6 @@ class EvaluationList extends Component {
     }
   }
 
-
-
   keyExtractor = item => item.id.toString()
   renderEmpty = () => <EmptyList text="No hay Evaluaciones a mostrar" />
   itemSeparator = () => <SeparatorList />
@@ -111,8 +104,6 @@ class EvaluationList extends Component {
       evaluacion={item.evaluacion}
     />
   )
-
-
 
   render() {
     return (
@@ -130,10 +121,10 @@ class EvaluationList extends Component {
           ListFooterComponent={
             <EvaluationListItem
               componente='Nota Final'
-              evaluacion={this.props.scoreParcials[0] + this.props.scoreParcials[1]}
+              evaluacion={this.props.scoreParcials[0].toFixed(2) + this.props.scoreParcials[1].toFixed(2)}
             />}
-          refreshing={this.props.fetchStatus.isFetching}
-          onRefresh={() => this.props.fetchInfoUserIfNeeded()}
+          refreshing={this.props.fetchStatus}
+          onRefresh={() => this.props.fetchUser()}
         />
       </EvaluationListLayout>
 
@@ -143,13 +134,13 @@ class EvaluationList extends Component {
 
 const mapStateToProps = (state, props) => ({
   scoreParcials: getMateria(state, props.navigation.getParam('materiaId')).scoreParcials,
-  fetchStatus: state.infoUser.status,
+  fetchStatus: state.infoUser.isFetching,
   infoUser: state.infoUser.data
 })
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchInfoUserIfNeeded: () => dispatch(fetchInfoUserIfNeeded())
+    fetchUser: () => dispatch(fetchUser())
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EvaluationList)
