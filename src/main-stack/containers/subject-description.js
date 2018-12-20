@@ -75,7 +75,7 @@ class SubjectDescription extends Component {
   )
 
   onEmailPress = () => {
-    Linking.openURL(`mailto:${this.props.materia.email}`)
+    Linking.openURL(`mailto:${this.props.materia.teacherEmail}`)
   }
 
   render() {
