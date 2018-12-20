@@ -20,7 +20,6 @@ import EmptyList from '../../utils/empty-list';
 import { defineColor } from '../../utils/defineColorFunction'
 import SeparatorList from '../../utils/separator-list';
 
-import { incrementDay } from '../../../actions/index'
 
 
 
@@ -58,26 +57,14 @@ class ScheduleList extends Component {
         >
         </FlatList>
       </ScheduleListLayout>
-      // <View>
-      //   <Text>Hola</Text>
-      //   <Button
-      //     onPress={() => this.props.up()}
-      //     title='Siii'
-      //   />
-      // </View>
     )
   }
 }
 
 
 mapStateToProps = state => ({
-  materias: getMateriaByDay(state.infoUser.data.subjects, state.diaSemana),
-  state: state
-})
-
-mapDispatchToProps = dispatch => ({
-  up: () => dispatch(incrementDay())
+  materias: getMateriaByDay(state.infoUser.data.subjects, state.diaSemana)
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ScheduleList)
+export default connect(mapStateToProps)(ScheduleList)
