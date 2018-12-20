@@ -39,8 +39,12 @@ export const getMateria = (state, idMateria) => {
 }
 
 export const getMateriaByDay = (materias, day) => {
-  let filtered = materias.filter(item => item.days.includes(day))
-  let sorted = filtered.sort((a, b) => {
+  // let filtered = materias.filter(item => item.days.includes(day))
+
+  let filteredV2 = materias.filter(materia => materia.schedule[0].day === day || materia.schedule[1].day === day)
+
+
+  let sorted = filteredV2.sort((a, b) => {
     if (a.hours[0] > b.hours[0]) {
       return 1
     }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import {
-  FlatList
+  FlatList,
+  View,
+  Text,
+  Button
 } from 'react-native'
 
 import { connect } from 'react-redux'
@@ -16,6 +19,8 @@ import EmptyList from '../../utils/empty-list';
 
 import { defineColor } from '../../utils/defineColorFunction'
 import SeparatorList from '../../utils/separator-list';
+
+import { incrementDay } from '../../../actions/index'
 
 
 
@@ -40,6 +45,8 @@ class ScheduleList extends Component {
 
 
   render() {
+    console.log(this.props.state)
+    console.log(this.props.materias)
     return (      
       <ScheduleListLayout>
         <FlatList
@@ -51,14 +58,26 @@ class ScheduleList extends Component {
         >
         </FlatList>
       </ScheduleListLayout>
+      // <View>
+      //   <Text>Hola</Text>
+      //   <Button
+      //     onPress={() => this.props.up()}
+      //     title='Siii'
+      //   />
+      // </View>
     )
   }
 }
 
 
 mapStateToProps = state => ({
-  materias: getMateriaByDay(state.infoUser.data.subjects, state.diaSemana)
+  materias: getMateriaByDay(state.infoUser.data.subjects, state.diaSemana),
+  state: state
+})
+
+mapDispatchToProps = dispatch => ({
+  up: () => dispatch(incrementDay())
 })
 
 
-export default connect(mapStateToProps)(ScheduleList)
+export default connect(mapStateToProps, mapDispatchToProps)(ScheduleList)
