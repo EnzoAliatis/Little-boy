@@ -4,7 +4,7 @@ import * as types from '../constant'
 
 // TODO: Poner la uri dotenv
 const fetch = createApolloFetch({
-  uri: 'http://localhost:3000/graphql'
+  uri: 'https://fatman-ultimate.herokuapp.com/graphql'
 })
 
 export const incrementDay = (idx) => ({
