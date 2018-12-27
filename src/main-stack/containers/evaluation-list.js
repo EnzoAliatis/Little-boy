@@ -121,7 +121,7 @@ class EvaluationList extends Component {
           ListFooterComponent={
             <EvaluationListItem
               componente='Nota Final'
-              evaluacion={this.props.scoreParcials[0].toFixed(2) + this.props.scoreParcials[1].toFixed(2)}
+              evaluacion={this.props.scoreParcials[0] + this.props.scoreParcials[1]}
             />}
           refreshing={this.props.fetchStatus}
           onRefresh={() => this.props.fetchUser()}
