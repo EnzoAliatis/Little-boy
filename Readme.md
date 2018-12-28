@@ -25,4 +25,29 @@
 ![grades](./readme-gif/grades.gif)
 
 
+## Download PDF Homeworks
+* start date
+* end date
+* homework status
 
+![pdf](./readme-gif/pdf.gif)
+
+## Check ads and faults
+![ad](./readme-gif/ad.gif)
+
+
+## Check grades and charts
+![charts](./readme-gif/charts.gif)
+
+## Deep links to:
+* email
+* phone
+* facebool
+* twitter
+* google maps
+* web pages
+* youtube
+
+![deep](./readme-gif/deep.gif)
+
+### For more download and install
