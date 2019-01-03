@@ -1,3 +1,20 @@
+# Install
+## Requirements
+* node last version
+* npm
+* react-native [install guide](https://facebook.github.io/react-native/docs/getting-started)
+* Android Studio | Xcode 
+
+``` shell
+$ npm install
+```
+
+## Run 
+### dev mode
+``` shell
+$ react-native run-ios
+$ react-native run-android
+```
 # Demo
 
 ## Login - Logout
